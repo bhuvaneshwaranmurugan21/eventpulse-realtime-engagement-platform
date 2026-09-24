@@ -93,12 +93,20 @@ def validate(*, verify_source: bool = False) -> list[str]:
     elif isolation.get("verification") == "SCOPED_READ_ONLY_VERIFIED":
         if not re.fullmatch(r"[0-9a-f]{64}", str(isolation.get("private_evidence_sha256", ""))):
             errors.append("verified isolation requires a private evidence SHA-256")
+        if not re.fullmatch(r"[0-9]{12}", str(isolation.get("observed_account", ""))):
+            errors.append("verified isolation requires a 12-digit observed account")
+        if isolation.get("private_evidence_manifest_verified") is not True:
+            errors.append("verified isolation requires checked private evidence entries")
         if isolation.get("observed_region") in (None, "UNKNOWN"):
             errors.append("verified isolation requires observed region")
         if isolation.get("current_role_trust") != "VERIFIED":
             errors.append("verified isolation requires role trust observation")
         if isolation.get("resource_inventory") not in ("PRESENT", "ABSENT", "PARTIAL_WITH_UNKNOWNS"):
             errors.append("verified isolation requires a classified resource inventory")
+        if isolation.get("resource_inventory") == "PARTIAL_WITH_UNKNOWNS" and (
+            "AWS_REGION_SELECTION_AND_INVENTORY_SCOPE_PENDING" not in data.get("blockers", [])
+        ):
+            errors.append("partial inventory requires an explicit region and scope blocker")
         if "AWS_IDENTITY_AND_OWNERSHIP_BOUNDARY_UNVERIFIED" in data.get("blockers", []):
             errors.append("verified isolation conflicts with unresolved identity blocker")
     else:
