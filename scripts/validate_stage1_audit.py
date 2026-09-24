@@ -97,6 +97,16 @@ def validate(*, verify_source: bool = False) -> list[str]:
             errors.append("verified isolation requires a 12-digit observed account")
         if isolation.get("private_evidence_manifest_verified") is not True:
             errors.append("verified isolation requires checked private evidence entries")
+        variables = isolation.get("github_repository_variables", {})
+        if variables:
+            if not isinstance(variables, dict) or variables.get("role_arn_account_matches_observed_account") is not True:
+                errors.append("GitHub role ARN account binding is not verified")
+            elif not re.fullmatch(r"[0-9a-f]{64}", str(variables.get("screenshot_sha256", ""))):
+                errors.append("GitHub variable observation requires private screenshot digest")
+            elif variables.get("observed_region") != isolation.get("observed_region") and (
+                "AWS_REGION_SELECTION_AND_INVENTORY_SCOPE_PENDING" not in data.get("blockers", [])
+            ):
+                errors.append("divergent GitHub and AWS regions require an explicit blocker")
         if isolation.get("observed_region") in (None, "UNKNOWN"):
             errors.append("verified isolation requires observed region")
         if isolation.get("current_role_trust") != "VERIFIED":
