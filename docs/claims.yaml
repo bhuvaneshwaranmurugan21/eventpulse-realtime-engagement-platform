@@ -1,0 +1,22 @@
+project: eventpulse-realtime-engagement-platform
+updated: 2026-08-14
+claims:
+  streaming_invariants:
+    level: LOCAL_VERIFIED
+    evidence: [tests/, evidence/local-simulation.json]
+  terraform_topology:
+    level: DESIGN_ONLY
+    evidence: [infra/terraform/]
+  aws_stream_processing:
+    level: DESIGN_ONLY
+    validator: src/eventpulse/aws_evidence.py
+    required:
+      - Kinesis stream and consumer identifiers
+      - checkpoint before and after injected failure
+      - duplicate, late, poison, and hot-key proof
+      - iterator-age and error CloudWatch evidence
+      - p50/p95 latency, throughput, runtime, and cost
+      - teardown evidence
+  exactly_once_delivery:
+    level: NOT_CLAIMED
+    note: Transport is at-least-once; application effects are idempotent by event identity.

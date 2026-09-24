@@ -1,0 +1,267 @@
+{
+  "architecture": "event-time-checkpointed-engagement-stream",
+  "checkpoint": {
+    "counts": [
+      [
+        "hot-user",
+        "view",
+        8
+      ],
+      [
+        "u1",
+        "click",
+        1
+      ],
+      [
+        "u1",
+        "view",
+        1
+      ],
+      [
+        "u2",
+        "view",
+        1
+      ],
+      [
+        "u3",
+        "purchase",
+        1
+      ]
+    ],
+    "event_digests": [
+      [
+        "e1",
+        "950e41dd6cba95449089c1010b0b244872e09d130d24f7c3a8e681fa54e6b5ad"
+      ],
+      [
+        "e2",
+        "f9c1ac6781dce2499e9d3ffeade6bad5de66fb6ef989397b5daf17ff1be2d366"
+      ],
+      [
+        "e3",
+        "9bdbe01e3da71eb97483450b2edf4b048f9152fdaaac6982ebf7ded7bd70e4a0"
+      ],
+      [
+        "e4",
+        "1c90d4f1ba8501a874d08f752f6ed64f7892e50bee045d0f7e15625b6befaead"
+      ],
+      [
+        "e5",
+        "02989f90565ba7150580d093965ec788ecb21b7507231a0e0b895b5131d035f6"
+      ],
+      [
+        "hot-0",
+        "346311faad495f3a7423a935a9c2755292dff745eee95dd14c10d3088533ea5d"
+      ],
+      [
+        "hot-1",
+        "feea49c4939f8bacb1e6b81c67f918867f7f500286a2de417a539b915408b362"
+      ],
+      [
+        "hot-2",
+        "4ed9bba132c8f62756c59810ff22b76b2e4cd31cc0806213a900ceb6ca296bc3"
+      ],
+      [
+        "hot-3",
+        "f238d47f9c31673c86e44f201eb24d2aa8b5f054137c8b6ee41c22b20ee61210"
+      ],
+      [
+        "hot-4",
+        "cee4a525949b8cdcb6730a42f278ad64d0b21a7c58c9bd2aa13c4d48493dbc66"
+      ],
+      [
+        "hot-5",
+        "9be0ab10a083502a99657bf53002cce79c9bc0d5f50eb700117f8930a2af09bb"
+      ],
+      [
+        "hot-6",
+        "5d91bc0d87de3a991c1ca28aca8196203443b46d8d5d8509b0fc64af8efc8be2"
+      ],
+      [
+        "hot-7",
+        "1f1f32a3e49c3a23d5c646e225339f6f4e8f0cce1401b3090805d860dcac2e9a"
+      ]
+    ],
+    "late_event_ids": [
+      "e4"
+    ],
+    "max_event_time": 217,
+    "partition_load": [
+      1,
+      10,
+      0,
+      1
+    ],
+    "purchases": [
+      [
+        "u3",
+        500
+      ]
+    ],
+    "quarantined_ids": [
+      "poison"
+    ],
+    "sessions": [
+      [
+        "hot-user",
+        210,
+        217,
+        1
+      ],
+      [
+        "u1",
+        95,
+        100,
+        1
+      ],
+      [
+        "u2",
+        200,
+        200,
+        1
+      ],
+      [
+        "u3",
+        205,
+        205,
+        1
+      ]
+    ]
+  },
+  "checks": [
+    {
+      "check": "event_accepted",
+      "passed": true,
+      "proof": {
+        "accepted": 1,
+        "checkpoint_digest": "13df219de62d8f75892bcb37fb0f6b905de069a930577bed51baad7975e840f9",
+        "duplicates": 0,
+        "late": 0,
+        "quarantined": 0,
+        "watermark": 80
+      }
+    },
+    {
+      "check": "duplicate_suppressed",
+      "passed": true,
+      "proof": {
+        "accepted": 0,
+        "checkpoint_digest": "13df219de62d8f75892bcb37fb0f6b905de069a930577bed51baad7975e840f9",
+        "duplicates": 1,
+        "late": 0,
+        "quarantined": 0,
+        "watermark": 80
+      }
+    },
+    {
+      "check": "conflicting_identity_blocked",
+      "passed": true,
+      "proof": "IdentityConflict"
+    },
+    {
+      "check": "out_of_order_within_watermark",
+      "passed": true,
+      "proof": {
+        "accepted": 1,
+        "checkpoint_digest": "56ebe3f798d52f7271ae0b8775da2ec2be1647709c487439a9587614ec0979b0",
+        "duplicates": 0,
+        "late": 0,
+        "quarantined": 0,
+        "watermark": 80
+      }
+    },
+    {
+      "check": "watermark_advanced",
+      "passed": true,
+      "proof": {
+        "accepted": 1,
+        "checkpoint_digest": "81093b8343820567790cc6d82a9311a9b128690c37d6fd2a1ae4064753f71ec2",
+        "duplicates": 0,
+        "late": 0,
+        "quarantined": 0,
+        "watermark": 180
+      }
+    },
+    {
+      "check": "late_event_quarantined",
+      "passed": true,
+      "proof": {
+        "accepted": 0,
+        "checkpoint_digest": "7898c31855d3f9338cd77f5168ec7255c8ca60ce0c617deb7e09bacfb45cda1e",
+        "duplicates": 0,
+        "late": 1,
+        "quarantined": 0,
+        "watermark": 180
+      }
+    },
+    {
+      "check": "poison_record_quarantined",
+      "passed": true,
+      "proof": {
+        "accepted": 0,
+        "checkpoint_digest": "d63a823de14a7ccb2e235755e672fddee271abcd3e5f97fcd12ee8a916df1c49",
+        "duplicates": 0,
+        "late": 0,
+        "quarantined": 1,
+        "watermark": 181
+      }
+    },
+    {
+      "check": "consumer_failure_injected",
+      "passed": true,
+      "proof": "InjectedFailure"
+    },
+    {
+      "check": "checkpoint_atomicity",
+      "passed": true,
+      "proof": true
+    },
+    {
+      "check": "replay_after_restart",
+      "passed": true,
+      "proof": {
+        "accepted": 1,
+        "checkpoint_digest": "0223a640c5669473b6649f012196d613dc132d57d2f02272388b32bda4375c92",
+        "duplicates": 0,
+        "late": 0,
+        "quarantined": 0,
+        "watermark": 185
+      }
+    },
+    {
+      "check": "checkpoint_restore_identity",
+      "passed": true,
+      "proof": true
+    },
+    {
+      "check": "partition_pressure_measured",
+      "passed": true,
+      "proof": {
+        "accepted": 8,
+        "checkpoint_digest": "509f2509e1fa2e93b0e32c4ea826e726ae697dce275e2ba715492a51e03236be",
+        "duplicates": 0,
+        "late": 0,
+        "quarantined": 0,
+        "watermark": 197
+      }
+    },
+    {
+      "check": "hot_partition_ratio",
+      "passed": true,
+      "proof": 0.8333
+    }
+  ],
+  "claim_level": "LOCAL_VERIFIED",
+  "evidence_digest": "a63e9aedda54645a90f8a97df9f99d487c2e395eeace64132bec8e79eb0fa9ff",
+  "metrics": {
+    "checks_passed": 13,
+    "checks_total": 13,
+    "hottest_partition_ratio": 0.8333333333333334,
+    "late_events": 1,
+    "quarantined": 1,
+    "watermark": 197
+  },
+  "production_claim": false,
+  "project": "eventpulse-realtime-engagement-platform",
+  "result": "PASS"
+}
