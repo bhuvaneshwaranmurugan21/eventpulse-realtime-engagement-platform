@@ -1,6 +1,7 @@
 name: Stage 1 Audit
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - .github/workflows/stage1-audit.yml
