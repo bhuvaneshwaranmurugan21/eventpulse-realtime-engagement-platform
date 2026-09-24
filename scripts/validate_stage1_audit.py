@@ -103,10 +103,8 @@ def validate(*, verify_source: bool = False) -> list[str]:
                 errors.append("GitHub role ARN account binding is not verified")
             elif not re.fullmatch(r"[0-9a-f]{64}", str(variables.get("screenshot_sha256", ""))):
                 errors.append("GitHub variable observation requires private screenshot digest")
-            elif variables.get("observed_region") != isolation.get("observed_region") and (
-                "AWS_REGION_SELECTION_AND_INVENTORY_SCOPE_PENDING" not in data.get("blockers", [])
-            ):
-                errors.append("divergent GitHub and AWS regions require an explicit blocker")
+            elif variables.get("observed_region") != isolation.get("observed_region"):
+                errors.append("GitHub region does not match the audited AWS region")
         if isolation.get("observed_region") in (None, "UNKNOWN"):
             errors.append("verified isolation requires observed region")
         if isolation.get("current_role_trust") != "VERIFIED":
@@ -114,9 +112,9 @@ def validate(*, verify_source: bool = False) -> list[str]:
         if isolation.get("resource_inventory") not in ("PRESENT", "ABSENT", "PARTIAL_WITH_UNKNOWNS"):
             errors.append("verified isolation requires a classified resource inventory")
         if isolation.get("resource_inventory") == "PARTIAL_WITH_UNKNOWNS" and (
-            "AWS_REGION_SELECTION_AND_INVENTORY_SCOPE_PENDING" not in data.get("blockers", [])
+            "UNTAGGED_OR_DIFFERENTLY_NAMED_RESOURCES_NOT_EXCLUDED" not in data.get("unknowns", [])
         ):
-            errors.append("partial inventory requires an explicit region and scope blocker")
+            errors.append("partial inventory requires an explicit scope unknown")
         if "AWS_IDENTITY_AND_OWNERSHIP_BOUNDARY_UNVERIFIED" in data.get("blockers", []):
             errors.append("verified isolation conflicts with unresolved identity blocker")
     else:
