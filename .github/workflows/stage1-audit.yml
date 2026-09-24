@@ -6,6 +6,7 @@ on:
     paths:
       - .github/workflows/stage1-audit.yml
       - docs/audits/part1-stage1-exact-state.md
+      - docs/audits/part1-stage1-completion.md
       - docs/STATUS.md
       - evidence/part1/stage1/manifest.json
       - scripts/validate_stage1_audit.py
@@ -14,6 +15,7 @@ on:
     paths:
       - .github/workflows/stage1-audit.yml
       - docs/audits/part1-stage1-exact-state.md
+      - docs/audits/part1-stage1-completion.md
       - docs/STATUS.md
       - evidence/part1/stage1/manifest.json
       - scripts/validate_stage1_audit.py

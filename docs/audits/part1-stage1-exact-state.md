@@ -1,6 +1,6 @@
 # EventPulse Part 1 Stage 1 — exact-state audit
 
-Status: **IN PROGRESS**. Observation checkpoint: 2026-09-24 13:01:50 UTC. This is an audit of EventPulse only. The machine-readable evidence is in `evidence/part1/stage1/manifest.json`.
+Status: **COMPLETED** after the [Stage 1 completion receipt](part1-stage1-completion.md). Observation checkpoint: 2026-09-24 13:01:50 UTC. This is an audit of EventPulse only. The machine-readable evidence is in `evidence/part1/stage1/manifest.json`.
 
 ## Source and PR reality
 
@@ -58,4 +58,4 @@ In **both** `ap-south-1` and `ap-south-2`, the Tagging API `Project=EventPulse` 
 
 ## Acceptance state
 
-Source, draft-head tree, CI, claim boundaries and bounded AWS identity evidence in both regions were observed and recorded. The stage is **not complete** until the audit PR exact-head and merged-main gates pass. The partial inventory and Terraform default divergence are explicit follow-on limitations, not a claim of resource absence or a reason to change draft behavior in this audit. A later completion receipt must name the actual reviewed head, merged main SHA/tree, required CI runs and evidence digest. No `AWS_VERIFIED` workload, throughput or release claim follows from this audit.
+Source, draft-head tree, CI, claim boundaries and bounded AWS identity evidence in both regions were observed and recorded. [PR #2](https://github.com/bhuvaneshwaranmurugan21/eventpulse-realtime-engagement-platform/pull/2) passed exact-head audit CI and merged; [PR #3](https://github.com/bhuvaneshwaranmurugan21/eventpulse-realtime-engagement-platform/pull/3) enabled manual exact-main verification without changing the check. Run `36038011108` passed on verified `main` `18b25390f05b81b92f0c5fba7239ac55956dff79`. The partial inventory and Terraform default divergence remain explicit follow-on limitations. No `AWS_VERIFIED` workload, throughput or release claim follows from this audit.

@@ -1,7 +1,7 @@
 {
   "project": "eventpulse-realtime-engagement-platform",
   "stage": "PART1_STAGE1_EXACT_STATE_AUDIT",
-  "status": "IN_PROGRESS",
+  "status": "COMPLETED",
   "observed_at_utc": "2026-09-24T13:01:50Z",
   "source": {
     "repository": "bhuvaneshwaranmurugan21/eventpulse-realtime-engagement-platform",
@@ -92,5 +92,18 @@
     "EVENTPULSE_SPECIFIC_COST_AND_BUDGET_UNOBSERVED",
     "DRAFT_TERRAFORM_REGION_DEFAULT_REQUIRES_FUTURE_CORRECTION"
   ],
-  "blockers": ["AUDIT_PR_EXACT_HEAD_AND_MERGED_MAIN_PENDING"]
+  "completion": {
+    "audit_pr_number": 2,
+    "reviewed_audit_head_sha": "604a239f5f041a0294b96c1d17fad73994434825",
+    "exact_head_ci_run_id": 36037084104,
+    "audit_merge_sha": "b0fad295d6e403a3135225045156e2f94990b924",
+    "dispatch_enablement_pr_number": 3,
+    "verified_main_sha": "18b25390f05b81b92f0c5fba7239ac55956dff79",
+    "verified_main_tree_sha": "5fe27f8b895184fb4a4796b2658a363444bc4001",
+    "post_merge_ci_run_id": 36038011108,
+    "post_merge_ci_job": "audit",
+    "post_merge_ci_conclusion": "success",
+    "verified_main_file_count": 6
+  },
+  "blockers": []
 }
