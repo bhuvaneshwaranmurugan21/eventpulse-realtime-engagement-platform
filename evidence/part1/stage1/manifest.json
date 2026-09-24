@@ -68,15 +68,17 @@
       "screenshot_sha256": "9d061ab63a7ff45cecbbf4fcd0f2437b81dec3e9e7865ff44a181402fc6c14b6"
     },
     "observed_account": "887720497919",
-    "observed_region": "ap-south-1",
-    "observed_at_utc": "2026-09-24T17:24:23Z",
-    "private_evidence_sha256": "e02e76faffd74aaa4f8a89d9dae391fad25d6a31a3d20b5945b427d3eaea25d5",
+    "observed_region": "ap-south-2",
+    "observed_at_utc": "2026-09-24T17:45:14Z",
+    "private_evidence_sha256": "1711fbc41d8f13d65a97a9061a9c88d04ba75969663ddaba99d602f3e8ae7b69",
+    "previous_region_evidence_sha256": "e02e76faffd74aaa4f8a89d9dae391fad25d6a31a3d20b5945b427d3eaea25d5",
+    "region_opt_status": "ENABLED_REPORTED_BY_CLOUDSHELL_OUTPUT",
     "private_evidence_manifest_verified": true,
     "current_role_trust": "VERIFIED",
     "role_policy_attachments": "NONE_OBSERVED",
     "resource_inventory": "PARTIAL_WITH_UNKNOWNS",
     "cost_and_budget": "UNKNOWN",
-    "reason": "GitHub screenshot shows AWS_REGION=ap-south-2 and AWS_ROLE_ARN in the observed account; draft Terraform still defaults to ap-south-1. Read-only AWS queries covered ap-south-1 only and do not exclude untagged or differently named resources. ap-south-2 opt-in status and resource scope are not observed."
+    "reason": "GitHub screenshot shows AWS_REGION=ap-south-2 and AWS_ROLE_ARN in the observed account. Verified read-only AWS bundles cover both ap-south-1 and ap-south-2. Tag and prefix queries returned no matches in either region but do not exclude untagged or differently named resources. Draft-only Terraform still defaults to ap-south-1 and requires correction before future deployment."
   },
   "claim_boundaries": [
     {"id": "local_streaming_kernel", "level": "LOCAL_VERIFIED_ON_DRAFT_ONLY"},
@@ -85,8 +87,10 @@
     {"id": "aws_workload_and_latency", "level": "UNCLAIMED"},
     {"id": "exactly_once_transport", "level": "UNCLAIMED"}
   ],
-  "blockers": [
-    "AWS_REGION_SELECTION_AND_INVENTORY_SCOPE_PENDING",
-    "AUDIT_PR_EXACT_HEAD_AND_MERGED_MAIN_PENDING"
-  ]
+  "unknowns": [
+    "UNTAGGED_OR_DIFFERENTLY_NAMED_RESOURCES_NOT_EXCLUDED",
+    "EVENTPULSE_SPECIFIC_COST_AND_BUDGET_UNOBSERVED",
+    "DRAFT_TERRAFORM_REGION_DEFAULT_REQUIRES_FUTURE_CORRECTION"
+  ],
+  "blockers": ["AUDIT_PR_EXACT_HEAD_AND_MERGED_MAIN_PENDING"]
 }
