@@ -62,6 +62,11 @@
     "verification": "SCOPED_READ_ONLY_VERIFIED",
     "declared_role_name": "EventPulseGitHubOidcRole",
     "declared_terraform_region_default": "ap-south-1",
+    "github_repository_variables": {
+      "observed_region": "ap-south-2",
+      "role_arn_account_matches_observed_account": true,
+      "screenshot_sha256": "9d061ab63a7ff45cecbbf4fcd0f2437b81dec3e9e7865ff44a181402fc6c14b6"
+    },
     "observed_account": "887720497919",
     "observed_region": "ap-south-1",
     "observed_at_utc": "2026-09-24T17:24:23Z",
@@ -71,7 +76,7 @@
     "role_policy_attachments": "NONE_OBSERVED",
     "resource_inventory": "PARTIAL_WITH_UNKNOWNS",
     "cost_and_budget": "UNKNOWN",
-    "reason": "Read-only ap-south-1 queries found no Project=EventPulse tagged resources, eventpulse-prefixed SQS queues, or /aws/eventpulse/ log groups; these searches do not exclude untagged or differently named resources. Current GitHub AWS_REGION variable and ap-south-2 status are not independently observed."
+    "reason": "GitHub screenshot shows AWS_REGION=ap-south-2 and AWS_ROLE_ARN in the observed account; draft Terraform still defaults to ap-south-1. Read-only AWS queries covered ap-south-1 only and do not exclude untagged or differently named resources. ap-south-2 opt-in status and resource scope are not observed."
   },
   "claim_boundaries": [
     {"id": "local_streaming_kernel", "level": "LOCAL_VERIFIED_ON_DRAFT_ONLY"},
