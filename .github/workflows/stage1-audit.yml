@@ -1,0 +1,31 @@
+name: Stage 1 Audit
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/stage1-audit.yml
+      - docs/audits/part1-stage1-exact-state.md
+      - docs/STATUS.md
+      - evidence/part1/stage1/manifest.json
+      - scripts/validate_stage1_audit.py
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/stage1-audit.yml
+      - docs/audits/part1-stage1-exact-state.md
+      - docs/STATUS.md
+      - evidence/part1/stage1/manifest.json
+      - scripts/validate_stage1_audit.py
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - run: python3 scripts/validate_stage1_audit.py --verify-source
