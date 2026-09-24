@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "evidence/part1/stage1/manifest.json"
 AUDIT = ROOT / "docs/audits/part1-stage1-exact-state.md"
 STATUS = ROOT / "docs/STATUS.md"
+COMPLETION = ROOT / "docs/audits/part1-stage1-completion.md"
 SHA = re.compile(r"^[0-9a-f]{40}$")
 ALLOWED_LEVELS = {
     "LOCAL_VERIFIED_ON_DRAFT_ONLY",
@@ -35,8 +36,8 @@ def validate(*, verify_source: bool = False) -> list[str]:
         errors.append("wrong project")
     if data.get("stage") != "PART1_STAGE1_EXACT_STATE_AUDIT":
         errors.append("wrong stage")
-    if data.get("status") != "IN_PROGRESS":
-        errors.append("audit must remain IN_PROGRESS until external completion gates pass")
+    if data.get("status") not in {"IN_PROGRESS", "COMPLETED"}:
+        errors.append("invalid audit status")
 
     source = data.get("source", {})
     draft = data.get("draft_pr", {})
@@ -130,8 +131,32 @@ def validate(*, verify_source: bool = False) -> list[str]:
         errors.append("claim boundary has unsupported level")
     if source.get("commit_sha", "") not in audit or draft.get("head_sha", "") not in audit:
         errors.append("audit text does not reference both exact commits")
-    if "IN PROGRESS" not in audit or "IN PROGRESS" not in status:
-        errors.append("public status conflicts with pending gates")
+    if data.get("status") == "IN_PROGRESS":
+        if "IN PROGRESS" not in audit or "IN PROGRESS" not in status:
+            errors.append("public status conflicts with pending gates")
+    else:
+        completion = data.get("completion", {})
+        try:
+            receipt = COMPLETION.read_text(encoding="utf-8")
+        except OSError as exc:
+            receipt = ""
+            errors.append(f"completion receipt cannot be read: {exc}")
+        if data.get("blockers") != []:
+            errors.append("completed audit cannot retain a stage blocker")
+        if not isinstance(completion, dict):
+            errors.append("completion must be an object")
+        else:
+            for key in ("reviewed_audit_head_sha", "audit_merge_sha", "verified_main_sha", "verified_main_tree_sha"):
+                if not SHA.fullmatch(str(completion.get(key, ""))):
+                    errors.append(f"completion {key} must be a full SHA")
+            if completion.get("post_merge_ci_conclusion") != "success" or completion.get("post_merge_ci_job") != "audit":
+                errors.append("post-merge audit CI must have succeeded")
+            if completion.get("post_merge_ci_run_id") != 36038011108 or completion.get("verified_main_file_count") != 6:
+                errors.append("post-merge evidence receipt is incomplete")
+            if completion.get("verified_main_sha", "") not in receipt or str(completion.get("post_merge_ci_run_id")) not in receipt:
+                errors.append("completion receipt does not bind main and CI")
+            if completion.get("verified_main_sha", "") not in status or "COMPLETED" not in status or "COMPLETED" not in audit:
+                errors.append("public completion status is inconsistent")
     if re.search(r"\b(?:AKIA|ASIA)[A-Z0-9]{16}\b", audit + status):
         errors.append("possible AWS access key in public audit text")
 
@@ -162,4 +187,4 @@ if __name__ == "__main__":
         for failure in failures:
             print(f"ERROR: {failure}", file=sys.stderr)
         raise SystemExit(1)
-    print("Stage 1 audit receipt: internally consistent; completion gates remain pending")
+    print(f"Stage 1 audit receipt: internally consistent; status={json.loads(MANIFEST.read_text())['status']}")
