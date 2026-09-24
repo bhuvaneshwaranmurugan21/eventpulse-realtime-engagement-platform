@@ -1,0 +1,96 @@
+{
+  "project": "eventpulse-realtime-engagement-platform",
+  "stage": "PART1_STAGE1_EXACT_STATE_AUDIT",
+  "status": "IN_PROGRESS",
+  "observed_at_utc": "2026-09-24T13:01:50Z",
+  "source": {
+    "repository": "bhuvaneshwaranmurugan21/eventpulse-realtime-engagement-platform",
+    "repository_id": 1333031049,
+    "default_branch": "main",
+    "commit_sha": "63f307763e1e712ba1a9770a755ea7adb41901b2",
+    "tree_sha": "5f7dcc1951f9ddfcacf25b84c4c7168d2e77905c",
+    "tracked_file_count": 1,
+    "branch_protected": false,
+    "ruleset_count": 0
+  },
+  "draft_pr": {
+    "number": 1,
+    "state": "open",
+    "draft": true,
+    "base_sha": "63f307763e1e712ba1a9770a755ea7adb41901b2",
+    "head_sha": "056f536a458b2573dbca8e9eeefee92ec48a14fc",
+    "head_tree_sha": "7214d03f3b5b18bfbffedc19d856f5a43ebaf1a8",
+    "changed_files": 32,
+    "additions": 1315,
+    "deletions": 1,
+    "disposition": "RETAIN_OPEN_DRAFT_FOR_SEPARATE_REVIEW"
+  },
+  "ci": [
+    {
+      "run_id": 31772945884,
+      "name": "CI",
+      "head_sha": "056f536a458b2573dbca8e9eeefee92ec48a14fc",
+      "conclusion": "success",
+      "jobs": ["quality"]
+    },
+    {
+      "run_id": 31772945898,
+      "name": "Infrastructure",
+      "head_sha": "056f536a458b2573dbca8e9eeefee92ec48a14fc",
+      "conclusion": "success",
+      "jobs": ["validate"]
+    },
+    {
+      "run_id": 31722050727,
+      "name": "AWS OIDC Identity Check",
+      "head_sha": "63f307763e1e712ba1a9770a755ea7adb41901b2",
+      "conclusion": "success",
+      "jobs": ["verify-identity"]
+    }
+  ],
+  "local_baseline": {
+    "snapshot_tree_reconstructed": true,
+    "python_version": "3.12.14",
+    "declared_dev_install": "ENVIRONMENT_BLOCKED_PACKAGE_INDEX",
+    "declared_dev_install_exit_code": 1,
+    "terraform_binary": "UNAVAILABLE",
+    "simulation": "PASS",
+    "committed_simulation_sha256": "56e5d11006d87304062ac7809b467ce9c77f6df30656e9428d3d23b479609cf6",
+    "regenerated_simulation_sha256": "56e5d11006d87304062ac7809b467ce9c77f6df30656e9428d3d23b479609cf6"
+  },
+  "isolation": {
+    "verification": "SCOPED_READ_ONLY_VERIFIED",
+    "declared_role_name": "EventPulseGitHubOidcRole",
+    "declared_terraform_region_default": "ap-south-1",
+    "github_repository_variables": {
+      "observed_region": "ap-south-2",
+      "role_arn_account_matches_observed_account": true,
+      "screenshot_sha256": "9d061ab63a7ff45cecbbf4fcd0f2437b81dec3e9e7865ff44a181402fc6c14b6"
+    },
+    "observed_account": "887720497919",
+    "observed_region": "ap-south-2",
+    "observed_at_utc": "2026-09-24T17:45:14Z",
+    "private_evidence_sha256": "1711fbc41d8f13d65a97a9061a9c88d04ba75969663ddaba99d602f3e8ae7b69",
+    "previous_region_evidence_sha256": "e02e76faffd74aaa4f8a89d9dae391fad25d6a31a3d20b5945b427d3eaea25d5",
+    "region_opt_status": "ENABLED_REPORTED_BY_CLOUDSHELL_OUTPUT",
+    "private_evidence_manifest_verified": true,
+    "current_role_trust": "VERIFIED",
+    "role_policy_attachments": "NONE_OBSERVED",
+    "resource_inventory": "PARTIAL_WITH_UNKNOWNS",
+    "cost_and_budget": "UNKNOWN",
+    "reason": "GitHub screenshot shows AWS_REGION=ap-south-2 and AWS_ROLE_ARN in the observed account. Verified read-only AWS bundles cover both ap-south-1 and ap-south-2. Tag and prefix queries returned no matches in either region but do not exclude untagged or differently named resources. Draft-only Terraform still defaults to ap-south-1 and requires correction before future deployment."
+  },
+  "claim_boundaries": [
+    {"id": "local_streaming_kernel", "level": "LOCAL_VERIFIED_ON_DRAFT_ONLY"},
+    {"id": "terraform_topology", "level": "DESIGN_ONLY_ON_DRAFT_ONLY"},
+    {"id": "managed_consumer", "level": "UNCLAIMED"},
+    {"id": "aws_workload_and_latency", "level": "UNCLAIMED"},
+    {"id": "exactly_once_transport", "level": "UNCLAIMED"}
+  ],
+  "unknowns": [
+    "UNTAGGED_OR_DIFFERENTLY_NAMED_RESOURCES_NOT_EXCLUDED",
+    "EVENTPULSE_SPECIFIC_COST_AND_BUDGET_UNOBSERVED",
+    "DRAFT_TERRAFORM_REGION_DEFAULT_REQUIRES_FUTURE_CORRECTION"
+  ],
+  "blockers": ["AUDIT_PR_EXACT_HEAD_AND_MERGED_MAIN_PENDING"]
+}
