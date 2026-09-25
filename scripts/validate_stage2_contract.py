@@ -267,7 +267,7 @@ def validate_git_scope(verify_source: bool) -> list[str]:
         errors.append("Stage 1 source tree does not match the recorded tree")
     allowed_exact = {
         ".github/workflows/stage2-contract.yml", ".github/workflows/stage3-oracles.yml",
-        "docs/STATUS.md", "docs/stage3-traceability.json",
+        "docs/STATUS.md", "docs/audits/part1-completion.md", "docs/stage3-traceability.json",
         "scripts/build_stage2_manifest.py", "scripts/validate_stage2_contract.py",
         "scripts/build_stage3_manifest.py", "scripts/validate_stage3_completion.py",
         "tests/test_stage2_contract.py", "tests/test_stage3_negative_controls.py",

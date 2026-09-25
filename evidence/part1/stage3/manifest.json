@@ -18,13 +18,18 @@
     },
     {
       "path": "docs/STATUS.md",
-      "sha256": "97cdc6ae1232e8f777409bed08a34da26eaccbfc9ec399c01d3d6268f0ada1a3",
-      "size_bytes": 2973
+      "sha256": "78fa7a20b6e1d4ab120bf91b10e9f8e97c5e0b47c270a362e082ea019511f2aa",
+      "size_bytes": 3271
+    },
+    {
+      "path": "docs/audits/part1-completion.md",
+      "sha256": "66ce501a6df8461b9a23b1c6477a98686e4586e8feed7280326cdd580f602ec5",
+      "size_bytes": 4590
     },
     {
       "path": "docs/audits/part1-stage3-decision-authority.md",
-      "sha256": "b761c3df26ac43f9573e444ef8b7795b427166d23e7276029ac3abfe813564b6",
-      "size_bytes": 2804
+      "sha256": "2e1a003171ea9383f923a3b68ce54ef3eec5c7bfaa193f92d73a6d621c21316c",
+      "size_bytes": 2803
     },
     {
       "path": "docs/audits/part1-stage3-skeptical-review.md",
@@ -58,12 +63,12 @@
     },
     {
       "path": "docs/stage3-traceability.json",
-      "sha256": "ddb793694cf39df3ef9b187d5c1bbc2808c758e6dc4069ada0fb95b231cf5fe3",
+      "sha256": "3bc04f22dc00c835580918c7cf03823af9702a4bce50156752842d4baa32d87f",
       "size_bytes": 9315
     },
     {
       "path": "evidence/part1/stage2/manifest.json",
-      "sha256": "ecf9c1b0a786dfc9707df0d7e16fcde34890320d8b464b3b48ce4b8609d9e87f",
+      "sha256": "4d23482d89f9235e94bc05c950da95858ed42856228e3e63596b6c18ca01cf4e",
       "size_bytes": 4090
     },
     {
@@ -118,8 +123,8 @@
     },
     {
       "path": "scripts/validate_stage2_contract.py",
-      "sha256": "08c159c9d0240ecbd46817e9e77ac3df876ccec7b71aabd9323e49e3ea1a0925",
-      "size_bytes": 16816
+      "sha256": "9af266a0c0ee999b708929430d25db149a25897a8bdda386f39a923d1a32e9eb",
+      "size_bytes": 16851
     },
     {
       "path": "scripts/validate_stage3_completion.py",
@@ -151,5 +156,5 @@
     "region": "ap-south-2"
   },
   "stage": "PART1_STAGE3_EXECUTABLE_ORACLES",
-  "status": "IN_REVIEW"
+  "status": "COMPLETED"
 }
