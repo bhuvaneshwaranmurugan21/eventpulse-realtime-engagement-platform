@@ -1,6 +1,6 @@
 # EventPulse Part 1 Stage 2 decision authority
 
-**Status:** In review
+**Status:** Accepted
 **Entry checkpoint:** `cac96a23648be8512c5cab58774217169d7e5829` / tree `17bcfb451e52e4cdce7975b09de76e4848a29138`
 **Region authority:** `ap-south-2`
 

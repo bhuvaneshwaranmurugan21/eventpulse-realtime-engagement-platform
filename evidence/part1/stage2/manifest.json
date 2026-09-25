@@ -32,8 +32,8 @@
     },
     {
       "path": "docs/STATUS.md",
-      "sha256": "6e5814024e091147d20823259149b4e23298b7ee5ef2e0a3e924a852fe42bdda",
-      "size_bytes": 1741
+      "sha256": "1491f92c2b47de8b36cf6025ff8429bf6a293fcadda875b86f8035903c7e042e",
+      "size_bytes": 2264
     },
     {
       "path": "docs/adr/0001-kinesis-lambda-consumer.md",
@@ -46,9 +46,14 @@
       "size_bytes": 3527
     },
     {
+      "path": "docs/audits/part1-stage2-completion.md",
+      "sha256": "173139bf862137d0c367b39c610c42bb418af6672d002bb6562bc38e13083a73",
+      "size_bytes": 3737
+    },
+    {
       "path": "docs/audits/part1-stage2-decision-authority.md",
-      "sha256": "a1c66f635e679698e9d87353f88aa3120f996bc76afcfcf8fca98be35f916438",
-      "size_bytes": 1025
+      "sha256": "9489b1c70fcfb50c699abb313168e32a1d5c095d4fc1b9229a691a28941c35e8",
+      "size_bytes": 1024
     },
     {
       "path": "docs/claims.json",
@@ -67,12 +72,12 @@
     },
     {
       "path": "docs/proof-matrix.json",
-      "sha256": "b34a6d400e4c83381e61857fbe6b0255f6e62ac0fd6b25a62b9b0c56e8141a99",
+      "sha256": "aefc253bb09964d6f96a24c427f5c6a38ebd9628175911f93bfbc3b085d5b8fd",
       "size_bytes": 16557
     },
     {
       "path": "docs/requirements/part1-stage2.json",
-      "sha256": "213a53ab30e143dbf7aa5ad9548bc4e1e2920a0f5c17d6fa31117a29c314b82d",
+      "sha256": "9f36c4bd95e9b019b9ba088175289155415a054ceb42aa55252265c5d6175c25",
       "size_bytes": 11497
     },
     {
@@ -115,5 +120,5 @@
     "region": "ap-south-2"
   },
   "stage": "PART1_STAGE2_COMPLETION_CONTRACT",
-  "status": "IN_REVIEW"
+  "status": "COMPLETED"
 }
