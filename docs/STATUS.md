@@ -6,6 +6,8 @@ The default branch contains the OIDC identity workflow. The streaming foundation
 
 ## Part 1 Stage 2
 
-Completion contract and architecture authority: **IN REVIEW** from Stage 1 completion `main` `cac96a23648be8512c5cab58774217169d7e5829` (tree `17bcfb451e52e4cdce7975b09de76e4848a29138`). The authoritative region is `ap-south-2`. The selected bounded design is Kinesis to a Python Lambda consumer with conditional S3 raw capture, DynamoDB transactional application effects, outbox-backed SQS quarantine and CloudWatch telemetry.
+Completion contract and architecture authority: **COMPLETED** from Stage 1 completion `main` `cac96a23648be8512c5cab58774217169d7e5829` (tree `17bcfb451e52e4cdce7975b09de76e4848a29138`). The reviewed authority merged as `9237c26e60d1c15dec8618d9e5eeef4996b3f1c0` with tree `bb4fa572d1438b11ac60d706ee171d5cca481b3a`; [Stage 2 Contract run 36097785756](https://github.com/bhuvaneshwaranmurugan21/eventpulse-realtime-engagement-platform/actions/runs/36097785756) and [Stage 1 Audit run 36097785712](https://github.com/bhuvaneshwaranmurugan21/eventpulse-realtime-engagement-platform/actions/runs/36097785712) passed on that merged commit. See [the Stage 2 completion receipt](audits/part1-stage2-completion.md).
+
+The authoritative region is `ap-south-2`. The selected bounded design is Kinesis to a Python Lambda consumer with conditional S3 raw capture, DynamoDB transactional application effects, outbox-backed SQS quarantine and CloudWatch telemetry.
 
 This status makes no managed consumer, durable AWS recovery, latency, throughput, observed cost or teardown claim. Draft PR #1 remains unmerged and must be adapted to the frozen contract before implementation.
