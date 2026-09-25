@@ -1,4 +1,4 @@
-# EventPulse Stage 2 interview walkthrough
+# EventPulse Part 1 interview walkthrough
 
 ## Two-minute explanation
 
@@ -16,6 +16,8 @@ Kinesis and Lambda provide at-least-once delivery. Raw bytes are conditionally a
 ## Honest claim boundary
 
 Stage 2 proves the contract documents are complete, internally consistent and resistant to controlled corruption. It does not prove a managed consumer, AWS recovery, throughput, latency, cost or teardown. Those claims require source-bound AWS runs and independent oracle comparison.
+
+Stage 3 adds a separate executable reference evaluator and 50 deterministic boundary fixtures. This makes the frozen semantics locally falsifiable without borrowing expected answers from a production consumer. Controlled corruptions prove that incorrect watermark, checkpoint, crash-matrix, claim and evidence states are rejected. This remains local oracle proof—not managed streaming proof.
 
 ## Expected questions
 

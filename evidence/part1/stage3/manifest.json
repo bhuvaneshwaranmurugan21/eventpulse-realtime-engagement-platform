@@ -1,0 +1,155 @@
+{
+  "acceptance_criteria": 30,
+  "artifacts": [
+    {
+      "path": ".github/workflows/stage3-oracles.yml",
+      "sha256": "c8cd9d5a82cba6c37896ba2b4d42505c86368c117a8e812d78c6f8df967d338a",
+      "size_bytes": 1607
+    },
+    {
+      "path": "contracts/stage3-oracle-spec-v1.json",
+      "sha256": "6f69f6deb107f55493913a9ea1bd96df924cf692b7de13a7384e085c30eb37c5",
+      "size_bytes": 1672
+    },
+    {
+      "path": "docs/INTERVIEW.md",
+      "sha256": "2aeb58ce53513bb137c5ff633aa0e6ad0a5f5ed6f6153d72f2387dd88a48fc34",
+      "size_bytes": 3315
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "97cdc6ae1232e8f777409bed08a34da26eaccbfc9ec399c01d3d6268f0ada1a3",
+      "size_bytes": 2973
+    },
+    {
+      "path": "docs/audits/part1-stage3-decision-authority.md",
+      "sha256": "b761c3df26ac43f9573e444ef8b7795b427166d23e7276029ac3abfe813564b6",
+      "size_bytes": 2804
+    },
+    {
+      "path": "docs/audits/part1-stage3-skeptical-review.md",
+      "sha256": "603b769ba314f16283fd271310f59cf9c2b1102ef62733009068def315b42cc5",
+      "size_bytes": 3316
+    },
+    {
+      "path": "docs/claims.json",
+      "sha256": "27e971ed827d88e06e09e62be149f59857ae12753ad711307c91b99eac7df79a",
+      "size_bytes": 3635
+    },
+    {
+      "path": "docs/proof-matrix.json",
+      "sha256": "70d7baecf0b3c5e8031d6b2dd75938e5874ff38a4255cc3025851dc48123e977",
+      "size_bytes": 15497
+    },
+    {
+      "path": "docs/rehearsal/part1-stage3-execution-rehearsal.md",
+      "sha256": "495e871d1029807ed0340a11fd68dac80b7b3e3f997ecc916badfe8ec9f19efb",
+      "size_bytes": 4475
+    },
+    {
+      "path": "docs/requirements/part1-stage3-acceptance.json",
+      "sha256": "43ae1cd7de322ebd561bf30ac602a31ae64cc7adda1f3bb97d09ad6b024015b9",
+      "size_bytes": 9795
+    },
+    {
+      "path": "docs/requirements/parts2-5-acceptance.json",
+      "sha256": "a3a5c84f57499104a0d08c06701760776adf7f71d1bc2be8ab95796bb7b61bae",
+      "size_bytes": 15420
+    },
+    {
+      "path": "docs/stage3-traceability.json",
+      "sha256": "ddb793694cf39df3ef9b187d5c1bbc2808c758e6dc4069ada0fb95b231cf5fe3",
+      "size_bytes": 9315
+    },
+    {
+      "path": "evidence/part1/stage2/manifest.json",
+      "sha256": "ecf9c1b0a786dfc9707df0d7e16fcde34890320d8b464b3b48ce4b8609d9e87f",
+      "size_bytes": 4090
+    },
+    {
+      "path": "evidence/part1/stage3/oracle-results.json",
+      "sha256": "d37cec343b3ef2a8e525c61b29124f0a997b80ec725ad28677c3a00645dd9d76",
+      "size_bytes": 8781
+    },
+    {
+      "path": "fixtures/part1/stage3/envelope.json",
+      "sha256": "c818e2b6a70a624fdf2e834ef5315321846d43080e0ac715b2f01a8e79aa00b7",
+      "size_bytes": 3193
+    },
+    {
+      "path": "fixtures/part1/stage3/fixture-manifest.json",
+      "sha256": "5548212aeebafa6f478df1c570ff055fa9bc06c548347620be9a3eaa7d9de823",
+      "size_bytes": 1259
+    },
+    {
+      "path": "fixtures/part1/stage3/identity.json",
+      "sha256": "0b9d273782f5c0fd482ca72624d2ffd9e6a0f49932d1aee65bffbf1bc82765c7",
+      "size_bytes": 1864
+    },
+    {
+      "path": "fixtures/part1/stage3/recovery.json",
+      "sha256": "5e3609d2a47463ad16d77487bd479b925798b0e7d03a7abf6fed6ddd25d49a5f",
+      "size_bytes": 4193
+    },
+    {
+      "path": "fixtures/part1/stage3/replay-and-skew.json",
+      "sha256": "db5ab6003f0e73f51148aa3fb3fa02511bb5892f57a4ecd2456d7b33f7637857",
+      "size_bytes": 1424
+    },
+    {
+      "path": "fixtures/part1/stage3/sessions.json",
+      "sha256": "14282a3e6e51040116bd935c92e124e554c7f9321dcfd13d4011e29c790d75ff",
+      "size_bytes": 2482
+    },
+    {
+      "path": "fixtures/part1/stage3/time.json",
+      "sha256": "55530881b1b620db7deccf7b9bc5b6c126e770a45383f52da199287f01b49a19",
+      "size_bytes": 1944
+    },
+    {
+      "path": "oracles/eventpulse_reference.py",
+      "sha256": "46cc2955df147389de6ec9205aa294fb22a34c1c06a5c23afb69a7a506b6ae0e",
+      "size_bytes": 16533
+    },
+    {
+      "path": "scripts/build_stage3_manifest.py",
+      "sha256": "6ad8c2076001c6e07374e2c0dae21382d6563b09fcc1d7aa9fb48d5198d1cb21",
+      "size_bytes": 4092
+    },
+    {
+      "path": "scripts/validate_stage2_contract.py",
+      "sha256": "08c159c9d0240ecbd46817e9e77ac3df876ccec7b71aabd9323e49e3ea1a0925",
+      "size_bytes": 16816
+    },
+    {
+      "path": "scripts/validate_stage3_completion.py",
+      "sha256": "4380a7ece727ab2afb07a397c329c39388e6cce72a743b181876fa25115d9d46",
+      "size_bytes": 20852
+    },
+    {
+      "path": "tests/test_stage3_negative_controls.py",
+      "sha256": "517da2bcf9124c64d312e4625f43d8fca049c3a151c47f5e9a255164e554772b",
+      "size_bytes": 8720
+    },
+    {
+      "path": "tests/test_stage3_oracle.py",
+      "sha256": "0bf6556ea73b1fdd3a33e3516e52a98924663980945e2c46c0785d1ac487f1eb",
+      "size_bytes": 7602
+    }
+  ],
+  "claim_boundary": {
+    "aws_streaming": "UNCLAIMED",
+    "durable_aws_recovery": "UNCLAIMED",
+    "independent_local_oracle": "LOCAL_VERIFIED",
+    "measured_performance": "UNCLAIMED"
+  },
+  "contract_version": "1.0.0",
+  "project": "eventpulse-realtime-engagement-platform",
+  "source": {
+    "base_sha": "9394d1795d3e4e9622e4f580aef61be455f6ce4b",
+    "base_tree": "ad4077ea62bcae275030a7c389d5a0538a07d6fc",
+    "region": "ap-south-2"
+  },
+  "stage": "PART1_STAGE3_EXECUTABLE_ORACLES",
+  "status": "IN_REVIEW"
+}

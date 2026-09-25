@@ -27,13 +27,13 @@
     },
     {
       "path": "docs/INTERVIEW.md",
-      "sha256": "02093a5dac043d5b3061228546c12c243f0534fa09ee9ff71e04ae25e6f193f7",
-      "size_bytes": 2921
+      "sha256": "2aeb58ce53513bb137c5ff633aa0e6ad0a5f5ed6f6153d72f2387dd88a48fc34",
+      "size_bytes": 3315
     },
     {
       "path": "docs/STATUS.md",
-      "sha256": "1491f92c2b47de8b36cf6025ff8429bf6a293fcadda875b86f8035903c7e042e",
-      "size_bytes": 2264
+      "sha256": "97cdc6ae1232e8f777409bed08a34da26eaccbfc9ec399c01d3d6268f0ada1a3",
+      "size_bytes": 2973
     },
     {
       "path": "docs/adr/0001-kinesis-lambda-consumer.md",
@@ -57,8 +57,8 @@
     },
     {
       "path": "docs/claims.json",
-      "sha256": "9c11c20f020ee7ee7cd1daaf88245e530189a1fe51452e7742b8ecc8ebe33cfa",
-      "size_bytes": 2621
+      "sha256": "27e971ed827d88e06e09e62be149f59857ae12753ad711307c91b99eac7df79a",
+      "size_bytes": 3635
     },
     {
       "path": "docs/known-limits.md",
@@ -72,8 +72,8 @@
     },
     {
       "path": "docs/proof-matrix.json",
-      "sha256": "aefc253bb09964d6f96a24c427f5c6a38ebd9628175911f93bfbc3b085d5b8fd",
-      "size_bytes": 16557
+      "sha256": "70d7baecf0b3c5e8031d6b2dd75938e5874ff38a4255cc3025851dc48123e977",
+      "size_bytes": 15497
     },
     {
       "path": "docs/requirements/part1-stage2.json",
@@ -97,8 +97,8 @@
     },
     {
       "path": "scripts/validate_stage2_contract.py",
-      "sha256": "96ebe7078351a4948275de16c75d5c632a7b16a2f2ba37b4068e7d416c5b4514",
-      "size_bytes": 16419
+      "sha256": "08c159c9d0240ecbd46817e9e77ac3df876ccec7b71aabd9323e49e3ea1a0925",
+      "size_bytes": 16816
     },
     {
       "path": "tests/test_stage2_contract.py",

@@ -27,11 +27,14 @@
     },
     {
       "evidence": [
-        "contracts/event-semantics-v1.json"
+        "contracts/event-semantics-v1.json",
+        "evidence/part1/stage3/oracle-results.json",
+        "oracles/eventpulse_reference.py",
+        "tests/test_stage3_oracle.py"
       ],
       "id": "event_time_and_session_semantics",
-      "level": "DESIGN_ONLY",
-      "scope": "normative contract awaiting independent executable oracles"
+      "level": "LOCAL_VERIFIED",
+      "scope": "independent local oracle across frozen boundary fixtures; no managed consumer"
     },
     {
       "evidence": [
@@ -48,6 +51,28 @@
       "id": "application_effect_idempotency",
       "level": "DESIGN_ONLY",
       "scope": "protocol awaiting implementation and crash proof"
+    },
+    {
+      "evidence": [
+        "contracts/stage3-oracle-spec-v1.json",
+        "evidence/part1/stage3/oracle-results.json",
+        "fixtures/part1/stage3/fixture-manifest.json",
+        "oracles/eventpulse_reference.py",
+        "tests/test_stage3_negative_controls.py",
+        "tests/test_stage3_oracle.py"
+      ],
+      "id": "stage3_independent_oracle",
+      "level": "LOCAL_VERIFIED",
+      "scope": "50 deterministic local cases with production-independent evaluation and fail-closed controls"
+    },
+    {
+      "evidence": [
+        "evidence/part1/stage3/oracle-results.json",
+        "fixtures/part1/stage3/replay-and-skew.json"
+      ],
+      "id": "replay_generation_semantics",
+      "level": "LOCAL_VERIFIED",
+      "scope": "local generation-key and integrity-gate oracle only; raw completeness and AWS replay remain unverified"
     },
     {
       "evidence": [],

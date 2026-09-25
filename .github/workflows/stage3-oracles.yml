@@ -1,0 +1,49 @@
+name: Stage 3 Oracles
+
+on:
+  pull_request:
+    paths:
+      - "contracts/stage3-oracle-spec-v1.json"
+      - "fixtures/part1/stage3/**"
+      - "oracles/**"
+      - "docs/**"
+      - "evidence/part1/stage3/**"
+      - "scripts/build_stage3_manifest.py"
+      - "scripts/validate_stage3_completion.py"
+      - "tests/test_stage3_*.py"
+      - ".github/workflows/stage3-oracles.yml"
+  push:
+    branches: [main]
+    paths:
+      - "contracts/stage3-oracle-spec-v1.json"
+      - "fixtures/part1/stage3/**"
+      - "oracles/**"
+      - "docs/**"
+      - "evidence/part1/stage3/**"
+      - "scripts/build_stage3_manifest.py"
+      - "scripts/validate_stage3_completion.py"
+      - "tests/test_stage3_*.py"
+      - ".github/workflows/stage3-oracles.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  oracle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12"
+      - run: python scripts/build_stage3_manifest.py --check
+      - run: python scripts/validate_stage3_completion.py --verify-source
+      - run: python -m unittest discover -s tests -p 'test_stage3_*.py' -v
+      - run: python scripts/build_stage2_manifest.py --check
+      - run: python scripts/validate_stage2_contract.py --verify-source
+      - run: python -m unittest discover -s tests -p 'test_stage2_contract.py' -v
+      - run: python scripts/validate_stage1_audit.py --verify-source

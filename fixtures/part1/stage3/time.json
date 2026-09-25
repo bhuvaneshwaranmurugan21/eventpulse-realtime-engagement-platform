@@ -1,0 +1,80 @@
+{
+  "cases": [
+    {
+      "event_time_ms": 10000000,
+      "expected": {
+        "category": "on_time",
+        "watermark_after_ms": 8200000,
+        "watermark_before_ms": null
+      },
+      "id": "EP-S3-FX-TIME-001",
+      "name": "first event",
+      "previous_max_event_time_ms": null
+    },
+    {
+      "event_time_ms": 12000000,
+      "expected": {
+        "category": "on_time",
+        "watermark_after_ms": 10200000,
+        "watermark_before_ms": 8200000
+      },
+      "id": "EP-S3-FX-TIME-002",
+      "name": "watermark advances",
+      "previous_max_event_time_ms": 10000000
+    },
+    {
+      "event_time_ms": 9000000,
+      "expected": {
+        "category": "accepted_late",
+        "watermark_after_ms": 8200000,
+        "watermark_before_ms": 8200000
+      },
+      "id": "EP-S3-FX-TIME-003",
+      "name": "accepted out of order",
+      "previous_max_event_time_ms": 10000000
+    },
+    {
+      "event_time_ms": 8200000,
+      "expected": {
+        "category": "accepted_late",
+        "watermark_after_ms": 8200000,
+        "watermark_before_ms": 8200000
+      },
+      "id": "EP-S3-FX-TIME-004",
+      "name": "exact watermark",
+      "previous_max_event_time_ms": 10000000
+    },
+    {
+      "event_time_ms": 8199999,
+      "expected": {
+        "category": "beyond_watermark",
+        "watermark_after_ms": 8200000,
+        "watermark_before_ms": 8200000
+      },
+      "id": "EP-S3-FX-TIME-005",
+      "name": "watermark minus one",
+      "previous_max_event_time_ms": 10000000
+    }
+  ],
+  "group": "Event time",
+  "shard_cases": [
+    {
+      "expected": {
+        "shard-a": 8200000,
+        "shard-b": 18200000
+      },
+      "id": "EP-S3-FX-TIME-006",
+      "name": "idle shard cannot stall another",
+      "records": [
+        {
+          "event_time_ms": 10000000,
+          "shard": "shard-a"
+        },
+        {
+          "event_time_ms": 20000000,
+          "shard": "shard-b"
+        }
+      ]
+    }
+  ]
+}

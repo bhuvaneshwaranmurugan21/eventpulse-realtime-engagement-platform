@@ -1,0 +1,71 @@
+{
+  "group": "Replay and skew",
+  "replay_cases": [
+    {
+      "event_ids": [
+        "e1",
+        "e2",
+        "e1"
+      ],
+      "expected_keys": [
+        "live-v1:e1",
+        "live-v1:e2"
+      ],
+      "generation_id": "live-v1",
+      "id": "EP-S3-FX-REPLAY-001",
+      "integrity_verified": true,
+      "name": "same generation replay is idempotent"
+    },
+    {
+      "event_ids": [
+        "e1",
+        "e2"
+      ],
+      "expected_keys": [
+        "replay-1:e1",
+        "replay-1:e2"
+      ],
+      "generation_id": "replay-1",
+      "id": "EP-S3-FX-REPLAY-002",
+      "integrity_verified": true,
+      "name": "isolated replay generation"
+    },
+    {
+      "event_ids": [
+        "e1"
+      ],
+      "expected_error": "RAW_INTEGRITY_REQUIRED",
+      "generation_id": "replay-2",
+      "id": "EP-S3-FX-REPLAY-003",
+      "integrity_verified": false,
+      "name": "corrupt raw blocks replay"
+    }
+  ],
+  "skew_cases": [
+    {
+      "expected_hottest_count": 2,
+      "expected_hottest_ratio": "1/2",
+      "id": "EP-S3-FX-SKEW-001",
+      "keys": [
+        "a",
+        "a",
+        "b",
+        "b"
+      ],
+      "name": "balanced keys"
+    },
+    {
+      "expected_hottest_count": 4,
+      "expected_hottest_ratio": "4/5",
+      "id": "EP-S3-FX-SKEW-002",
+      "keys": [
+        "hot",
+        "hot",
+        "hot",
+        "hot",
+        "cold"
+      ],
+      "name": "hot key pressure"
+    }
+  ]
+}

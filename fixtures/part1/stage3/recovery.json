@@ -1,0 +1,150 @@
+{
+  "checkpoint_cases": [
+    {
+      "expected_checkpoint": 103,
+      "failed": [],
+      "id": "EP-S3-FX-RECOVERY-009",
+      "name": "complete batch",
+      "sequence_numbers": [
+        100,
+        101,
+        102,
+        103
+      ]
+    },
+    {
+      "expected_checkpoint": null,
+      "failed": [
+        100
+      ],
+      "id": "EP-S3-FX-RECOVERY-010",
+      "name": "first record fails",
+      "sequence_numbers": [
+        100,
+        101,
+        102,
+        103
+      ]
+    },
+    {
+      "expected_checkpoint": 101,
+      "failed": [
+        102
+      ],
+      "id": "EP-S3-FX-RECOVERY-011",
+      "name": "middle record fails",
+      "sequence_numbers": [
+        100,
+        101,
+        102,
+        103
+      ]
+    }
+  ],
+  "crash_cases": [
+    {
+      "crash_id": "EP-CRASH-01",
+      "expected": {
+        "boundary": "before raw archive",
+        "possible_durable_effects": [],
+        "retry": "record is re-read; archive and transaction run",
+        "safety": "no acknowledged effect"
+      },
+      "id": "EP-S3-FX-RECOVERY-001"
+    },
+    {
+      "crash_id": "EP-CRASH-02",
+      "expected": {
+        "boundary": "after raw archive, before DynamoDB transaction",
+        "possible_durable_effects": [
+          "raw object"
+        ],
+        "retry": "conditional archive detects identical object; transaction runs once",
+        "safety": "no lost application effect"
+      },
+      "id": "EP-S3-FX-RECOVERY-002"
+    },
+    {
+      "crash_id": "EP-CRASH-03",
+      "expected": {
+        "boundary": "during DynamoDB transaction",
+        "possible_durable_effects": [
+          "raw object",
+          "all transaction items or none"
+        ],
+        "retry": "idempotency token and conditions make the retry safe",
+        "safety": "no partial state/sink commit"
+      },
+      "id": "EP-S3-FX-RECOVERY-003"
+    },
+    {
+      "crash_id": "EP-CRASH-04",
+      "expected": {
+        "boundary": "after transaction, before Lambda response",
+        "possible_durable_effects": [
+          "raw object",
+          "identity",
+          "state",
+          "output",
+          "outbox"
+        ],
+        "retry": "identity and version conditions classify retry as already applied",
+        "safety": "no double application"
+      },
+      "id": "EP-S3-FX-RECOVERY-004"
+    },
+    {
+      "crash_id": "EP-CRASH-05",
+      "expected": {
+        "boundary": "after partial failure response",
+        "possible_durable_effects": [
+          "successful earlier records",
+          "failed record may have raw object only"
+        ],
+        "retry": "Lambda resumes from the lowest reported failed sequence; committed events are idempotent",
+        "safety": "checkpoint does not pass the earliest failed record"
+      },
+      "id": "EP-S3-FX-RECOVERY-005"
+    },
+    {
+      "crash_id": "EP-CRASH-06",
+      "expected": {
+        "boundary": "poison event after quarantine transaction, before response",
+        "possible_durable_effects": [
+          "raw object",
+          "quarantine ledger",
+          "outbox"
+        ],
+        "retry": "quarantine key and outbox_id are stable; event returns success after durable isolation",
+        "safety": "poison record cannot block the shard indefinitely"
+      },
+      "id": "EP-S3-FX-RECOVERY-006"
+    },
+    {
+      "crash_id": "EP-CRASH-07",
+      "expected": {
+        "boundary": "after SQS outbox send, before delivered marker",
+        "possible_durable_effects": [
+          "outbox",
+          "one or more SQS messages"
+        ],
+        "retry": "notification can repeat; downstream deduplicates by outbox_id",
+        "safety": "authoritative quarantine record remains singular"
+      },
+      "id": "EP-S3-FX-RECOVERY-007"
+    },
+    {
+      "crash_id": "EP-CRASH-08",
+      "expected": {
+        "boundary": "record exceeds retry or age bound",
+        "possible_durable_effects": [
+          "possibly raw object"
+        ],
+        "retry": "Lambda writes full discarded invocation to failure S3 destination",
+        "safety": "run fails until failure object is adjudicated; no success claim while unresolved"
+      },
+      "id": "EP-S3-FX-RECOVERY-008"
+    }
+  ],
+  "group": "Effects"
+}

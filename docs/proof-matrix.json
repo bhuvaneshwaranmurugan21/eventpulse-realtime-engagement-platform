@@ -2,326 +2,326 @@
   "mappings": [
     {
       "authority": "contracts/engagement-event-v1.schema.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "producer and managed-consumer admission; not executed in Part 1",
       "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "schema validator rejects wrong or missing version",
-      "local_proof": "Stage 2 validator and adversarial unit control",
+      "local_proof": "Stage 3 independent proof: schema-version acceptance and rejection",
       "requirement_id": "EP-EVT-001"
     },
     {
       "authority": "contracts/engagement-event-v1.schema.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "production entry-point validation; not executed in Part 1",
       "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "required field deletion is rejected",
-      "local_proof": "Stage 2 validator and adversarial unit control",
+      "local_proof": "Stage 3 independent proof: required/additional-field rejection",
       "requirement_id": "EP-EVT-002"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "producer and Kinesis admission; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "oversize example is rejected by admission test",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: encoded-size admission boundary",
       "requirement_id": "EP-EVT-003"
     },
     {
       "authority": "contracts/engagement-event-v1.schema.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "production schema enforcement; not executed in Part 1",
       "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "conditional schema examples pass and fail correctly",
-      "local_proof": "Stage 2 validator and adversarial unit control",
+      "local_proof": "Stage 3 independent proof: event-type payload conditions",
       "requirement_id": "EP-EVT-004"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "producer partition-key and quarantine integration; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "mismatch is quarantined before state mutation",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: partition mismatch disposition",
       "requirement_id": "EP-EVT-005"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "production quarantine effects; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "boundary fixtures classify each disposition",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: privacy and exact clock-boundary dispositions",
       "requirement_id": "EP-EVT-006"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "conditional managed identity writes; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "conflicting digest cannot mutate engagement state",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: digest and conflict oracle",
       "requirement_id": "EP-ID-001"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "production no-repeat application effect; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "duplicate insertion preserves canonical output",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: duplicate disposition oracle",
       "requirement_id": "EP-ID-002"
     },
     {
       "authority": "contracts/recovery-protocol-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "archive, ledger and outbox integration; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "conflict ledger and outbox are present",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: conflict/quarantine protocol expectation",
       "requirement_id": "EP-ID-003"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "DynamoDB TTL and expired-identity behavior; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "TTL plus one millisecond produces EXPIRED_IDENTITY",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: horizon equality and plus-one oracle",
       "requirement_id": "EP-ID-004"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "managed processing and metric clocks; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "clock roles are exclusive",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: separate event/ingest-time roles",
       "requirement_id": "EP-TIME-001"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "runtime watermark state; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "worked sequence reproduces every watermark",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: monotonic calculable watermark oracle",
       "requirement_id": "EP-TIME-002"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "production classification parity; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "boundary classifier returns exactly one category",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: exhaustive boundary classification",
       "requirement_id": "EP-TIME-003"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "multi-shard runtime observation; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "independent shard sequence preserves progress",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: independent shard watermark oracle",
       "requirement_id": "EP-TIME-004"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "archive and late-ledger integration; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "archive and late ledger are required",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: beyond-watermark disposition expectation",
       "requirement_id": "EP-TIME-005"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "production session state; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "gap and gap-plus-one fixtures differ",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: gap equality and plus-one components",
       "requirement_id": "EP-SESSION-001"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "production bridge-state recomputation; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "bridge fixture produces one component",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: accepted-late bridge oracle",
       "requirement_id": "EP-SESSION-002"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "managed publication timing; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "open component cannot appear as final output",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: strict closure boundary oracle",
       "requirement_id": "EP-SESSION-003"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "production output identity parity; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "reordered accepted input produces the same closed ID",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: tie-break and stable identity oracle",
       "requirement_id": "EP-SESSION-004"
     },
     {
       "authority": "contracts/recovery-protocol-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "injected crash after archive; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "crash after archive remains retryable",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: archive-first recovery expectation",
       "requirement_id": "EP-EFFECT-001"
     },
     {
       "authority": "contracts/recovery-protocol-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "DynamoDB transaction failure injection; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "transaction failure exposes no partial write",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: transaction atomicity expectation",
       "requirement_id": "EP-EFFECT-002"
     },
     {
       "authority": "contracts/recovery-protocol-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "Lambda partial-batch runtime proof; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "partial batch response returns the lowest failure",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: earliest-failure checkpoint oracle",
       "requirement_id": "EP-EFFECT-003"
     },
     {
       "authority": "contracts/recovery-protocol-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "managed crash execution; not executed in Part 1",
       "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "recovery matrix completeness validator passes",
-      "local_proof": "Stage 2 validator and adversarial unit control",
+      "local_proof": "Stage 3 independent proof: complete crash-transition oracle",
       "requirement_id": "EP-EFFECT-004"
     },
     {
       "authority": "contracts/recovery-protocol-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "transport remains explicitly at-least-once; not executed in Part 1",
       "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "claim validator rejects the phrase as a positive claim",
-      "local_proof": "Stage 2 validator and adversarial unit control",
+      "local_proof": "Stage 3 independent proof: claim-registry negative control",
       "requirement_id": "EP-EFFECT-005"
     },
     {
       "authority": "contracts/recovery-protocol-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "managed poison retry and durable quarantine; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "quarantine-then-success fixture passes",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: poison-isolation protocol expectation",
       "requirement_id": "EP-EFFECT-006"
     },
     {
       "authority": "contracts/event-semantics-v1.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "raw archive completeness and integrity evidence; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "missing or corrupt object blocks replay",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: integrity gate blocks replay",
       "requirement_id": "EP-REPLAY-001"
     },
     {
       "authority": "docs/architecture.md",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "managed replay sink isolation; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "same-generation overwrite is rejected",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: same/isolated generation key oracle",
       "requirement_id": "EP-REPLAY-002"
     },
     {
       "authority": "docs/operations-contract.md",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "source/archive/output counts and digests; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "reconciliation mismatch blocks the run",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: local reconciliation precondition",
       "requirement_id": "EP-REPLAY-003"
     },
     {
       "authority": "docs/operations-contract.md",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "LOCAL_VERIFIED",
+      "aws_proof": "AWS metric exports and recomputation; not executed in Part 1",
+      "claim_level": "DESIGN_ONLY",
       "failure_condition": "metric registry completeness validator passes",
-      "local_proof": "Stage 2 validator and adversarial unit control",
+      "local_proof": "Stage 3 independent proof: metric-registry structural validation",
       "requirement_id": "EP-OPS-001"
     },
     {
       "authority": "docs/operations-contract.md",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "dated quota and byte forecast; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "pre-run manifest enforces rates and bytes",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: frozen profile and ceiling validation",
       "requirement_id": "EP-OPS-002"
     },
     {
       "authority": "docs/operations-contract.md",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
-      "claim_level": "DESIGN_ONLY",
+      "aws_proof": "observed key/shard distribution; not executed in Part 1",
+      "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "partition and hottest-key distributions are present",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: exact hottest-key ratio oracle",
       "requirement_id": "EP-OPS-003"
     },
     {
       "authority": "docs/operations-contract.md",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "timestamped pre-workload run manifest; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "immutable run manifest predates workload evidence",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: future acceptance registry requires immutable pre-run manifest",
       "requirement_id": "EP-OPS-004"
     },
     {
       "authority": "docs/security-and-lifecycle.md",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "IAM simulation and access review; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "policy simulation and access review are future gates",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: future gate frozen",
       "requirement_id": "EP-SEC-001"
     },
     {
       "authority": "docs/security-and-lifecycle.md",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "IaC and AWS encryption/public-access evidence; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "IaC and AWS config evidence are future gates",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: future gate frozen",
       "requirement_id": "EP-SEC-002"
     },
     {
       "authority": "scripts/validate_stage2_contract.py",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "sanitized future evidence; not executed in Part 1",
       "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "secret and sensitive-value scan passes",
-      "local_proof": "Stage 2 validator and adversarial unit control",
+      "local_proof": "Stage 3 independent proof: sensitive-value negative control",
       "requirement_id": "EP-SEC-003"
     },
     {
       "authority": "docs/security-and-lifecycle.md",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "dated forecast at admission; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "admission manifest fails closed",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: cost-stop acceptance gate frozen",
       "requirement_id": "EP-COST-001"
     },
     {
       "authority": "docs/security-and-lifecycle.md",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "resource inventory and independent teardown; not executed in Part 1",
       "claim_level": "DESIGN_ONLY",
       "failure_condition": "resource inventory has no missing lifecycle field",
-      "local_proof": "Stage 3 independent fixture/oracle unless this row names Stage 2 document validation",
+      "local_proof": "Stage 3 independent proof: lifecycle-field acceptance gate frozen",
       "requirement_id": "EP-COST-002"
     },
     {
       "authority": "docs/proof-matrix.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "continued proof-row updates; not executed in Part 1",
       "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "coverage validator is exact",
-      "local_proof": "Stage 2 validator and adversarial unit control",
+      "local_proof": "Stage 3 independent proof: exact traceability validator",
       "requirement_id": "EP-PROOF-001"
     },
     {
       "authority": "docs/claims.json",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "claim promotion only from later evidence; not executed in Part 1",
       "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "claim-level validator rejects promotion",
-      "local_proof": "Stage 2 validator and adversarial unit control",
+      "local_proof": "Stage 3 independent proof: claim-inflation negative control",
       "requirement_id": "EP-PROOF-002"
     },
     {
       "authority": "scripts/validate_stage2_contract.py",
-      "aws_proof": "Future bounded AWS run or configuration evidence; not executed in Part 1",
+      "aws_proof": "continued isolation validation; not executed in Part 1",
       "claim_level": "LOCAL_VERIFIED",
       "failure_condition": "isolation scan passes",
-      "local_proof": "Stage 2 validator and adversarial unit control",
+      "local_proof": "Stage 3 independent proof: foreign-project negative control",
       "requirement_id": "EP-PROOF-003"
     }
   ],
   "project": "eventpulse-realtime-engagement-platform",
   "stage": "PART1_STAGE2",
-  "status": "COMPLETED"
+  "status": "STAGE3_ALIGNED"
 }

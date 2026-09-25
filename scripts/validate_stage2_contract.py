@@ -266,11 +266,19 @@ def validate_git_scope(verify_source: bool) -> list[str]:
     if tree != BASE_TREE:
         errors.append("Stage 1 source tree does not match the recorded tree")
     allowed_exact = {
-        ".github/workflows/stage2-contract.yml", "docs/STATUS.md",
+        ".github/workflows/stage2-contract.yml", ".github/workflows/stage3-oracles.yml",
+        "docs/STATUS.md", "docs/stage3-traceability.json",
         "scripts/build_stage2_manifest.py", "scripts/validate_stage2_contract.py",
-        "tests/test_stage2_contract.py",
+        "scripts/build_stage3_manifest.py", "scripts/validate_stage3_completion.py",
+        "tests/test_stage2_contract.py", "tests/test_stage3_negative_controls.py",
+        "tests/test_stage3_oracle.py",
     }
-    allowed_prefixes = ("contracts/", "docs/adr/", "docs/audits/part1-stage2", "docs/requirements/", "evidence/part1/stage2/")
+    allowed_prefixes = (
+        "contracts/", "docs/adr/", "docs/audits/part1-stage2",
+        "docs/audits/part1-stage3", "docs/rehearsal/", "docs/requirements/",
+        "evidence/part1/stage2/", "evidence/part1/stage3/",
+        "fixtures/part1/stage3/", "oracles/",
+    )
     allowed_docs = {
         "docs/INTERVIEW.md", "docs/architecture.md", "docs/claims.json", "docs/known-limits.md",
         "docs/operations-contract.md", "docs/proof-matrix.json", "docs/security-and-lifecycle.md", "docs/threat-model.md",
