@@ -32,8 +32,8 @@
     },
     {
       "path": "docs/STATUS.md",
-      "sha256": "97cdc6ae1232e8f777409bed08a34da26eaccbfc9ec399c01d3d6268f0ada1a3",
-      "size_bytes": 2973
+      "sha256": "78fa7a20b6e1d4ab120bf91b10e9f8e97c5e0b47c270a362e082ea019511f2aa",
+      "size_bytes": 3271
     },
     {
       "path": "docs/adr/0001-kinesis-lambda-consumer.md",
@@ -97,8 +97,8 @@
     },
     {
       "path": "scripts/validate_stage2_contract.py",
-      "sha256": "08c159c9d0240ecbd46817e9e77ac3df876ccec7b71aabd9323e49e3ea1a0925",
-      "size_bytes": 16816
+      "sha256": "9af266a0c0ee999b708929430d25db149a25897a8bdda386f39a923d1a32e9eb",
+      "size_bytes": 16851
     },
     {
       "path": "tests/test_stage2_contract.py",

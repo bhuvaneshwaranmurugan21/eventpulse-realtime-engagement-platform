@@ -1,6 +1,6 @@
 # EventPulse Part 1 Stage 3 decision authority
 
-**Status:** In review
+**Status:** Accepted
 **Entry checkpoint:** `9394d1795d3e4e9622e4f580aef61be455f6ce4b` / tree `ad4077ea62bcae275030a7c389d5a0538a07d6fc`
 **Region authority:** `ap-south-2` for future managed work; no AWS operation belongs to Stage 3.
 
