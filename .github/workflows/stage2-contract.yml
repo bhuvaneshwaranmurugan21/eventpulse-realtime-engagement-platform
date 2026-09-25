@@ -1,0 +1,42 @@
+name: Stage 2 Contract
+
+on:
+  pull_request:
+    paths:
+      - "contracts/**"
+      - "docs/**"
+      - "evidence/part1/stage2/**"
+      - "scripts/build_stage2_manifest.py"
+      - "scripts/validate_stage2_contract.py"
+      - "tests/test_stage2_contract.py"
+      - ".github/workflows/stage2-contract.yml"
+  push:
+    branches: [main]
+    paths:
+      - "contracts/**"
+      - "docs/**"
+      - "evidence/part1/stage2/**"
+      - "scripts/build_stage2_manifest.py"
+      - "scripts/validate_stage2_contract.py"
+      - "tests/test_stage2_contract.py"
+      - ".github/workflows/stage2-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12"
+      - run: python scripts/build_stage2_manifest.py --check
+      - run: python scripts/validate_stage2_contract.py --verify-source
+      - run: python -m unittest discover -s tests -p 'test_stage2_contract.py' -v
+      - run: python scripts/validate_stage1_audit.py --verify-source

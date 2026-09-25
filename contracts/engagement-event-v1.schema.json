@@ -1,0 +1,120 @@
+{
+  "$id": "urn:eventpulse:engagement-event:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "const": "purchase"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "required": [
+              "value_cents"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "enum": [
+              "view",
+              "click"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "not": {
+              "required": [
+                "value_cents"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "description": "Authoritative EventPulse engagement envelope. Times are UTC Unix epoch milliseconds.",
+  "properties": {
+    "event_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$",
+      "type": "string"
+    },
+    "event_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "event_type": {
+      "enum": [
+        "view",
+        "click",
+        "purchase"
+      ]
+    },
+    "ingest_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "partition_key": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,255}$",
+      "type": "string"
+    },
+    "payload": {
+      "additionalProperties": false,
+      "maxProperties": 3,
+      "properties": {
+        "campaign_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "page_id": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "value_cents": {
+          "maximum": 100000000,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source": {
+      "pattern": "^[a-z][a-z0-9_-]{0,63}$",
+      "type": "string"
+    },
+    "user_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_id",
+    "source",
+    "user_id",
+    "event_type",
+    "event_time_ms",
+    "ingest_time_ms",
+    "partition_key",
+    "payload"
+  ],
+  "title": "EventPulse engagement event 1.0.0",
+  "type": "object"
+}

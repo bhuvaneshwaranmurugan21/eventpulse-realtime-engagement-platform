@@ -1,0 +1,288 @@
+{
+  "project": "eventpulse-realtime-engagement-platform",
+  "requirements": [
+    {
+      "authority": "contracts/engagement-event-v1.schema.json",
+      "failure_condition": "schema validator rejects wrong or missing version",
+      "group": "Envelope",
+      "id": "EP-EVT-001",
+      "statement": "Only schema 1.0.0 events enter semantic processing."
+    },
+    {
+      "authority": "contracts/engagement-event-v1.schema.json",
+      "failure_condition": "required field deletion is rejected",
+      "group": "Envelope",
+      "id": "EP-EVT-002",
+      "statement": "Required identity, source, user, event type, clocks, partition key and payload are present."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "oversize example is rejected by admission test",
+      "group": "Envelope",
+      "id": "EP-EVT-003",
+      "statement": "Encoded events are bounded to 16 KiB before Kinesis admission."
+    },
+    {
+      "authority": "contracts/engagement-event-v1.schema.json",
+      "failure_condition": "conditional schema examples pass and fail correctly",
+      "group": "Envelope",
+      "id": "EP-EVT-004",
+      "statement": "Purchase value is required only for purchase events."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "mismatch is quarantined before state mutation",
+      "group": "Envelope",
+      "id": "EP-EVT-005",
+      "statement": "Partition key equals user_id."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "boundary fixtures classify each disposition",
+      "group": "Envelope",
+      "id": "EP-EVT-006",
+      "statement": "Future, stale and privacy-invalid payloads have explicit dispositions."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "conflicting digest cannot mutate engagement state",
+      "group": "Identity",
+      "id": "EP-ID-001",
+      "statement": "event_id is immutable inside the seven-day dedupe horizon."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "duplicate insertion preserves canonical output",
+      "group": "Identity",
+      "id": "EP-ID-002",
+      "statement": "Identical duplicates make no repeated application effect."
+    },
+    {
+      "authority": "contracts/recovery-protocol-v1.json",
+      "failure_condition": "conflict ledger and outbox are present",
+      "group": "Identity",
+      "id": "EP-ID-003",
+      "statement": "Conflicting same-ID payloads are archived and quarantined."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "TTL plus one millisecond produces EXPIRED_IDENTITY",
+      "group": "Identity",
+      "id": "EP-ID-004",
+      "statement": "After dedupe expiry, an old identity is quarantined rather than counted again."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "clock roles are exclusive",
+      "group": "Event time",
+      "id": "EP-TIME-001",
+      "statement": "Event time determines sessions; processing time measures latency only."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "worked sequence reproduces every watermark",
+      "group": "Event time",
+      "id": "EP-TIME-002",
+      "statement": "Each shard watermark is monotonic and calculable."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "boundary classifier returns exactly one category",
+      "group": "Event time",
+      "id": "EP-TIME-003",
+      "statement": "On-time, accepted-late and beyond-watermark categories are exhaustive and disjoint."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "independent shard sequence preserves progress",
+      "group": "Event time",
+      "id": "EP-TIME-004",
+      "statement": "An idle shard cannot stall another shard."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "archive and late ledger are required",
+      "group": "Event time",
+      "id": "EP-TIME-005",
+      "statement": "Beyond-watermark events never silently disappear or rewrite live output."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "gap and gap-plus-one fixtures differ",
+      "group": "Sessions",
+      "id": "EP-SESSION-001",
+      "statement": "The inactivity gap is 30 minutes with an inclusive boundary."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "bridge fixture produces one component",
+      "group": "Sessions",
+      "id": "EP-SESSION-002",
+      "statement": "Accepted out-of-order bridge events merge open components deterministically."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "open component cannot appear as final output",
+      "group": "Sessions",
+      "id": "EP-SESSION-003",
+      "statement": "Sessions publish only after watermark closure."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "reordered accepted input produces the same closed ID",
+      "group": "Sessions",
+      "id": "EP-SESSION-004",
+      "statement": "Closed session identity is deterministic within a generation."
+    },
+    {
+      "authority": "contracts/recovery-protocol-v1.json",
+      "failure_condition": "crash after archive remains retryable",
+      "group": "Effects",
+      "id": "EP-EFFECT-001",
+      "statement": "Raw archive precedes the application transaction."
+    },
+    {
+      "authority": "contracts/recovery-protocol-v1.json",
+      "failure_condition": "transaction failure exposes no partial write",
+      "group": "Effects",
+      "id": "EP-EFFECT-002",
+      "statement": "Identity, state, output and outbox commit atomically in DynamoDB."
+    },
+    {
+      "authority": "contracts/recovery-protocol-v1.json",
+      "failure_condition": "partial batch response returns the lowest failure",
+      "group": "Effects",
+      "id": "EP-EFFECT-003",
+      "statement": "Checkpoint acknowledgement cannot pass the earliest failed sequence."
+    },
+    {
+      "authority": "contracts/recovery-protocol-v1.json",
+      "failure_condition": "recovery matrix completeness validator passes",
+      "group": "Effects",
+      "id": "EP-EFFECT-004",
+      "statement": "All mandatory crash boundaries have retry behavior."
+    },
+    {
+      "authority": "contracts/recovery-protocol-v1.json",
+      "failure_condition": "claim validator rejects the phrase as a positive claim",
+      "group": "Effects",
+      "id": "EP-EFFECT-005",
+      "statement": "Transport exactly-once is never claimed."
+    },
+    {
+      "authority": "contracts/recovery-protocol-v1.json",
+      "failure_condition": "quarantine-then-success fixture passes",
+      "group": "Effects",
+      "id": "EP-EFFECT-006",
+      "statement": "Poison records are durably isolated without indefinite shard blockage."
+    },
+    {
+      "authority": "contracts/event-semantics-v1.json",
+      "failure_condition": "missing or corrupt object blocks replay",
+      "group": "Replay",
+      "id": "EP-REPLAY-001",
+      "statement": "Replay input is limited to retained, integrity-verified raw objects."
+    },
+    {
+      "authority": "docs/architecture.md",
+      "failure_condition": "same-generation overwrite is rejected",
+      "group": "Replay",
+      "id": "EP-REPLAY-002",
+      "statement": "Every replay has a new generation_id and cannot overwrite live output."
+    },
+    {
+      "authority": "docs/operations-contract.md",
+      "failure_condition": "reconciliation mismatch blocks the run",
+      "group": "Replay",
+      "id": "EP-REPLAY-003",
+      "statement": "Archive, source and output counts and digests reconcile before a replay claim."
+    },
+    {
+      "authority": "docs/operations-contract.md",
+      "failure_condition": "metric registry completeness validator passes",
+      "group": "Operations",
+      "id": "EP-OPS-001",
+      "statement": "Intake, output, lag, latency, duplicate, late, quarantine and recovery metrics have exact definitions."
+    },
+    {
+      "authority": "docs/operations-contract.md",
+      "failure_condition": "pre-run manifest enforces rates and bytes",
+      "group": "Operations",
+      "id": "EP-OPS-002",
+      "statement": "One-shard workload profiles remain below both record and byte ceilings."
+    },
+    {
+      "authority": "docs/operations-contract.md",
+      "failure_condition": "partition and hottest-key distributions are present",
+      "group": "Operations",
+      "id": "EP-OPS-003",
+      "statement": "Hot-key pressure is measured and cannot be hidden by average throughput."
+    },
+    {
+      "authority": "docs/operations-contract.md",
+      "failure_condition": "immutable run manifest predates workload evidence",
+      "group": "Operations",
+      "id": "EP-OPS-004",
+      "statement": "Thresholds and sample populations are frozen before a run."
+    },
+    {
+      "authority": "docs/security-and-lifecycle.md",
+      "failure_condition": "policy simulation and access review are future gates",
+      "group": "Security",
+      "id": "EP-SEC-001",
+      "statement": "Runtime IAM is limited to named EventPulse resources and required actions."
+    },
+    {
+      "authority": "docs/security-and-lifecycle.md",
+      "failure_condition": "IaC and AWS config evidence are future gates",
+      "group": "Security",
+      "id": "EP-SEC-002",
+      "statement": "Raw, state, quarantine and logs are encrypted and public access is blocked."
+    },
+    {
+      "authority": "scripts/validate_stage2_contract.py",
+      "failure_condition": "secret and sensitive-value scan passes",
+      "group": "Security",
+      "id": "EP-SEC-003",
+      "statement": "Public evidence contains no credentials, raw account IDs, ARNs or customer data."
+    },
+    {
+      "authority": "docs/security-and-lifecycle.md",
+      "failure_condition": "admission manifest fails closed",
+      "group": "Cost",
+      "id": "EP-COST-001",
+      "statement": "No AWS run starts when the dated forecast exceeds USD 8 or the hard cap is not USD 12."
+    },
+    {
+      "authority": "docs/security-and-lifecycle.md",
+      "failure_condition": "resource inventory has no missing lifecycle field",
+      "group": "Cost",
+      "id": "EP-COST-002",
+      "statement": "Every temporary resource has owner, run, expiry and teardown verification."
+    },
+    {
+      "authority": "docs/proof-matrix.json",
+      "failure_condition": "coverage validator is exact",
+      "group": "Proof",
+      "id": "EP-PROOF-001",
+      "statement": "Every requirement maps to authority, local oracle, AWS proof and failure condition."
+    },
+    {
+      "authority": "docs/claims.json",
+      "failure_condition": "claim-level validator rejects promotion",
+      "group": "Proof",
+      "id": "EP-PROOF-002",
+      "statement": "Stage 2 cannot mint AWS_VERIFIED or MEASURED streaming claims."
+    },
+    {
+      "authority": "scripts/validate_stage2_contract.py",
+      "failure_condition": "isolation scan passes",
+      "group": "Proof",
+      "id": "EP-PROOF-003",
+      "statement": "Foreign-project evidence and identifiers are absent."
+    }
+  ],
+  "source_base_sha": "cac96a23648be8512c5cab58774217169d7e5829",
+  "stage": "PART1_STAGE2",
+  "status": "IN_REVIEW"
+}

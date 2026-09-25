@@ -1,0 +1,71 @@
+{
+  "authority": {
+    "region": "ap-south-2",
+    "schema": "contracts/engagement-event-v1.schema.json",
+    "source_base_sha": "cac96a23648be8512c5cab58774217169d7e5829",
+    "source_base_tree": "17bcfb451e52e4cdce7975b09de76e4848a29138"
+  },
+  "contract_version": "1.0.0",
+  "envelope": {
+    "canonicalization": "UTF-8 JSON; object keys sorted recursively; integers remain base-10 integers; no floats; no Unicode normalization or whitespace participates in the digest",
+    "clock_validity": {
+      "future_disposition": "FUTURE_CLOCK quarantine",
+      "max_age_ms": 604800000,
+      "max_future_ms": 60000,
+      "too_old_disposition": "TOO_OLD quarantine"
+    },
+    "compatibility": "A producer change is compatible only when every valid 1.0.0 event retains the same identity, timestamp meaning and validation result. Otherwise issue a new major schema version.",
+    "max_encoded_bytes": 16384,
+    "partition_rule": "partition_key must equal user_id so one user remains ordered in one Kinesis shard",
+    "payload_digest": "SHA-256 of canonical full envelope excluding ingest_time_ms",
+    "privacy": "user_id is pseudonymous; payload forbids names, email, phone, address, free text and credentials; logs contain identifiers only after one-way redaction",
+    "timestamp_unit": "UTC Unix epoch milliseconds"
+  },
+  "event_time": {
+    "advance_rule": "after a valid event is classified, max_valid_event_time_seen becomes max(previous maximum,event_time_ms)",
+    "allowed_lateness_ms": 1800000,
+    "beyond_watermark_effect": "raw archive and LATE_BEYOND_WATERMARK ledger/outbox only; no live session or aggregate mutation",
+    "boundary": "event_time_ms equal to the watermark is accepted_late",
+    "categories": {
+      "accepted_late": "watermark_before_record <= event_time_ms < previous max_valid_event_time_seen",
+      "beyond_watermark": "event_time_ms < watermark_before_record",
+      "on_time": "event_time_ms >= previous max_valid_event_time_seen, or no previous maximum exists"
+    },
+    "idle_partition": "no global minimum exists, so an idle shard cannot stall another shard. Its stored watermark remains unchanged; returning records are evaluated against it and cannot move it backward.",
+    "initial_state": "watermark is undefined until the first valid event; that event is on_time",
+    "processing_order": "Kinesis sequence-number order within the shard with Lambda parallelization factor 1",
+    "processing_time_role": "metrics only; never session membership",
+    "scope": "per Kinesis shard; user_id partitioning keeps each user in one scope",
+    "watermark_before_record": "max_valid_event_time_seen - allowed_lateness_ms; it never moves backward"
+  },
+  "identity": {
+    "after_horizon": "archive and quarantine as EXPIRED_IDENTITY; make no live application effect because EventPulse does not promise unbounded deduplication",
+    "conflicting_duplicate": "same event_id and different payload_digest within the horizon: preserve the variant in raw archive, write IDENTITY_CONFLICT quarantine ledger/outbox, make no engagement mutation",
+    "dedupe_horizon_ms": 604800000,
+    "identical_duplicate": "same event_id and payload_digest within the horizon: preserve one raw object, increment duplicate metric, make no state or output mutation",
+    "key": "event_id",
+    "ttl_boundary": "age <= horizon remains protected; age > horizon is expired",
+    "ttl_storage_ms": 691200000
+  },
+  "project": "eventpulse-realtime-engagement-platform",
+  "retention": {
+    "identity_and_open_state_days": 8,
+    "logs_days": 7,
+    "quarantine_days": 7,
+    "raw_archive_days": 7,
+    "replay_boundary": "Only raw events retained and integrity-verified inside the seven-day archive window are promised replayable."
+  },
+  "sessions": {
+    "boundary": "delta exactly equal to inactivity_gap_ms remains in the same session",
+    "bridge_event": "an accepted_late event can join two open components; recompute them as one component before publication",
+    "closure": "a session closes only when shard watermark > session_end_ms + inactivity_gap_ms",
+    "inactivity_gap_ms": 1800000,
+    "membership": "events for one user are sorted by (event_time_ms,event_id); adjacent events with delta <= inactivity_gap_ms are connected",
+    "open_state": "retain all accepted member identities and times needed to recompute components until closure",
+    "output_version": "1 inside a generation; a different replay generation never overwrites the live generation",
+    "published_correction": "live sessions are published only after closure; beyond-watermark events never rewrite them. A separately authorized replay writes a different generation.",
+    "session_id": "SHA-256 of contract_version, generation_id, user_id and the sorted member event IDs at closure",
+    "tie_break": "event_id ascending for equal event_time_ms"
+  },
+  "status": "DESIGN_ONLY"
+}
