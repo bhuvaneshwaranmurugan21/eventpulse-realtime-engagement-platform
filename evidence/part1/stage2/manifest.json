@@ -1,0 +1,119 @@
+{
+  "artifacts": [
+    {
+      "path": ".github/workflows/stage2-contract.yml",
+      "sha256": "97a777d747175401ba3eee1aad45da67591b732feaad2830781bf4935db29198",
+      "size_bytes": 1252
+    },
+    {
+      "path": "contracts/engagement-event-v1.schema.json",
+      "sha256": "0dc72341db45cc54f6815b1d77f3de620619bd2422ee333a872a165140884213",
+      "size_bytes": 2436
+    },
+    {
+      "path": "contracts/event-semantics-v1.json",
+      "sha256": "6d772b9ab0f1c39717625e9db59e2025647388a94707dc502a8c4c0a2fb7b797",
+      "size_bytes": 4882
+    },
+    {
+      "path": "contracts/recovery-protocol-v1.json",
+      "sha256": "cb203162ddda58cd0e0655d570c40dff868602147c3956938d6d8461f70f78f6",
+      "size_bytes": 4416
+    },
+    {
+      "path": "contracts/semantic-examples-v1.json",
+      "sha256": "e8fee0c403b39813161b6a096373c6995a991a9645cd64622e634491187e6025",
+      "size_bytes": 2352
+    },
+    {
+      "path": "docs/INTERVIEW.md",
+      "sha256": "02093a5dac043d5b3061228546c12c243f0534fa09ee9ff71e04ae25e6f193f7",
+      "size_bytes": 2921
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "6e5814024e091147d20823259149b4e23298b7ee5ef2e0a3e924a852fe42bdda",
+      "size_bytes": 1741
+    },
+    {
+      "path": "docs/adr/0001-kinesis-lambda-consumer.md",
+      "sha256": "2e660d4c8f375e7db3674c06845c41b6a0a4f3604e4ffa9d4aca35468102f494",
+      "size_bytes": 3963
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "3e642dc7defc491cf92e91c146d079f6498f132a18c506ff20aa9107cc4d9010",
+      "size_bytes": 3527
+    },
+    {
+      "path": "docs/audits/part1-stage2-decision-authority.md",
+      "sha256": "a1c66f635e679698e9d87353f88aa3120f996bc76afcfcf8fca98be35f916438",
+      "size_bytes": 1025
+    },
+    {
+      "path": "docs/claims.json",
+      "sha256": "9c11c20f020ee7ee7cd1daaf88245e530189a1fe51452e7742b8ecc8ebe33cfa",
+      "size_bytes": 2621
+    },
+    {
+      "path": "docs/known-limits.md",
+      "sha256": "0b869c8bb206157aa9108446539c4d1ec093403611205cb90dc2945900616df5",
+      "size_bytes": 1177
+    },
+    {
+      "path": "docs/operations-contract.md",
+      "sha256": "10c6fcacecddfbff0d9e7197cada1ff3a86d06eebdad65bdd450cbee39397d87",
+      "size_bytes": 3861
+    },
+    {
+      "path": "docs/proof-matrix.json",
+      "sha256": "b34a6d400e4c83381e61857fbe6b0255f6e62ac0fd6b25a62b9b0c56e8141a99",
+      "size_bytes": 16557
+    },
+    {
+      "path": "docs/requirements/part1-stage2.json",
+      "sha256": "213a53ab30e143dbf7aa5ad9548bc4e1e2920a0f5c17d6fa31117a29c314b82d",
+      "size_bytes": 11497
+    },
+    {
+      "path": "docs/security-and-lifecycle.md",
+      "sha256": "cdab6bb97990f72ab8f51c80f4ef80f787ec709e1e0f6f7215a04793acaaa168",
+      "size_bytes": 3317
+    },
+    {
+      "path": "docs/threat-model.md",
+      "sha256": "bd9aa2ed2025b3bc31f313b2b2003c344b5f4a55c9b324ec169e46578f482162",
+      "size_bytes": 1886
+    },
+    {
+      "path": "scripts/build_stage2_manifest.py",
+      "sha256": "8634542973fc2ef234565703f034df4f547073917578176e6cbb455e38737a5e",
+      "size_bytes": 2939
+    },
+    {
+      "path": "scripts/validate_stage2_contract.py",
+      "sha256": "96ebe7078351a4948275de16c75d5c632a7b16a2f2ba37b4068e7d416c5b4514",
+      "size_bytes": 16419
+    },
+    {
+      "path": "tests/test_stage2_contract.py",
+      "sha256": "7cfc3b7217c6b65a0b901d3316459f32ea09e821ab41f95ad0d41eaa0765536a",
+      "size_bytes": 3835
+    }
+  ],
+  "claim_boundary": {
+    "aws_streaming": "UNCLAIMED",
+    "design": "DESIGN_ONLY",
+    "document_validation": "LOCAL_VERIFIED",
+    "measured_performance": "UNCLAIMED"
+  },
+  "contract_version": "1.0.0",
+  "project": "eventpulse-realtime-engagement-platform",
+  "source": {
+    "base_sha": "cac96a23648be8512c5cab58774217169d7e5829",
+    "base_tree": "17bcfb451e52e4cdce7975b09de76e4848a29138",
+    "region": "ap-south-2"
+  },
+  "stage": "PART1_STAGE2_COMPLETION_CONTRACT",
+  "status": "IN_REVIEW"
+}

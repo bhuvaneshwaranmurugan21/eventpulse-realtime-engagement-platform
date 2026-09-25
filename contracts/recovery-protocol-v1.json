@@ -1,0 +1,107 @@
+{
+  "application_commit": "One DynamoDB TransactWriteItems call atomically writes the identity ledger, version-checked state, materialized output, and any outbox row. ClientRequestToken is derived from generation_id and event_id.",
+  "archive": "Before application commit, write canonical raw bytes to S3 key raw/schema=1.0.0/date=<UTC-date>/event_id=<id>/<payload_digest>.json with If-None-Match *. On 412, verify stored digest; on 409, retry with bounded backoff.",
+  "boundaries": [
+    {
+      "boundary": "before raw archive",
+      "id": "EP-CRASH-01",
+      "possible_durable_effects": [],
+      "retry": "record is re-read; archive and transaction run",
+      "safety": "no acknowledged effect"
+    },
+    {
+      "boundary": "after raw archive, before DynamoDB transaction",
+      "id": "EP-CRASH-02",
+      "possible_durable_effects": [
+        "raw object"
+      ],
+      "retry": "conditional archive detects identical object; transaction runs once",
+      "safety": "no lost application effect"
+    },
+    {
+      "boundary": "during DynamoDB transaction",
+      "id": "EP-CRASH-03",
+      "possible_durable_effects": [
+        "raw object",
+        "all transaction items or none"
+      ],
+      "retry": "idempotency token and conditions make the retry safe",
+      "safety": "no partial state/sink commit"
+    },
+    {
+      "boundary": "after transaction, before Lambda response",
+      "id": "EP-CRASH-04",
+      "possible_durable_effects": [
+        "raw object",
+        "identity",
+        "state",
+        "output",
+        "outbox"
+      ],
+      "retry": "identity and version conditions classify retry as already applied",
+      "safety": "no double application"
+    },
+    {
+      "boundary": "after partial failure response",
+      "id": "EP-CRASH-05",
+      "possible_durable_effects": [
+        "successful earlier records",
+        "failed record may have raw object only"
+      ],
+      "retry": "Lambda resumes from the lowest reported failed sequence; committed events are idempotent",
+      "safety": "checkpoint does not pass the earliest failed record"
+    },
+    {
+      "boundary": "poison event after quarantine transaction, before response",
+      "id": "EP-CRASH-06",
+      "possible_durable_effects": [
+        "raw object",
+        "quarantine ledger",
+        "outbox"
+      ],
+      "retry": "quarantine key and outbox_id are stable; event returns success after durable isolation",
+      "safety": "poison record cannot block the shard indefinitely"
+    },
+    {
+      "boundary": "after SQS outbox send, before delivered marker",
+      "id": "EP-CRASH-07",
+      "possible_durable_effects": [
+        "outbox",
+        "one or more SQS messages"
+      ],
+      "retry": "notification can repeat; downstream deduplicates by outbox_id",
+      "safety": "authoritative quarantine record remains singular"
+    },
+    {
+      "boundary": "record exceeds retry or age bound",
+      "id": "EP-CRASH-08",
+      "possible_durable_effects": [
+        "possibly raw object"
+      ],
+      "retry": "Lambda writes full discarded invocation to failure S3 destination",
+      "safety": "run fails until failure object is adjudicated; no success claim while unresolved"
+    }
+  ],
+  "checkpoint_owner": "AWS Lambda event source mapping; a batch is acknowledged only after the handler returns success or reports a bounded partial failure",
+  "claims": {
+    "application_effect": "idempotent only after this protocol is implemented and AWS-tested",
+    "raw_completeness": "unverified until source/archive count and digest reconciliation passes",
+    "recovery": "unverified until injected AWS crash runs pass",
+    "transport_exactly_once": false
+  },
+  "lambda_mapping": {
+    "batch_size": 100,
+    "bisect_batch_on_function_error": true,
+    "maximum_batching_window_seconds": 1,
+    "maximum_record_age_seconds": 3600,
+    "maximum_retry_attempts": 3,
+    "on_failure_destination": "dedicated S3 failure prefix retaining the full invocation record",
+    "parallelization_factor": 1,
+    "report_batch_item_failures": true
+  },
+  "project": "eventpulse-realtime-engagement-platform",
+  "protocol_version": "1.0.0",
+  "quarantine": "DynamoDB quarantine/outbox is the durable authority. SQS is an at-least-once notification/redrive channel; consumers deduplicate by outbox_id.",
+  "runtime": "AWS Lambda consuming Kinesis through an event source mapping",
+  "status": "DESIGN_ONLY"
+}

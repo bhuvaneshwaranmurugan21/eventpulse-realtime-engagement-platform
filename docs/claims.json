@@ -1,0 +1,99 @@
+{
+  "allowed_levels": [
+    "DESIGN_ONLY",
+    "LOCAL_VERIFIED",
+    "AWS_VERIFIED",
+    "MEASURED",
+    "EXTRAPOLATED",
+    "UNCLAIMED"
+  ],
+  "claims": [
+    {
+      "evidence": [
+        "docs/audits/part1-stage1-completion.md"
+      ],
+      "id": "stage1_repository_and_isolation",
+      "level": "LOCAL_VERIFIED",
+      "scope": "Stage 1 source and scoped identity boundary only"
+    },
+    {
+      "evidence": [
+        "contracts/engagement-event-v1.schema.json",
+        "scripts/validate_stage2_contract.py"
+      ],
+      "id": "event_contract_v1",
+      "level": "LOCAL_VERIFIED",
+      "scope": "internal schema/reference consistency, not producer or AWS execution"
+    },
+    {
+      "evidence": [
+        "contracts/event-semantics-v1.json"
+      ],
+      "id": "event_time_and_session_semantics",
+      "level": "DESIGN_ONLY",
+      "scope": "normative contract awaiting independent executable oracles"
+    },
+    {
+      "evidence": [
+        "docs/adr/0001-kinesis-lambda-consumer.md"
+      ],
+      "id": "runtime_architecture",
+      "level": "DESIGN_ONLY",
+      "scope": "selected design; no deployed Lambda consumer"
+    },
+    {
+      "evidence": [
+        "contracts/recovery-protocol-v1.json"
+      ],
+      "id": "application_effect_idempotency",
+      "level": "DESIGN_ONLY",
+      "scope": "protocol awaiting implementation and crash proof"
+    },
+    {
+      "evidence": [],
+      "id": "managed_consumer",
+      "level": "UNCLAIMED",
+      "scope": "no managed EventPulse consumer has run"
+    },
+    {
+      "evidence": [],
+      "id": "durable_aws_recovery",
+      "level": "UNCLAIMED",
+      "scope": "no injected managed failure has run"
+    },
+    {
+      "evidence": [],
+      "id": "raw_archive_completeness",
+      "level": "UNCLAIMED",
+      "scope": "no source/archive reconciliation has run"
+    },
+    {
+      "evidence": [],
+      "id": "latency_throughput",
+      "level": "UNCLAIMED",
+      "scope": "no workload measurement has run"
+    },
+    {
+      "evidence": [],
+      "id": "observed_spend",
+      "level": "UNCLAIMED",
+      "scope": "no EventPulse-specific billing measurement"
+    },
+    {
+      "evidence": [],
+      "id": "teardown",
+      "level": "UNCLAIMED",
+      "scope": "no EventPulse workload stack has been created or destroyed"
+    },
+    {
+      "evidence": [
+        "contracts/recovery-protocol-v1.json"
+      ],
+      "id": "transport_exactly_once",
+      "level": "UNCLAIMED",
+      "scope": "explicitly not claimed; Kinesis/Lambda delivery can repeat"
+    }
+  ],
+  "project": "eventpulse-realtime-engagement-platform",
+  "updated": "2026-09-25"
+}

@@ -1,0 +1,78 @@
+{
+  "contract_version": "1.0.0",
+  "project": "eventpulse-realtime-engagement-platform",
+  "status": "DESIGN_ONLY_WORKED_EXAMPLES",
+  "time_examples": [
+    {
+      "event_time_ms": 10000000,
+      "expected_category": "on_time",
+      "expected_watermark_after_ms": 8200000,
+      "name": "first event",
+      "previous_max_event_time_ms": null,
+      "watermark_before_ms": null
+    },
+    {
+      "event_time_ms": 9000000,
+      "expected_category": "accepted_late",
+      "expected_watermark_after_ms": 8200000,
+      "name": "out of order inside lateness",
+      "previous_max_event_time_ms": 10000000,
+      "watermark_before_ms": 8200000
+    },
+    {
+      "event_time_ms": 8200000,
+      "expected_category": "accepted_late",
+      "expected_watermark_after_ms": 8200000,
+      "name": "exact watermark boundary",
+      "previous_max_event_time_ms": 10000000,
+      "watermark_before_ms": 8200000
+    },
+    {
+      "event_time_ms": 8199999,
+      "expected_category": "beyond_watermark",
+      "expected_watermark_after_ms": 8200000,
+      "name": "one millisecond beyond boundary",
+      "previous_max_event_time_ms": 10000000,
+      "watermark_before_ms": 8200000
+    },
+    {
+      "event_time_ms": 12000000,
+      "expected_category": "on_time",
+      "expected_watermark_after_ms": 10200000,
+      "name": "watermark advance",
+      "previous_max_event_time_ms": 10000000,
+      "watermark_before_ms": 8200000
+    }
+  ],
+  "session_examples": [
+    {
+      "event_times_ms": [0, 1800000],
+      "expected_session_count": 1,
+      "name": "inclusive gap boundary"
+    },
+    {
+      "event_times_ms": [0, 1800001],
+      "expected_session_count": 2,
+      "name": "gap plus one millisecond"
+    },
+    {
+      "arrival_order_ms": [0, 1860000, 930000],
+      "event_times_ms": [0, 930000, 1860000],
+      "expected_session_count": 1,
+      "name": "accepted late bridge merges open components",
+      "reason": "The bridge is 930000 ms behind the maximum, within the 1800000 ms lateness allowance, and within the session gap of both endpoints."
+    }
+  ],
+  "ttl_examples": [
+    {
+      "age_ms": 604800000,
+      "expected": "IDENTITY_PROTECTED",
+      "name": "exact dedupe horizon"
+    },
+    {
+      "age_ms": 604800001,
+      "expected": "EXPIRED_IDENTITY_QUARANTINE",
+      "name": "one millisecond after dedupe horizon"
+    }
+  ]
+}
