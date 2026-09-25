@@ -1,0 +1,44 @@
+{
+  "contract_version": "1.0.0",
+  "expected_case_count": 50,
+  "expected_corpus_sha256": "3275a62ca3b7e90be6a6988d2d7f9a321db7ef53a767a8fdb8a3f01ea8de8461",
+  "files": [
+    {
+      "file": "fixtures/part1/stage3/envelope.json",
+      "group": "Envelope",
+      "required_prefix": "EP-S3-FX-ENV-"
+    },
+    {
+      "file": "fixtures/part1/stage3/identity.json",
+      "group": "Identity",
+      "required_prefix": "EP-S3-FX-ID-"
+    },
+    {
+      "file": "fixtures/part1/stage3/time.json",
+      "group": "Event time",
+      "required_prefix": "EP-S3-FX-TIME-"
+    },
+    {
+      "file": "fixtures/part1/stage3/sessions.json",
+      "group": "Sessions",
+      "required_prefix": "EP-S3-FX-SESSION-"
+    },
+    {
+      "file": "fixtures/part1/stage3/recovery.json",
+      "group": "Effects",
+      "required_prefix": "EP-S3-FX-RECOVERY-"
+    },
+    {
+      "file": "fixtures/part1/stage3/replay-and-skew.json",
+      "group": "Replay and skew",
+      "required_prefixes": [
+        "EP-S3-FX-REPLAY-",
+        "EP-S3-FX-SKEW-"
+      ]
+    }
+  ],
+  "project": "eventpulse-realtime-engagement-platform",
+  "source_sha": "9394d1795d3e4e9622e4f580aef61be455f6ce4b",
+  "source_tree": "ad4077ea62bcae275030a7c389d5a0538a07d6fc",
+  "status": "FROZEN_FOR_STAGE3"
+}

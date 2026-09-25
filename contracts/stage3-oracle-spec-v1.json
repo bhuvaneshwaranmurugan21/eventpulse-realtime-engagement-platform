@@ -1,0 +1,36 @@
+{
+  "canonicalization": {
+    "event_digest": "SHA-256 of canonical UTF-8 JSON for the full envelope excluding ingest_time_ms",
+    "json": "object keys sorted recursively; compact separators; integers remain base-10 integers; floats are forbidden; Unicode is not normalized",
+    "session_id_preimage": "canonical JSON array [contract_version,generation_id,user_id,sorted_member_event_ids]"
+  },
+  "clarifications": {
+    "clock_reference": "ingest_time_ms is the reference for max_future_ms and max_age_ms local-oracle classification",
+    "disposition_precedence": [
+      "EVENT_TOO_LARGE",
+      "PRIVACY_VIOLATION",
+      "INVALID_SCHEMA",
+      "PARTITION_MISMATCH",
+      "FUTURE_CLOCK",
+      "TOO_OLD",
+      "ACCEPTED"
+    ],
+    "privacy_disposition": "A prohibited payload key is quarantined as PRIVACY_VIOLATION before semantic processing.",
+    "scope": "These choices make the Stage 2 contract byte-executable without changing its 30-minute lateness, 30-minute session, seven-day dedupe, eight-day protective TTL, archive-first, or generation-isolation semantics."
+  },
+  "contract_version": "1.0.0",
+  "dependencies": {
+    "runtime": "Python standard library only",
+    "shared_production_semantic_code": false
+  },
+  "project": "eventpulse-realtime-engagement-platform",
+  "source": {
+    "base_sha": "9394d1795d3e4e9622e4f580aef61be455f6ce4b",
+    "base_tree": "ad4077ea62bcae275030a7c389d5a0538a07d6fc",
+    "event_contract": "contracts/event-semantics-v1.json",
+    "recovery_contract": "contracts/recovery-protocol-v1.json",
+    "schema": "contracts/engagement-event-v1.schema.json"
+  },
+  "status": "LOCAL_ORACLE_AUTHORITY",
+  "version": "1.0.0"
+}

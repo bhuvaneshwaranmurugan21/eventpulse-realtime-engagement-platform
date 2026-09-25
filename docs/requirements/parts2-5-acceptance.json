@@ -1,0 +1,310 @@
+{
+  "acceptance": [
+    {
+      "claim_ceiling": "LOCAL_VERIFIED",
+      "failure_condition": "production entry point is bypassed by a test-only imitation",
+      "id": "EP-FUTURE-P2-001",
+      "part": 2,
+      "preconditions": [
+        "exact source and oracle manifest resolve",
+        "declared local dependencies reproduce"
+      ],
+      "predecessor": "verified Part 1 completion main SHA/tree",
+      "proof": "production ingress/consumer adapter executes the frozen envelope and oracle corpus locally",
+      "requirement": "The real consumer entry path implements validation, raw capture, poison classification, retry and sink interfaces.",
+      "resume_point": "requalify source, recreate environment, then enter the production adapter",
+      "rollback_cleanup": "discard disposable local state; no cloud cleanup applies",
+      "stale_evidence": "all local test and coverage evidence",
+      "stop_conditions": [
+        "source or dependency drift",
+        "production entry point is bypassed"
+      ]
+    },
+    {
+      "claim_ceiling": "LOCAL_VERIFIED",
+      "failure_condition": "a crash loses an event or repeats an application effect",
+      "id": "EP-FUTURE-P2-002",
+      "part": 2,
+      "preconditions": [
+        "crash journal seed and all eight boundaries frozen",
+        "durable adapters are substitutable without semantic bypass"
+      ],
+      "predecessor": "P2-001 production adapter acceptance",
+      "proof": "deterministic crash journal for every EP-CRASH boundary compared with the independent oracle",
+      "requirement": "Checkpoint and durable-effect behavior is locally proven under interruption and restart.",
+      "resume_point": "resume from the first unverified crash boundary after root-cause repair",
+      "rollback_cleanup": "preserve failure journal; restore isolated local stores from fixture seed",
+      "stale_evidence": "that boundary and all later recovery evidence",
+      "stop_conditions": [
+        "unexplained loss or repeated effect",
+        "journal cannot identify resume boundary"
+      ]
+    },
+    {
+      "claim_ceiling": "LOCAL_VERIFIED",
+      "failure_condition": "TTL, replay, conflict, poison, hot-key or throttling branch lacks a deliberate test",
+      "id": "EP-FUTURE-P2-003",
+      "part": 2,
+      "preconditions": [
+        "ordinary and failure suites green",
+        "coverage tool and thresholds declared"
+      ],
+      "predecessor": "P2-001 and P2-002 accepted implementation",
+      "proof": "ordinary, property/metamorphic and injected-failure tests with critical-branch coverage",
+      "requirement": "The complete local implementation is tested against the Part 1 authority.",
+      "resume_point": "repair the narrow branch and rerun the full local implementation suite",
+      "rollback_cleanup": "discard test stores and retain failing seed and transcript",
+      "stale_evidence": "coverage, mutation/property, and implementation acceptance evidence",
+      "stop_conditions": [
+        "critical branch absent",
+        "oracle/production disagreement"
+      ]
+    },
+    {
+      "claim_ceiling": "DESIGN_ONLY",
+      "failure_condition": "account, region, role, policy, quota, backend, budget or lease is unknown or mismatched",
+      "id": "EP-FUTURE-P3-001",
+      "part": 3,
+      "preconditions": [
+        "approved account and role identity",
+        "authoritative ap-south-2 region",
+        "quota, budget, backend and lease readable"
+      ],
+      "predecessor": "verified Part 2 completion main SHA/tree",
+      "proof": "fresh read-only admission receipt bound to exact merged main",
+      "requirement": "AWS admission must pass before planning or deployment.",
+      "resume_point": "repeat admission from identity resolution on exact current main",
+      "rollback_cleanup": "perform no apply; release any acquired lease without deleting pre-existing resources",
+      "stale_evidence": "all admission-derived plans and forecasts",
+      "stop_conditions": [
+        "identity or region mismatch",
+        "unknown quota/cost/backend/lease field"
+      ]
+    },
+    {
+      "claim_ceiling": "DESIGN_ONLY",
+      "failure_condition": "saved plan is stale, source-unbound, destructive, publicly open or over budget",
+      "id": "EP-FUTURE-P3-002",
+      "part": 3,
+      "preconditions": [
+        "provider lock and immutable variables recorded",
+        "dated forecast below admission ceiling"
+      ],
+      "predecessor": "P3-001 fresh admission receipt",
+      "proof": "independent saved-plan review with source, provider-lock, account, region and variable identity",
+      "requirement": "The exact infrastructure plan is reviewed before apply.",
+      "resume_point": "create and review a new saved plan from fresh admission",
+      "rollback_cleanup": "do not apply; remove only disposable local plan copies after preserving reviewed digest",
+      "stale_evidence": "prior plan approval and every plan-derived inventory",
+      "stop_conditions": [
+        "unexpected delete/replace/public access",
+        "plan age or source/provider/account/region drift"
+      ]
+    },
+    {
+      "claim_ceiling": "AWS_VERIFIED",
+      "failure_condition": "consumer wiring, encryption, identity, lease or telemetry smoke check fails",
+      "id": "EP-FUTURE-P3-003",
+      "part": 3,
+      "preconditions": [
+        "bounded lease active",
+        "apply authorization explicitly recorded",
+        "smoke workload and abort thresholds frozen"
+      ],
+      "predecessor": "P3-002 approved exact saved plan",
+      "proof": "bounded deployment inventory and small canary bound to run and source",
+      "requirement": "The minimal managed path must start and be observable before workload authorization.",
+      "resume_point": "resume at fresh admission if identity/plan changed, otherwise at corrected canary",
+      "rollback_cleanup": "stop workload; execute reviewed destroy/rollback and verify owned-resource inventory",
+      "stale_evidence": "failed canary and all downstream managed evidence",
+      "stop_conditions": [
+        "apply differs from saved plan",
+        "wiring, encryption, identity, telemetry or canary failure"
+      ]
+    },
+    {
+      "claim_ceiling": "AWS_VERIFIED",
+      "failure_condition": "source, archive, disposition or output differs from the independent fixed-seed oracle",
+      "id": "EP-FUTURE-P4-001",
+      "part": 4,
+      "preconditions": [
+        "fixed seed, counts, rates, bytes and oracle outputs immutable",
+        "source/archive/output collectors ready"
+      ],
+      "predecessor": "P3-003 healthy bounded deployment",
+      "proof": "source/archive/output counts, keys and digests for predeclared workloads",
+      "requirement": "Baseline and correctness workloads reconcile exactly.",
+      "resume_point": "repair root cause, reset generation, rerun from baseline seed",
+      "rollback_cleanup": "stop producer, preserve evidence, retain stack only within lease for diagnosis",
+      "stale_evidence": "baseline and every dependent performance/recovery result",
+      "stop_conditions": [
+        "count, key or digest mismatch",
+        "threshold or collector ambiguity"
+      ]
+    },
+    {
+      "claim_ceiling": "AWS_VERIFIED",
+      "failure_condition": "any injected crash, duplicate, conflict, late, poison, skew or sink fault has unexplained loss or double application",
+      "id": "EP-FUTURE-P4-002",
+      "part": 4,
+      "preconditions": [
+        "fault schedule and boundary IDs frozen",
+        "state snapshots and abort hooks ready"
+      ],
+      "predecessor": "P4-001 exact baseline reconciliation",
+      "proof": "managed failure timelines, restart state and oracle comparison",
+      "requirement": "All mandatory recovery boundaries are proven in managed execution.",
+      "resume_point": "resume at failed boundary with a fresh generation after repair",
+      "rollback_cleanup": "stop injection and producer; preserve state; roll back or destroy under lease policy",
+      "stale_evidence": "failed boundary and all later fault/recovery claims",
+      "stop_conditions": [
+        "unexplained loss/double application",
+        "failure escapes declared blast radius"
+      ]
+    },
+    {
+      "claim_ceiling": "AWS_VERIFIED",
+      "failure_condition": "replay overwrites live output, double counts, or uses incomplete/corrupt raw input",
+      "id": "EP-FUTURE-P4-003",
+      "part": 4,
+      "preconditions": [
+        "raw integrity and completeness proven",
+        "new replay generation allocated"
+      ],
+      "predecessor": "P4-001 reconciled raw archive and P4-002 recovery acceptance",
+      "proof": "isolated replay-generation inventory and canonical comparison",
+      "requirement": "Replay completeness and generation isolation are proven.",
+      "resume_point": "resume from raw reconciliation or a fresh replay generation",
+      "rollback_cleanup": "stop replay; preserve conflicting keys; delete only isolated failed generation after review",
+      "stale_evidence": "replay and downstream aggregate comparisons",
+      "stop_conditions": [
+        "missing/corrupt raw object",
+        "live overwrite or duplicate canonical effect"
+      ]
+    },
+    {
+      "claim_ceiling": "MEASURED",
+      "failure_condition": "metric population, clocks, exclusions, sample count or thresholds cannot be reproduced",
+      "id": "EP-FUTURE-P4-004",
+      "part": 4,
+      "preconditions": [
+        "metric definitions, clocks, exclusions, warmup and sample counts frozen",
+        "raw exports retained"
+      ],
+      "predecessor": "correct P4 workloads and faults completed",
+      "proof": "preserved metric exports and independent p50/p95/p99, lag, skew and recovery calculations",
+      "requirement": "Operational measurements are reproducible and bounded to the lab.",
+      "resume_point": "rerun only after the metric defect or workload cause is resolved",
+      "rollback_cleanup": "stop claim promotion; preserve raw exports; no metric is edited in place",
+      "stale_evidence": "derived percentiles, lag, skew and recovery measurements",
+      "stop_conditions": [
+        "threshold miss",
+        "sample/clock/exclusion cannot be reproduced"
+      ]
+    },
+    {
+      "claim_ceiling": "MEASURED",
+      "failure_condition": "forecast, usage quantities or settled EventPulse cost is missing or conflated",
+      "id": "EP-FUTURE-P4-005",
+      "part": 4,
+      "preconditions": [
+        "price date/region and quantity sources recorded",
+        "hard cost cap and stop alarm active"
+      ],
+      "predecessor": "P3 forecast plus completed bounded resource lifetimes",
+      "proof": "dated forecast, resource lifetime, usage inventory and later settled billing",
+      "requirement": "Forecast and observed spend remain separate and within the hard cap.",
+      "resume_point": "resume from a newly approved forecast; settle billing after provider lag",
+      "rollback_cleanup": "stop/tear down owned resources at cap trigger and preserve billing snapshots",
+      "stale_evidence": "cost forecast, observed estimate and settled-cost claim",
+      "stop_conditions": [
+        "forecast exceeds ceiling",
+        "usage or settled billing cannot be attributed"
+      ]
+    },
+    {
+      "claim_ceiling": "AWS_VERIFIED",
+      "failure_condition": "owned resource absence is inferred from delete success, AccessDenied or incomplete inventory",
+      "id": "EP-FUTURE-P4-006",
+      "part": 4,
+      "preconditions": [
+        "complete owned-resource inventory and reviewed destroy plan",
+        "read/list/describe/delete authority available"
+      ],
+      "predecessor": "all managed evidence preserved and workload stopped",
+      "proof": "pre/post inventory, reviewed destroy plan, list/describe absence and lease release",
+      "requirement": "Teardown is independently verified with no unexplained residue.",
+      "resume_point": "resume at the first resource whose absence is not proven",
+      "rollback_cleanup": "retain lease/blocker; never infer absence; escalate least-privilege cleanup access",
+      "stale_evidence": "teardown, final cost and no-residue claims",
+      "stop_conditions": [
+        "AccessDenied",
+        "inventory uncertainty or unexplained residue"
+      ]
+    },
+    {
+      "claim_ceiling": "LOCAL_VERIFIED",
+      "failure_condition": "a public sentence lacks source, run, oracle, metric definition or limit",
+      "id": "EP-FUTURE-P5-001",
+      "part": 5,
+      "preconditions": [
+        "exact main, manifests, runs and evidence resolve",
+        "public text inventory frozen"
+      ],
+      "predecessor": "verified Part 4 completion including teardown and settled claim boundaries",
+      "proof": "skeptical claim-to-evidence audit on exact main",
+      "requirement": "Every README and resume claim is independently defensible.",
+      "resume_point": "resume at the first failed claim mapping after correction",
+      "rollback_cleanup": "revert only the unsupported draft sentence; preserve audit finding",
+      "stale_evidence": "affected public artifact and downstream release review",
+      "stop_conditions": [
+        "sentence lacks direct evidence/limit",
+        "claim level exceeds proof"
+      ]
+    },
+    {
+      "claim_ceiling": "LOCAL_VERIFIED",
+      "failure_condition": "architecture, tradeoff, failure/repair, scope, cost or limit cannot be explained from repository evidence",
+      "id": "EP-FUTURE-P5-002",
+      "part": 5,
+      "preconditions": [
+        "clean local reproduction path",
+        "architecture and incident evidence available"
+      ],
+      "predecessor": "P5-001 claim audit accepted",
+      "proof": "reproducible local demonstration and interview walkthrough review",
+      "requirement": "The project can be defended to a senior data engineer.",
+      "resume_point": "repair evidence or narrow wording, then repeat the full walkthrough",
+      "rollback_cleanup": "make no release claim; preserve question and gap as a finding",
+      "stale_evidence": "interview-readiness acceptance",
+      "stop_conditions": [
+        "walkthrough cannot reproduce result",
+        "tradeoff, limit or repair lacks evidence"
+      ]
+    },
+    {
+      "claim_ceiling": "AWS_VERIFIED",
+      "failure_condition": "release tag, source, assets, digests, claim ledger or completion receipt disagree",
+      "id": "EP-FUTURE-P5-003",
+      "part": 5,
+      "preconditions": [
+        "release inventory, digests and final claim ledger frozen",
+        "all prior completion receipts resolve"
+      ],
+      "predecessor": "P5-001 and P5-002 accepted on exact main",
+      "proof": "exact-head/final-main CI, deterministic release inventory and final completion receipt",
+      "requirement": "Publication and finality bind all claims to one verified release.",
+      "resume_point": "rebuild release inventory from newly verified exact main",
+      "rollback_cleanup": "do not publish or move a tag; withdraw inconsistent draft assets",
+      "stale_evidence": "release candidate and final project-completion claim",
+      "stop_conditions": [
+        "tag/source/asset/digest/claim disagreement",
+        "final CI or independent audit fails"
+      ]
+    }
+  ],
+  "project": "eventpulse-realtime-engagement-platform",
+  "source_sha": "9394d1795d3e4e9622e4f580aef61be455f6ce4b",
+  "source_tree": "ad4077ea62bcae275030a7c389d5a0538a07d6fc",
+  "status": "FROZEN_BY_PART1_STAGE3"
+}

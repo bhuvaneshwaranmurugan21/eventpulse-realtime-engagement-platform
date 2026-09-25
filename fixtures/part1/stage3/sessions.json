@@ -1,0 +1,126 @@
+{
+  "cases": [
+    {
+      "events": [
+        {
+          "event_id": "a",
+          "event_time_ms": 0
+        },
+        {
+          "event_id": "b",
+          "event_time_ms": 1800000
+        }
+      ],
+      "expected_components": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "id": "EP-S3-FX-SESSION-001",
+      "name": "inclusive inactivity gap"
+    },
+    {
+      "events": [
+        {
+          "event_id": "a",
+          "event_time_ms": 0
+        },
+        {
+          "event_id": "b",
+          "event_time_ms": 1800001
+        }
+      ],
+      "expected_components": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "id": "EP-S3-FX-SESSION-002",
+      "name": "gap plus one"
+    },
+    {
+      "events": [
+        {
+          "event_id": "z",
+          "event_time_ms": 1000
+        },
+        {
+          "event_id": "a",
+          "event_time_ms": 1000
+        }
+      ],
+      "expected_components": [
+        [
+          "a",
+          "z"
+        ]
+      ],
+      "id": "EP-S3-FX-SESSION-003",
+      "name": "equal timestamp tie break"
+    },
+    {
+      "arrival_order": [
+        "left",
+        "right",
+        "bridge"
+      ],
+      "events": [
+        {
+          "event_id": "left",
+          "event_time_ms": 0
+        },
+        {
+          "event_id": "right",
+          "event_time_ms": 1860000
+        },
+        {
+          "event_id": "bridge",
+          "event_time_ms": 930000
+        }
+      ],
+      "expected_components": [
+        [
+          "left",
+          "bridge",
+          "right"
+        ]
+      ],
+      "id": "EP-S3-FX-SESSION-004",
+      "name": "accepted late bridge"
+    }
+  ],
+  "closure_cases": [
+    {
+      "expected_closed": false,
+      "id": "EP-S3-FX-SESSION-005",
+      "name": "closure equality remains open",
+      "session_end_ms": 1000000,
+      "watermark_ms": 2800000
+    },
+    {
+      "expected_closed": true,
+      "id": "EP-S3-FX-SESSION-006",
+      "name": "closure boundary plus one",
+      "session_end_ms": 1000000,
+      "watermark_ms": 2800001
+    }
+  ],
+  "group": "Sessions",
+  "session_id_case": {
+    "contract_version": "1.0.0",
+    "expected_session_id": "333efbbd94c30bf90b14403bc6fca0980d5f07dbfedefa87eaa813da1e2d6b06",
+    "generation_id": "live-v1",
+    "id": "EP-S3-FX-SESSION-007",
+    "member_event_ids": [
+      "right",
+      "bridge",
+      "left"
+    ],
+    "name": "stable session identity",
+    "user_id": "user-bridge"
+  }
+}

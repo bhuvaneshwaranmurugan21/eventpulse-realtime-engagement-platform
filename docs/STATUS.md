@@ -11,3 +11,9 @@ Completion contract and architecture authority: **COMPLETED** from Stage 1 compl
 The authoritative region is `ap-south-2`. The selected bounded design is Kinesis to a Python Lambda consumer with conditional S3 raw capture, DynamoDB transactional application effects, outbox-backed SQS quarantine and CloudWatch telemetry.
 
 This status makes no managed consumer, durable AWS recovery, latency, throughput, observed cost or teardown claim. Draft PR #1 remains unmerged and must be adapted to the frozen contract before implementation.
+
+## Part 1 Stage 3
+
+Executable oracle and implementation rehearsal: **IN REVIEW** from verified Stage 2 completion `main` `9394d1795d3e4e9622e4f580aef61be455f6ce4b` (tree `ad4077ea62bcae275030a7c389d5a0538a07d6fc`). The bounded authority contains 50 deterministic fixtures, a production-independent standard-library evaluator, controlled-corruption tests, exact traceability and frozen later acceptance gates.
+
+Stage 3 can establish only enumerated local oracle behavior. It does not establish a managed consumer, durable AWS effects, replay completeness, latency, throughput, observed spend or teardown. Part 1 is not complete until the authority PR, merged-main CI and separate completion receipt all pass.

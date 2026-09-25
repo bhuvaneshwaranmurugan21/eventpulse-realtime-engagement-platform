@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "age_ms": 0,
+      "expected": "NEW_IDENTITY",
+      "has_existing": false,
+      "id": "EP-S3-FX-ID-001",
+      "name": "new identity",
+      "same_digest": false
+    },
+    {
+      "age_ms": 1,
+      "expected": "IDENTICAL_DUPLICATE",
+      "has_existing": true,
+      "id": "EP-S3-FX-ID-002",
+      "name": "identical duplicate",
+      "same_digest": true
+    },
+    {
+      "age_ms": 1,
+      "expected": "IDENTITY_CONFLICT",
+      "has_existing": true,
+      "id": "EP-S3-FX-ID-003",
+      "name": "conflicting duplicate",
+      "same_digest": false
+    },
+    {
+      "age_ms": 604800000,
+      "expected": "IDENTICAL_DUPLICATE",
+      "has_existing": true,
+      "id": "EP-S3-FX-ID-004",
+      "name": "exact dedupe horizon",
+      "same_digest": true
+    },
+    {
+      "age_ms": 604800001,
+      "expected": "EXPIRED_IDENTITY_QUARANTINE",
+      "has_existing": true,
+      "id": "EP-S3-FX-ID-005",
+      "name": "dedupe horizon plus one",
+      "same_digest": true
+    }
+  ],
+  "digest_cases": [
+    {
+      "event_a": {
+        "event_id": "digest-1",
+        "event_time_ms": 1000,
+        "event_type": "view",
+        "ingest_time_ms": 1100,
+        "partition_key": "user-d",
+        "payload": {
+          "page_id": "home"
+        },
+        "schema_version": "1.0.0",
+        "source": "web",
+        "user_id": "user-d"
+      },
+      "event_b": {
+        "event_id": "digest-1",
+        "event_time_ms": 1000,
+        "event_type": "view",
+        "ingest_time_ms": 9999,
+        "partition_key": "user-d",
+        "payload": {
+          "page_id": "home"
+        },
+        "schema_version": "1.0.0",
+        "source": "web",
+        "user_id": "user-d"
+      },
+      "expected_equal": true,
+      "id": "EP-S3-FX-ID-006",
+      "name": "ingest time excluded from identity digest"
+    }
+  ],
+  "group": "Identity"
+}

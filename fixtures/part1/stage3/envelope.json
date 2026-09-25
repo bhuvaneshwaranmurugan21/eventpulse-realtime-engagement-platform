@@ -1,0 +1,146 @@
+{
+  "base_event": {
+    "event_id": "evt-base",
+    "event_time_ms": 1000000,
+    "event_type": "view",
+    "ingest_time_ms": 1000000,
+    "partition_key": "user-1",
+    "payload": {
+      "page_id": "home"
+    },
+    "schema_version": "1.0.0",
+    "source": "web",
+    "user_id": "user-1"
+  },
+  "cases": [
+    {
+      "expected": "ACCEPTED",
+      "id": "EP-S3-FX-ENV-001",
+      "name": "valid view"
+    },
+    {
+      "expected": "ACCEPTED",
+      "id": "EP-S3-FX-ENV-002",
+      "name": "valid click",
+      "patch": {
+        "event_id": "evt-click",
+        "event_type": "click"
+      }
+    },
+    {
+      "expected": "ACCEPTED",
+      "id": "EP-S3-FX-ENV-003",
+      "name": "valid purchase",
+      "patch": {
+        "event_id": "evt-purchase",
+        "event_type": "purchase",
+        "payload": {
+          "campaign_id": "fall",
+          "value_cents": 2599
+        }
+      }
+    },
+    {
+      "expected": "INVALID_SCHEMA",
+      "id": "EP-S3-FX-ENV-004",
+      "name": "wrong schema version",
+      "patch": {
+        "schema_version": "2.0.0"
+      }
+    },
+    {
+      "expected": "INVALID_SCHEMA",
+      "id": "EP-S3-FX-ENV-005",
+      "name": "missing event id",
+      "remove": [
+        "event_id"
+      ]
+    },
+    {
+      "expected": "INVALID_SCHEMA",
+      "id": "EP-S3-FX-ENV-006",
+      "name": "unknown top-level field",
+      "patch": {
+        "unexpected": "blocked"
+      }
+    },
+    {
+      "expected": "INVALID_SCHEMA",
+      "id": "EP-S3-FX-ENV-007",
+      "name": "purchase without value",
+      "patch": {
+        "event_type": "purchase"
+      }
+    },
+    {
+      "expected": "INVALID_SCHEMA",
+      "id": "EP-S3-FX-ENV-008",
+      "name": "view with purchase value",
+      "patch": {
+        "payload": {
+          "page_id": "home",
+          "value_cents": 100
+        }
+      }
+    },
+    {
+      "append_source_characters": 17000,
+      "expected": "EVENT_TOO_LARGE",
+      "id": "EP-S3-FX-ENV-009",
+      "name": "oversize admission"
+    },
+    {
+      "expected": "PARTITION_MISMATCH",
+      "id": "EP-S3-FX-ENV-010",
+      "name": "partition mismatch",
+      "patch": {
+        "partition_key": "other-user"
+      }
+    },
+    {
+      "expected": "PRIVACY_VIOLATION",
+      "id": "EP-S3-FX-ENV-011",
+      "name": "prohibited email payload",
+      "patch": {
+        "payload": {
+          "email": "private@example.invalid"
+        }
+      }
+    },
+    {
+      "expected": "ACCEPTED",
+      "id": "EP-S3-FX-ENV-012",
+      "name": "future clock exact boundary",
+      "patch": {
+        "event_time_ms": 1060000
+      }
+    },
+    {
+      "expected": "FUTURE_CLOCK",
+      "id": "EP-S3-FX-ENV-013",
+      "name": "future clock boundary plus one",
+      "patch": {
+        "event_time_ms": 1060001
+      }
+    },
+    {
+      "expected": "ACCEPTED",
+      "id": "EP-S3-FX-ENV-014",
+      "name": "age exact boundary",
+      "patch": {
+        "event_time_ms": 0,
+        "ingest_time_ms": 604800000
+      }
+    },
+    {
+      "expected": "TOO_OLD",
+      "id": "EP-S3-FX-ENV-015",
+      "name": "age boundary plus one",
+      "patch": {
+        "event_time_ms": 0,
+        "ingest_time_ms": 604800001
+      }
+    }
+  ],
+  "group": "Envelope"
+}
