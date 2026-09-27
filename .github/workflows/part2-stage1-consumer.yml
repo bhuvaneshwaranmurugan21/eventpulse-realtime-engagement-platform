@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/part2-stage1-consumer.yml"
-      - "docs/**"
+      - "part2/stage1/docs/**"
       - "evidence/part2/stage1/**"
       - "fixtures/part2/stage1/**"
       - "pyproject.toml"
@@ -21,7 +21,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/part2-stage1-consumer.yml"
-      - "docs/**"
+      - "part2/stage1/docs/**"
       - "evidence/part2/stage1/**"
       - "fixtures/part2/stage1/**"
       - "pyproject.toml"

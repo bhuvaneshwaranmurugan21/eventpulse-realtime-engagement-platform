@@ -155,10 +155,10 @@ def validate_claims(claims: dict[str, Any]) -> list[str]:
 
 def validate_stage_documents() -> list[str]:
     errors: list[str] = []
-    status = (ROOT / "docs/part2-stage1-status.md").read_text(encoding="utf-8")
-    limits = (ROOT / "docs/known-limits-part2-stage1.md").read_text(encoding="utf-8")
-    proof = load_json("docs/part2-stage1-proof-matrix.json")
-    interview = (ROOT / "docs/INTERVIEW-part2-stage1.md").read_text(encoding="utf-8")
+    status = (ROOT / "part2/stage1/docs/status.md").read_text(encoding="utf-8")
+    limits = (ROOT / "part2/stage1/docs/known-limits.md").read_text(encoding="utf-8")
+    proof = load_json("part2/stage1/docs/proof-matrix.json")
+    interview = (ROOT / "part2/stage1/docs/INTERVIEW.md").read_text(encoding="utf-8")
     if (
         BASE_SHA not in status
         or BASE_TREE not in status
@@ -239,13 +239,13 @@ def verify_source() -> list[str]:
 
 def validate_all(*, source: bool) -> list[str]:
     errors = []
-    errors.extend(validate_requirements(load_json("docs/requirements/part2-stage1.json")))
-    errors.extend(validate_traceability(load_json("docs/traceability/part2-stage1.json")))
+    errors.extend(validate_requirements(load_json("part2/stage1/docs/requirements.json")))
+    errors.extend(validate_traceability(load_json("part2/stage1/docs/traceability.json")))
     errors.extend(validate_schema_copy())
     errors.extend(validate_import_isolation())
     errors.extend(validate_locks())
     errors.extend(validate_evidence(load_json("evidence/part2/stage1/handler-result.json")))
-    errors.extend(validate_claims(load_json("docs/part2-stage1-claims.json")))
+    errors.extend(validate_claims(load_json("part2/stage1/docs/claims.json")))
     errors.extend(validate_stage_documents())
     errors.extend(validate_public_boundary())
     if source:

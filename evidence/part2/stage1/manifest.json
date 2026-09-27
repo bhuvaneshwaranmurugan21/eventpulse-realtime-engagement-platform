@@ -2,53 +2,8 @@
   "artifacts": [
     {
       "path": ".github/workflows/part2-stage1-consumer.yml",
-      "sha256": "0aac932b4a0c2f5068a1d869c06a6980d160675ae4e0ac6cc0ac0d4702bd64e1",
-      "size_bytes": 4137
-    },
-    {
-      "path": "docs/INTERVIEW-part2-stage1.md",
-      "sha256": "0e37385a9286f776c1c664d5600b30a6d64f653e930cc9ab632c0a884c32d5af",
-      "size_bytes": 1336
-    },
-    {
-      "path": "docs/audits/part2-stage1-entry.md",
-      "sha256": "da50a7a0657229f0398b69d101362990856dc9660c8d4d5a71ace90e41d8e640",
-      "size_bytes": 965
-    },
-    {
-      "path": "docs/decisions/part2-stage1-calculability.md",
-      "sha256": "3a57a30babea4de31a5931c29e87ae8d4318e21cf45fe53c841d1e0b52a686d8",
-      "size_bytes": 3460
-    },
-    {
-      "path": "docs/known-limits-part2-stage1.md",
-      "sha256": "149b56552939ba5e67885dca8c50eb516fb9b4867a5e3424c3cacbc990771663",
-      "size_bytes": 788
-    },
-    {
-      "path": "docs/part2-stage1-claims.json",
-      "sha256": "fa5a50eca0aff381255fc83bbec9b278aa9ea7809793637bccf20c32f9bd98fb",
-      "size_bytes": 1678
-    },
-    {
-      "path": "docs/part2-stage1-proof-matrix.json",
-      "sha256": "e55fb2d3de54506efd54a72e47fa6f0c2caaffdd2438e706fcd6e32287d22abd",
-      "size_bytes": 707
-    },
-    {
-      "path": "docs/part2-stage1-status.md",
-      "sha256": "57104421e507191ae6fd1ac7a24e10cb6ed19b25153e5645bd12dabae22017c6",
-      "size_bytes": 850
-    },
-    {
-      "path": "docs/requirements/part2-stage1.json",
-      "sha256": "e6e42de317f4184f372e22d60bf37f4191fb8bc61b61a8f3be25a4b4c31e14ea",
-      "size_bytes": 1670
-    },
-    {
-      "path": "docs/traceability/part2-stage1.json",
-      "sha256": "3cb79363ced71d5afd7d61a78b6c70c911393407252fb0b8d66b17e37c12c3ed",
-      "size_bytes": 13525
+      "sha256": "361819a4c6a9622811b7abb49548edd03e60d92f1f647c815fc568ebea512a5b",
+      "size_bytes": 4163
     },
     {
       "path": "evidence/part2/stage1/handler-result.json",
@@ -64,6 +19,51 @@
       "path": "fixtures/part2/stage1/kinesis-vertical-slice.json",
       "sha256": "c2f27172426ac9801bac78532c1ace5392e05a4e3dcf1607f601ccd19667b3ed",
       "size_bytes": 1867
+    },
+    {
+      "path": "part2/stage1/docs/INTERVIEW.md",
+      "sha256": "0e37385a9286f776c1c664d5600b30a6d64f653e930cc9ab632c0a884c32d5af",
+      "size_bytes": 1336
+    },
+    {
+      "path": "part2/stage1/docs/audits/entry.md",
+      "sha256": "da50a7a0657229f0398b69d101362990856dc9660c8d4d5a71ace90e41d8e640",
+      "size_bytes": 965
+    },
+    {
+      "path": "part2/stage1/docs/claims.json",
+      "sha256": "fa5a50eca0aff381255fc83bbec9b278aa9ea7809793637bccf20c32f9bd98fb",
+      "size_bytes": 1678
+    },
+    {
+      "path": "part2/stage1/docs/decisions/calculability.md",
+      "sha256": "3a57a30babea4de31a5931c29e87ae8d4318e21cf45fe53c841d1e0b52a686d8",
+      "size_bytes": 3460
+    },
+    {
+      "path": "part2/stage1/docs/known-limits.md",
+      "sha256": "149b56552939ba5e67885dca8c50eb516fb9b4867a5e3424c3cacbc990771663",
+      "size_bytes": 788
+    },
+    {
+      "path": "part2/stage1/docs/proof-matrix.json",
+      "sha256": "e55fb2d3de54506efd54a72e47fa6f0c2caaffdd2438e706fcd6e32287d22abd",
+      "size_bytes": 707
+    },
+    {
+      "path": "part2/stage1/docs/requirements.json",
+      "sha256": "e6e42de317f4184f372e22d60bf37f4191fb8bc61b61a8f3be25a4b4c31e14ea",
+      "size_bytes": 1670
+    },
+    {
+      "path": "part2/stage1/docs/status.md",
+      "sha256": "57104421e507191ae6fd1ac7a24e10cb6ed19b25153e5645bd12dabae22017c6",
+      "size_bytes": 850
+    },
+    {
+      "path": "part2/stage1/docs/traceability.json",
+      "sha256": "995594af1d4684bfd321c1cc02939cbfd263719944697572cfeb1e84b68b8ead",
+      "size_bytes": 13525
     },
     {
       "path": "pyproject.toml",
@@ -102,12 +102,12 @@
     },
     {
       "path": "scripts/build_part2_stage1_manifest.py",
-      "sha256": "3c3498d0d25b2ee0503b6ae96f5aded0654b5be43b0134dccbb6a5617e971c51",
-      "size_bytes": 2851
+      "sha256": "123258c521710718f461aeda1973b47306bf335cdd174e57d76d89e334eba374",
+      "size_bytes": 2929
     },
     {
       "path": "scripts/build_part2_stage1_traceability.py",
-      "sha256": "ed896aaf9bee2509279ee5bf93141f8719f7212702aba0d2faac0443e4275daf",
+      "sha256": "803ae2c44803101b8fcf31288c5965a0816bfeb1ca045d1e3dae4de412056bed",
       "size_bytes": 2815
     },
     {
@@ -122,7 +122,7 @@
     },
     {
       "path": "scripts/validate_part2_stage1.py",
-      "sha256": "ef0c30a41f5d63de777617e06badc1912e333b3833d03c3078f07dffcad96722",
+      "sha256": "bcc472ba59dcfc77bf64573a6043e1beb5ee278c00a7102771e6fb044062b384",
       "size_bytes": 11470
     },
     {
@@ -222,8 +222,8 @@
     },
     {
       "path": "tests/test_part2_stage1_negative_controls.py",
-      "sha256": "125f7f310ef661b59958a81c03b851a06a3a270c8a673bc23f138e991a880fa5",
-      "size_bytes": 5123
+      "sha256": "183164ac285b238278df809ccfd44ce6e7698b4735bd5127428b4a38bc174811",
+      "size_bytes": 5456
     }
   ],
   "claim_ceiling": "LOCAL_VERIFIED",

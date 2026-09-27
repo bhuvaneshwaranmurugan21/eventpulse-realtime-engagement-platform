@@ -4,9 +4,9 @@
   "mappings": [
     {
       "artifacts": [
-        "docs/audits/part2-stage1-entry.md",
-        "docs/requirements/part2-stage1.json",
-        "docs/part2-stage1-status.md"
+        "part2/stage1/docs/audits/entry.md",
+        "part2/stage1/docs/requirements.json",
+        "part2/stage1/docs/status.md"
       ],
       "claim_level": "LOCAL_VERIFIED",
       "evidence": [
@@ -19,9 +19,9 @@
     },
     {
       "artifacts": [
-        "docs/audits/part2-stage1-entry.md",
-        "docs/requirements/part2-stage1.json",
-        "docs/part2-stage1-status.md"
+        "part2/stage1/docs/audits/entry.md",
+        "part2/stage1/docs/requirements.json",
+        "part2/stage1/docs/status.md"
       ],
       "claim_level": "LOCAL_VERIFIED",
       "evidence": [
@@ -34,9 +34,9 @@
     },
     {
       "artifacts": [
-        "docs/audits/part2-stage1-entry.md",
-        "docs/requirements/part2-stage1.json",
-        "docs/part2-stage1-status.md"
+        "part2/stage1/docs/audits/entry.md",
+        "part2/stage1/docs/requirements.json",
+        "part2/stage1/docs/status.md"
       ],
       "claim_level": "LOCAL_VERIFIED",
       "evidence": [
@@ -49,9 +49,9 @@
     },
     {
       "artifacts": [
-        "docs/audits/part2-stage1-entry.md",
-        "docs/requirements/part2-stage1.json",
-        "docs/part2-stage1-status.md"
+        "part2/stage1/docs/audits/entry.md",
+        "part2/stage1/docs/requirements.json",
+        "part2/stage1/docs/status.md"
       ],
       "claim_level": "LOCAL_VERIFIED",
       "evidence": [
@@ -64,9 +64,9 @@
     },
     {
       "artifacts": [
-        "docs/audits/part2-stage1-entry.md",
-        "docs/requirements/part2-stage1.json",
-        "docs/part2-stage1-status.md"
+        "part2/stage1/docs/audits/entry.md",
+        "part2/stage1/docs/requirements.json",
+        "part2/stage1/docs/status.md"
       ],
       "claim_level": "LOCAL_VERIFIED",
       "evidence": [
@@ -79,7 +79,7 @@
     },
     {
       "artifacts": [
-        "docs/decisions/part2-stage1-calculability.md",
+        "part2/stage1/docs/decisions/calculability.md",
         "requirements/dev.lock"
       ],
       "claim_level": "LOCAL_VERIFIED",
@@ -94,7 +94,7 @@
     },
     {
       "artifacts": [
-        "docs/decisions/part2-stage1-calculability.md",
+        "part2/stage1/docs/decisions/calculability.md",
         "requirements/dev.lock"
       ],
       "claim_level": "LOCAL_VERIFIED",
@@ -109,7 +109,7 @@
     },
     {
       "artifacts": [
-        "docs/decisions/part2-stage1-calculability.md",
+        "part2/stage1/docs/decisions/calculability.md",
         "requirements/dev.lock"
       ],
       "claim_level": "LOCAL_VERIFIED",
@@ -124,7 +124,7 @@
     },
     {
       "artifacts": [
-        "docs/decisions/part2-stage1-calculability.md",
+        "part2/stage1/docs/decisions/calculability.md",
         "requirements/dev.lock"
       ],
       "claim_level": "LOCAL_VERIFIED",
@@ -139,7 +139,7 @@
     },
     {
       "artifacts": [
-        "docs/decisions/part2-stage1-calculability.md",
+        "part2/stage1/docs/decisions/calculability.md",
         "requirements/dev.lock"
       ],
       "claim_level": "LOCAL_VERIFIED",
@@ -388,8 +388,8 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
-        "docs/part2-stage1-claims.json",
-        "docs/part2-stage1-proof-matrix.json"
+        "part2/stage1/docs/claims.json",
+        "part2/stage1/docs/proof-matrix.json"
       ],
       "claim_level": "LOCAL_VERIFIED",
       "evidence": [
@@ -405,8 +405,8 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
-        "docs/part2-stage1-claims.json",
-        "docs/part2-stage1-proof-matrix.json"
+        "part2/stage1/docs/claims.json",
+        "part2/stage1/docs/proof-matrix.json"
       ],
       "claim_level": "LOCAL_VERIFIED",
       "evidence": [
@@ -422,8 +422,8 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
-        "docs/part2-stage1-claims.json",
-        "docs/part2-stage1-proof-matrix.json"
+        "part2/stage1/docs/claims.json",
+        "part2/stage1/docs/proof-matrix.json"
       ],
       "claim_level": "LOCAL_VERIFIED",
       "evidence": [
@@ -439,8 +439,8 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
-        "docs/part2-stage1-claims.json",
-        "docs/part2-stage1-proof-matrix.json"
+        "part2/stage1/docs/claims.json",
+        "part2/stage1/docs/proof-matrix.json"
       ],
       "claim_level": "LOCAL_VERIFIED",
       "evidence": [
@@ -456,8 +456,8 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
-        "docs/part2-stage1-claims.json",
-        "docs/part2-stage1-proof-matrix.json"
+        "part2/stage1/docs/claims.json",
+        "part2/stage1/docs/proof-matrix.json"
       ],
       "claim_level": "LOCAL_VERIFIED",
       "evidence": [
@@ -473,8 +473,8 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
-        "docs/part2-stage1-claims.json",
-        "docs/part2-stage1-proof-matrix.json"
+        "part2/stage1/docs/claims.json",
+        "part2/stage1/docs/proof-matrix.json"
       ],
       "claim_level": "DESIGN_ONLY",
       "evidence": [
@@ -490,8 +490,8 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
-        "docs/part2-stage1-claims.json",
-        "docs/part2-stage1-proof-matrix.json"
+        "part2/stage1/docs/claims.json",
+        "part2/stage1/docs/proof-matrix.json"
       ],
       "claim_level": "DESIGN_ONLY",
       "evidence": [

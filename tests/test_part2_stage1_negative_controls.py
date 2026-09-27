@@ -8,6 +8,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from scripts.build_lambda_package import _include_runtime_file, _normalize_record_text
+from scripts.build_part2_stage1_manifest import included as manifest_included
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -29,6 +30,10 @@ SPEC.loader.exec_module(VALIDATOR)
 
 
 class NegativeControlTests(unittest.TestCase):
+    def test_transient_bytecode_is_excluded_from_evidence_manifest(self) -> None:
+        self.assertFalse(manifest_included(ROOT / "src/eventpulse/__pycache__/handler.pyc"))
+        self.assertTrue(manifest_included(ROOT / "src/eventpulse/handler.py"))
+
     def test_environment_bound_console_scripts_are_excluded_from_lambda_zip(self) -> None:
         self.assertFalse(_include_runtime_file(Path("bin/jsonschema")))
         self.assertTrue(_include_runtime_file(Path("eventpulse/handler.py")))
@@ -81,7 +86,7 @@ class NegativeControlTests(unittest.TestCase):
 
     def test_missing_acceptance_and_trace_mapping_are_rejected(self) -> None:
         requirements = json.loads(
-            (ROOT / "docs/requirements/part2-stage1.json").read_text(encoding="utf-8")
+            (ROOT / "part2/stage1/docs/requirements.json").read_text(encoding="utf-8")
         )
         requirements["acceptance_checks"].pop()
         self.assertIn(
@@ -89,7 +94,7 @@ class NegativeControlTests(unittest.TestCase):
             VALIDATOR.validate_requirements(requirements),
         )
         traceability = json.loads(
-            (ROOT / "docs/traceability/part2-stage1.json").read_text(encoding="utf-8")
+            (ROOT / "part2/stage1/docs/traceability.json").read_text(encoding="utf-8")
         )
         traceability["mappings"].pop()
         self.assertIn(

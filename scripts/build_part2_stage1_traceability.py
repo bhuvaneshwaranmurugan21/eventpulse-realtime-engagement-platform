@@ -8,20 +8,20 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGET = ROOT / "docs/traceability/part2-stage1.json"
+TARGET = ROOT / "part2/stage1/docs/traceability.json"
 
 
 def mapping(identifier: str) -> dict[str, object]:
     number = int(identifier.rsplit("-", 1)[1])
     if number <= 5:
         source = [
-            "docs/audits/part2-stage1-entry.md",
-            "docs/requirements/part2-stage1.json",
-            "docs/part2-stage1-status.md",
+            "part2/stage1/docs/audits/entry.md",
+            "part2/stage1/docs/requirements.json",
+            "part2/stage1/docs/status.md",
         ]
         tests = ["scripts/validate_part2_stage1.py"]
     elif number <= 10:
-        source = ["docs/decisions/part2-stage1-calculability.md", "requirements/dev.lock"]
+        source = ["part2/stage1/docs/decisions/calculability.md", "requirements/dev.lock"]
         tests = ["tests/test_part2_stage1_kernel.py", "tests/test_part2_stage1_aws_shapes.py"]
     elif number <= 18:
         source = ["src/eventpulse/admission.py", "src/eventpulse/semantics.py"]
@@ -33,8 +33,8 @@ def mapping(identifier: str) -> dict[str, object]:
         source = [
             "scripts/validate_part2_stage1.py",
             ".github/workflows/part2-stage1-consumer.yml",
-            "docs/part2-stage1-claims.json",
-            "docs/part2-stage1-proof-matrix.json",
+            "part2/stage1/docs/claims.json",
+            "part2/stage1/docs/proof-matrix.json",
         ]
         tests = [
             "tests/test_part2_stage1_corpus.py",

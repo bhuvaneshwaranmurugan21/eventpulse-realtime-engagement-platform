@@ -12,15 +12,15 @@ ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / "evidence/part2/stage1/manifest.json"
 EXACT_PATHS = {
     ".github/workflows/part2-stage1-consumer.yml",
-    "docs/audits/part2-stage1-entry.md",
-    "docs/decisions/part2-stage1-calculability.md",
-    "docs/INTERVIEW-part2-stage1.md",
-    "docs/known-limits-part2-stage1.md",
-    "docs/part2-stage1-claims.json",
-    "docs/part2-stage1-proof-matrix.json",
-    "docs/part2-stage1-status.md",
-    "docs/requirements/part2-stage1.json",
-    "docs/traceability/part2-stage1.json",
+    "part2/stage1/docs/audits/entry.md",
+    "part2/stage1/docs/decisions/calculability.md",
+    "part2/stage1/docs/INTERVIEW.md",
+    "part2/stage1/docs/known-limits.md",
+    "part2/stage1/docs/claims.json",
+    "part2/stage1/docs/proof-matrix.json",
+    "part2/stage1/docs/status.md",
+    "part2/stage1/docs/requirements.json",
+    "part2/stage1/docs/traceability.json",
     "evidence/part2/stage1/handler-result.json",
     "evidence/part2/stage1/package-inventory.json",
     "pyproject.toml",
@@ -48,6 +48,8 @@ def included(path: Path) -> bool:
     return (
         path.is_file()
         and path != TARGET
+        and "__pycache__" not in path.parts
+        and path.suffix != ".pyc"
         and (
             relative in EXACT_PATHS
             or any(relative.startswith(prefix) for prefix in DIRECTORIES)
