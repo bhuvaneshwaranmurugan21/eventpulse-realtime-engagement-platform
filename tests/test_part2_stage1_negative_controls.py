@@ -109,6 +109,16 @@ class NegativeControlTests(unittest.TestCase):
         evidence["result_sha256"] = "0" * 64
         self.assertIn("handler result digest mismatch", VALIDATOR.validate_evidence(evidence))
 
+    def test_pending_claim_registry_is_rejected_after_publication(self) -> None:
+        claims = json.loads(
+            (ROOT / "part2/stage1/docs/claims.json").read_text(encoding="utf-8")
+        )
+        claims["status"] = "PUBLICATION_PENDING"
+        self.assertIn(
+            "Part 2 Stage 1 claims are not publication-complete",
+            VALIDATOR.validate_claims(claims),
+        )
+
     def test_oracle_import_boundary_is_rejected(self) -> None:
         target = ROOT / "src/eventpulse/semantics.py"
         original = Path.read_text

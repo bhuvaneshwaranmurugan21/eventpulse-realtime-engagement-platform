@@ -26,14 +26,19 @@
       "size_bytes": 1336
     },
     {
+      "path": "part2/stage1/docs/audits/completion.md",
+      "sha256": "e6e4e123d3bdf9b7a7f551b04da63d78c73a2a05264b39e0b20096845f1e47e0",
+      "size_bytes": 3008
+    },
+    {
       "path": "part2/stage1/docs/audits/entry.md",
       "sha256": "da50a7a0657229f0398b69d101362990856dc9660c8d4d5a71ace90e41d8e640",
       "size_bytes": 965
     },
     {
       "path": "part2/stage1/docs/claims.json",
-      "sha256": "fa5a50eca0aff381255fc83bbec9b278aa9ea7809793637bccf20c32f9bd98fb",
-      "size_bytes": 1678
+      "sha256": "85a62b703534c51238c6020cb772f01915d78b333036613514af3b00afcc5671",
+      "size_bytes": 1668
     },
     {
       "path": "part2/stage1/docs/decisions/calculability.md",
@@ -47,8 +52,8 @@
     },
     {
       "path": "part2/stage1/docs/proof-matrix.json",
-      "sha256": "e55fb2d3de54506efd54a72e47fa6f0c2caaffdd2438e706fcd6e32287d22abd",
-      "size_bytes": 707
+      "sha256": "6db190b6820b6d1425d48b044bc5441e6671e9888b3ac978674e32b7bb5fec7a",
+      "size_bytes": 685
     },
     {
       "path": "part2/stage1/docs/requirements.json",
@@ -57,13 +62,13 @@
     },
     {
       "path": "part2/stage1/docs/status.md",
-      "sha256": "57104421e507191ae6fd1ac7a24e10cb6ed19b25153e5645bd12dabae22017c6",
-      "size_bytes": 850
+      "sha256": "647b91a7e3bd24beff7262acf051f3e433334d81c79c8959892f8aec91812026",
+      "size_bytes": 1174
     },
     {
       "path": "part2/stage1/docs/traceability.json",
-      "sha256": "995594af1d4684bfd321c1cc02939cbfd263719944697572cfeb1e84b68b8ead",
-      "size_bytes": 13525
+      "sha256": "1ca401f5847fa0476bd470b25eaf8fde6ee8312f8e5f2d5281da78b9dfd35820",
+      "size_bytes": 14125
     },
     {
       "path": "pyproject.toml",
@@ -102,13 +107,13 @@
     },
     {
       "path": "scripts/build_part2_stage1_manifest.py",
-      "sha256": "123258c521710718f461aeda1973b47306bf335cdd174e57d76d89e334eba374",
-      "size_bytes": 2929
+      "sha256": "e19ff4bffbe2556afb407db7b5a04886ca122f1df6cb66b10cf00ec8e2ef4abb",
+      "size_bytes": 2975
     },
     {
       "path": "scripts/build_part2_stage1_traceability.py",
-      "sha256": "803ae2c44803101b8fcf31288c5965a0816bfeb1ca045d1e3dae4de412056bed",
-      "size_bytes": 2815
+      "sha256": "80e8861e0e786b364d9f3a64b71bbca0c5d9a6e91cde565f76a2ea5f1e74bb8a",
+      "size_bytes": 2923
     },
     {
       "path": "scripts/render_wheel_lock.py",
@@ -122,8 +127,8 @@
     },
     {
       "path": "scripts/validate_part2_stage1.py",
-      "sha256": "bcc472ba59dcfc77bf64573a6043e1beb5ee278c00a7102771e6fb044062b384",
-      "size_bytes": 11470
+      "sha256": "26eb4cb80d196cb44ddc4c8db95f91c598f7e263d8f4f568ea587f572089be32",
+      "size_bytes": 12421
     },
     {
       "path": "src/eventpulse/__init__.py",
@@ -222,8 +227,8 @@
     },
     {
       "path": "tests/test_part2_stage1_negative_controls.py",
-      "sha256": "183164ac285b238278df809ccfd44ce6e7698b4735bd5127428b4a38bc174811",
-      "size_bytes": 5456
+      "sha256": "466e87e92f47a34aabf0366331276c559363f619c2687892cc4e53c5b5395a8d",
+      "size_bytes": 5853
     }
   ],
   "claim_ceiling": "LOCAL_VERIFIED",
