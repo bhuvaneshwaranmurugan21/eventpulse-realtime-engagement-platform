@@ -15,6 +15,7 @@ def mapping(identifier: str) -> dict[str, object]:
     number = int(identifier.rsplit("-", 1)[1])
     if number <= 5:
         source = [
+            "part2/stage1/docs/audits/completion.md",
             "part2/stage1/docs/audits/entry.md",
             "part2/stage1/docs/requirements.json",
             "part2/stage1/docs/status.md",
@@ -33,6 +34,7 @@ def mapping(identifier: str) -> dict[str, object]:
         source = [
             "scripts/validate_part2_stage1.py",
             ".github/workflows/part2-stage1-consumer.yml",
+            "part2/stage1/docs/audits/completion.md",
             "part2/stage1/docs/claims.json",
             "part2/stage1/docs/proof-matrix.json",
         ]

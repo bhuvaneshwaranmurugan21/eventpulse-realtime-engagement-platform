@@ -16,6 +16,11 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 BASE_SHA = "c642c281c3306356f26f3749ea7e8f92f45623d1"
 BASE_TREE = "d2a6db927f3055d0fcddb0af4fdf1dd7d91c2419"
+AUTHORITY_HEAD = "482731740a7a733099555803c20e4d25596e6319"
+AUTHORITY_TREE = "a500a94a1d6f56741ce90551f4161ddba2600436"
+MERGED_MAIN = "0467dfe44f6fcd9615edf20b057870c817356f20"
+EXACT_HEAD_RUN = "36303643491"
+MERGED_MAIN_RUN = "36303700963"
 EXPECTED_AC = {f"P2S1-AC-{number:02d}" for number in range(1, 33)}
 GIT = shutil.which("git")
 if GIT is None:
@@ -150,6 +155,8 @@ def validate_claims(claims: dict[str, Any]) -> list[str]:
         errors.append("application effect recovery must remain DESIGN_ONLY in Stage 1")
     if claims.get("claim_ceiling") != "LOCAL_VERIFIED":
         errors.append("Part 2 Stage 1 claim ceiling drift")
+    if claims.get("status") != "COMPLETED":
+        errors.append("Part 2 Stage 1 claims are not publication-complete")
     return errors
 
 
@@ -159,12 +166,30 @@ def validate_stage_documents() -> list[str]:
     limits = (ROOT / "part2/stage1/docs/known-limits.md").read_text(encoding="utf-8")
     proof = load_json("part2/stage1/docs/proof-matrix.json")
     interview = (ROOT / "part2/stage1/docs/INTERVIEW.md").read_text(encoding="utf-8")
+    completion = (ROOT / "part2/stage1/docs/audits/completion.md").read_text(
+        encoding="utf-8"
+    )
     if (
         BASE_SHA not in status
         or BASE_TREE not in status
-        or "PUBLICATION GATES PENDING" not in status
+        or MERGED_MAIN not in status
+        or AUTHORITY_TREE not in status
+        or "COMPLETED" not in status
     ):
-        errors.append("Part 2 Stage 1 status is not bound to the authorized predecessor")
+        errors.append("Part 2 Stage 1 status is not bound to the verified publication")
+    for marker in (
+        "EVENTPULSE_PART2_STAGE1_VERIFIED",
+        BASE_SHA,
+        BASE_TREE,
+        AUTHORITY_HEAD,
+        AUTHORITY_TREE,
+        MERGED_MAIN,
+        EXACT_HEAD_RUN,
+        MERGED_MAIN_RUN,
+        "Stage 2 continuation checkpoint",
+    ):
+        if marker not in completion:
+            errors.append(f"completion receipt omits {marker}")
     combined = "\n".join((status, limits, interview))
     for boundary in ("UNCLAIMED", "DESIGN_ONLY", "no network", "managed AWS"):
         if boundary.lower() not in combined.lower():
@@ -175,6 +200,7 @@ def validate_stage_documents() -> list[str]:
         or len(rows) != 1
         or rows[0].get("requirement_id") != "EP-FUTURE-P2-001"
         or rows[0].get("claim_level") != "LOCAL_VERIFIED"
+        or proof.get("status") != "STAGE1_COMPLETED"
     ):
         errors.append("Part 2 Stage 1 proof matrix is not exact")
     return errors

@@ -4,6 +4,7 @@
   "mappings": [
     {
       "artifacts": [
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/audits/entry.md",
         "part2/stage1/docs/requirements.json",
         "part2/stage1/docs/status.md"
@@ -19,6 +20,7 @@
     },
     {
       "artifacts": [
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/audits/entry.md",
         "part2/stage1/docs/requirements.json",
         "part2/stage1/docs/status.md"
@@ -34,6 +36,7 @@
     },
     {
       "artifacts": [
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/audits/entry.md",
         "part2/stage1/docs/requirements.json",
         "part2/stage1/docs/status.md"
@@ -49,6 +52,7 @@
     },
     {
       "artifacts": [
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/audits/entry.md",
         "part2/stage1/docs/requirements.json",
         "part2/stage1/docs/status.md"
@@ -64,6 +68,7 @@
     },
     {
       "artifacts": [
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/audits/entry.md",
         "part2/stage1/docs/requirements.json",
         "part2/stage1/docs/status.md"
@@ -388,6 +393,7 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/claims.json",
         "part2/stage1/docs/proof-matrix.json"
       ],
@@ -405,6 +411,7 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/claims.json",
         "part2/stage1/docs/proof-matrix.json"
       ],
@@ -422,6 +429,7 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/claims.json",
         "part2/stage1/docs/proof-matrix.json"
       ],
@@ -439,6 +447,7 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/claims.json",
         "part2/stage1/docs/proof-matrix.json"
       ],
@@ -456,6 +465,7 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/claims.json",
         "part2/stage1/docs/proof-matrix.json"
       ],
@@ -473,6 +483,7 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/claims.json",
         "part2/stage1/docs/proof-matrix.json"
       ],
@@ -490,6 +501,7 @@
       "artifacts": [
         "scripts/validate_part2_stage1.py",
         ".github/workflows/part2-stage1-consumer.yml",
+        "part2/stage1/docs/audits/completion.md",
         "part2/stage1/docs/claims.json",
         "part2/stage1/docs/proof-matrix.json"
       ],
