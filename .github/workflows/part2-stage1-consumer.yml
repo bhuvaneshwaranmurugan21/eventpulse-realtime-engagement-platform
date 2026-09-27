@@ -1,0 +1,102 @@
+name: Part 2 Stage 1 Consumer
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/part2-stage1-consumer.yml"
+      - "docs/**"
+      - "evidence/part2/stage1/**"
+      - "fixtures/part2/stage1/**"
+      - "pyproject.toml"
+      - "requirements/**"
+      - "scripts/build_part2_stage1_*.py"
+      - "scripts/build_lambda_package.py"
+      - "scripts/render_wheel_lock.py"
+      - "scripts/run_part2_stage1_local.py"
+      - "scripts/validate_part2_stage1.py"
+      - "src/eventpulse/**"
+      - "tests/part2_stage1_helpers.py"
+      - "tests/test_part2_stage1_*.py"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/part2-stage1-consumer.yml"
+      - "docs/**"
+      - "evidence/part2/stage1/**"
+      - "fixtures/part2/stage1/**"
+      - "pyproject.toml"
+      - "requirements/**"
+      - "scripts/build_part2_stage1_*.py"
+      - "scripts/build_lambda_package.py"
+      - "scripts/render_wheel_lock.py"
+      - "scripts/run_part2_stage1_local.py"
+      - "scripts/validate_part2_stage1.py"
+      - "src/eventpulse/**"
+      - "tests/part2_stage1_helpers.py"
+      - "tests/test_part2_stage1_*.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  consumer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      LC_ALL: C.UTF-8
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONHASHSEED: "0"
+      TZ: UTC
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12"
+      - name: Install exact hash-locked dependencies
+        run: python -m pip install --require-hashes -r requirements/dev.lock
+      - name: Install EventPulse package without dependency resolution
+        run: python -m pip install . --no-deps --no-build-isolation
+      - name: Verify generated authority
+        run: |
+          python scripts/build_part2_stage1_traceability.py --check
+          python scripts/build_part2_stage1_evidence.py --check
+          python scripts/build_part2_stage1_manifest.py --check
+      - name: Lint and type-check
+        run: |
+          ruff check src scripts/build_part2_stage1_*.py scripts/render_wheel_lock.py scripts/run_part2_stage1_local.py scripts/validate_part2_stage1.py tests/part2_stage1_helpers.py tests/test_part2_stage1_*.py
+          mypy src/eventpulse
+      - name: Test with branch coverage
+        run: |
+          coverage erase
+          coverage run --branch -m unittest discover -s tests -p 'test_part2_stage1_*.py'
+          coverage report -m
+      - name: Security checks
+        run: |
+          bandit -q -r src
+          pip-audit -r requirements/runtime.lock --disable-pip
+      - name: Build wheel
+        run: python -m build --wheel --no-isolation
+      - name: Reproduce self-contained Lambda package
+        run: |
+          mkdir -p /tmp/eventpulse-runtime-wheels
+          python -m pip download --only-binary=:all: --require-hashes -r requirements/runtime.lock -d /tmp/eventpulse-runtime-wheels
+          python scripts/build_lambda_package.py /tmp/eventpulse-runtime-wheels /tmp/eventpulse-lambda.zip --check
+      - name: Validate Stage 1 and cumulative Part 1
+        run: |
+          python scripts/validate_part2_stage1.py --verify-source
+          python scripts/build_stage3_manifest.py --check
+          # The frozen manifest proves Part 1 bytes are unchanged. Stage 3's
+          # source-scope mode intentionally rejects every descendant-stage file.
+          python scripts/validate_stage3_completion.py
+          python -m unittest discover -s tests -p 'test_stage3_*.py' -v
+          python scripts/build_stage2_manifest.py --check
+          # Stage 2 has the same historical changed-file boundary; validate its
+          # exact manifest and contract without reclassifying Part 2 as Stage 2.
+          python scripts/validate_stage2_contract.py
+          python -m unittest discover -s tests -p 'test_stage2_contract.py' -v
+          python scripts/validate_stage1_audit.py --verify-source
+      - name: Diff hygiene
+        run: git diff --check

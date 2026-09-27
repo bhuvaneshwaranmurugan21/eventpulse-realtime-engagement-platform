@@ -1,0 +1,37 @@
+{
+  "Records": [
+    {
+      "awsRegion": "ap-south-2",
+      "eventID": "shard-a:100",
+      "eventSource": "aws:kinesis",
+      "eventSourceARN": "arn:aws:kinesis:ap-south-2:test-account:stream/eventpulse-stage1",
+      "kinesis": {
+        "data": "eyJzY2hlbWFfdmVyc2lvbiI6IjEuMC4wIiwiZXZlbnRfaWQiOiJ2ZXJ0aWNhbC12aWV3Iiwic291cmNlIjoid2ViIiwidXNlcl9pZCI6InVzZXItdiIsImV2ZW50X3R5cGUiOiJ2aWV3IiwiZXZlbnRfdGltZV9tcyI6MTAwMDAwMDAsImluZ2VzdF90aW1lX21zIjoxMDAwMDAwMCwicGFydGl0aW9uX2tleSI6InVzZXItdiIsInBheWxvYWQiOnsicGFnZV9pZCI6ImhvbWUifX0=",
+        "partitionKey": "user-v",
+        "sequenceNumber": "100"
+      }
+    },
+    {
+      "awsRegion": "ap-south-2",
+      "eventID": "shard-a:101",
+      "eventSource": "aws:kinesis",
+      "eventSourceARN": "arn:aws:kinesis:ap-south-2:test-account:stream/eventpulse-stage1",
+      "kinesis": {
+        "data": "eyJzY2hlbWFfdmVyc2lvbiI6IjEuMC4wIiwiZXZlbnRfaWQiOiJ2ZXJ0aWNhbC1wb2lzb24iLCJzb3VyY2UiOiJ3ZWIiLCJ1c2VyX2lkIjoidXNlci1xIiwiZXZlbnRfdHlwZSI6InZpZXciLCJldmVudF90aW1lX21zIjoxMDAwMTAwMCwiaW5nZXN0X3RpbWVfbXMiOjEwMDAxMDAwLCJwYXJ0aXRpb25fa2V5IjoidXNlci1xIiwicGF5bG9hZCI6eyJlbWFpbCI6ImJsb2NrZWRAZXhhbXBsZS5pbnZhbGlkIn19",
+        "partitionKey": "user-q",
+        "sequenceNumber": "101"
+      }
+    },
+    {
+      "awsRegion": "ap-south-2",
+      "eventID": "shard-a:102",
+      "eventSource": "aws:kinesis",
+      "eventSourceARN": "arn:aws:kinesis:ap-south-2:test-account:stream/eventpulse-stage1",
+      "kinesis": {
+        "data": "eyJzY2hlbWFfdmVyc2lvbiI6IjEuMC4wIiwiZXZlbnRfaWQiOiJ2ZXJ0aWNhbC1hZHZhbmNlIiwic291cmNlIjoid2ViIiwidXNlcl9pZCI6InVzZXItdyIsImV2ZW50X3R5cGUiOiJwdXJjaGFzZSIsImV2ZW50X3RpbWVfbXMiOjE0MDAwMDAxLCJpbmdlc3RfdGltZV9tcyI6MTQwMDAwMDEsInBhcnRpdGlvbl9rZXkiOiJ1c2VyLXciLCJwYXlsb2FkIjp7InZhbHVlX2NlbnRzIjoyNTAwfX0=",
+        "partitionKey": "user-w",
+        "sequenceNumber": "102"
+      }
+    }
+  ]
+}

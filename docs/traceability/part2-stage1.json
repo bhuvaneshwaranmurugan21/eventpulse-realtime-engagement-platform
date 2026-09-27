@@ -1,0 +1,510 @@
+{
+  "authority": "EP-FUTURE-P2-001",
+  "claim_ceiling": "LOCAL_VERIFIED",
+  "mappings": [
+    {
+      "artifacts": [
+        "docs/audits/part2-stage1-entry.md",
+        "docs/requirements/part2-stage1.json",
+        "docs/part2-stage1-status.md"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-01",
+      "tests": [
+        "scripts/validate_part2_stage1.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "docs/audits/part2-stage1-entry.md",
+        "docs/requirements/part2-stage1.json",
+        "docs/part2-stage1-status.md"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-02",
+      "tests": [
+        "scripts/validate_part2_stage1.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "docs/audits/part2-stage1-entry.md",
+        "docs/requirements/part2-stage1.json",
+        "docs/part2-stage1-status.md"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-03",
+      "tests": [
+        "scripts/validate_part2_stage1.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "docs/audits/part2-stage1-entry.md",
+        "docs/requirements/part2-stage1.json",
+        "docs/part2-stage1-status.md"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-04",
+      "tests": [
+        "scripts/validate_part2_stage1.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "docs/audits/part2-stage1-entry.md",
+        "docs/requirements/part2-stage1.json",
+        "docs/part2-stage1-status.md"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-05",
+      "tests": [
+        "scripts/validate_part2_stage1.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "docs/decisions/part2-stage1-calculability.md",
+        "requirements/dev.lock"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-06",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "docs/decisions/part2-stage1-calculability.md",
+        "requirements/dev.lock"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-07",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "docs/decisions/part2-stage1-calculability.md",
+        "requirements/dev.lock"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-08",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "docs/decisions/part2-stage1-calculability.md",
+        "requirements/dev.lock"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-09",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "docs/decisions/part2-stage1-calculability.md",
+        "requirements/dev.lock"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-10",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/admission.py",
+        "src/eventpulse/semantics.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-11",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_corpus.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/admission.py",
+        "src/eventpulse/semantics.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-12",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_corpus.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/admission.py",
+        "src/eventpulse/semantics.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-13",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_corpus.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/admission.py",
+        "src/eventpulse/semantics.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-14",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_corpus.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/admission.py",
+        "src/eventpulse/semantics.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-15",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_corpus.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/admission.py",
+        "src/eventpulse/semantics.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-16",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_corpus.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/admission.py",
+        "src/eventpulse/semantics.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-17",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_corpus.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/admission.py",
+        "src/eventpulse/semantics.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-18",
+      "tests": [
+        "tests/test_part2_stage1_kernel.py",
+        "tests/test_part2_stage1_corpus.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/handler.py",
+        "src/eventpulse/local.py",
+        "src/eventpulse/aws.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-19",
+      "tests": [
+        "tests/test_part2_stage1_handler.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/handler.py",
+        "src/eventpulse/local.py",
+        "src/eventpulse/aws.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-20",
+      "tests": [
+        "tests/test_part2_stage1_handler.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/handler.py",
+        "src/eventpulse/local.py",
+        "src/eventpulse/aws.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-21",
+      "tests": [
+        "tests/test_part2_stage1_handler.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/handler.py",
+        "src/eventpulse/local.py",
+        "src/eventpulse/aws.py"
+      ],
+      "claim_level": "DESIGN_ONLY",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-22",
+      "tests": [
+        "tests/test_part2_stage1_handler.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/handler.py",
+        "src/eventpulse/local.py",
+        "src/eventpulse/aws.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-23",
+      "tests": [
+        "tests/test_part2_stage1_handler.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/handler.py",
+        "src/eventpulse/local.py",
+        "src/eventpulse/aws.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-24",
+      "tests": [
+        "tests/test_part2_stage1_handler.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/handler.py",
+        "src/eventpulse/local.py",
+        "src/eventpulse/aws.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-25",
+      "tests": [
+        "tests/test_part2_stage1_handler.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "scripts/validate_part2_stage1.py",
+        ".github/workflows/part2-stage1-consumer.yml",
+        "docs/part2-stage1-claims.json",
+        "docs/part2-stage1-proof-matrix.json"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-26",
+      "tests": [
+        "tests/test_part2_stage1_corpus.py",
+        "tests/test_part2_stage1_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "scripts/validate_part2_stage1.py",
+        ".github/workflows/part2-stage1-consumer.yml",
+        "docs/part2-stage1-claims.json",
+        "docs/part2-stage1-proof-matrix.json"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-27",
+      "tests": [
+        "tests/test_part2_stage1_corpus.py",
+        "tests/test_part2_stage1_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "scripts/validate_part2_stage1.py",
+        ".github/workflows/part2-stage1-consumer.yml",
+        "docs/part2-stage1-claims.json",
+        "docs/part2-stage1-proof-matrix.json"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-28",
+      "tests": [
+        "tests/test_part2_stage1_corpus.py",
+        "tests/test_part2_stage1_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "scripts/validate_part2_stage1.py",
+        ".github/workflows/part2-stage1-consumer.yml",
+        "docs/part2-stage1-claims.json",
+        "docs/part2-stage1-proof-matrix.json"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-29",
+      "tests": [
+        "tests/test_part2_stage1_corpus.py",
+        "tests/test_part2_stage1_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "scripts/validate_part2_stage1.py",
+        ".github/workflows/part2-stage1-consumer.yml",
+        "docs/part2-stage1-claims.json",
+        "docs/part2-stage1-proof-matrix.json"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-30",
+      "tests": [
+        "tests/test_part2_stage1_corpus.py",
+        "tests/test_part2_stage1_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "scripts/validate_part2_stage1.py",
+        ".github/workflows/part2-stage1-consumer.yml",
+        "docs/part2-stage1-claims.json",
+        "docs/part2-stage1-proof-matrix.json"
+      ],
+      "claim_level": "DESIGN_ONLY",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-31",
+      "tests": [
+        "tests/test_part2_stage1_corpus.py",
+        "tests/test_part2_stage1_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "scripts/validate_part2_stage1.py",
+        ".github/workflows/part2-stage1-consumer.yml",
+        "docs/part2-stage1-claims.json",
+        "docs/part2-stage1-proof-matrix.json"
+      ],
+      "claim_level": "DESIGN_ONLY",
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json"
+      ],
+      "id": "P2S1-AC-32",
+      "tests": [
+        "tests/test_part2_stage1_corpus.py",
+        "tests/test_part2_stage1_negative_controls.py"
+      ]
+    }
+  ],
+  "project": "eventpulse-realtime-engagement-platform",
+  "status": "IMPLEMENTED",
+  "version": "1.0.0"
+}
