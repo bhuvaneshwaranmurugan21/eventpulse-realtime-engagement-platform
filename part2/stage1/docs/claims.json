@@ -1,0 +1,51 @@
+{
+  "claims": [
+    {
+      "evidence": [
+        "evidence/part2/stage1/handler-result.json",
+        "tests/test_part2_stage1_corpus.py",
+        "tests/test_part2_stage1_handler.py"
+      ],
+      "id": "production_consumer_local",
+      "level": "LOCAL_VERIFIED",
+      "scope": "Production Lambda/Kinesis entry path with durable local adapters and enumerated Stage 1 behavior only; no managed AWS execution."
+    },
+    {
+      "evidence": [
+        "src/eventpulse/aws.py",
+        "tests/test_part2_stage1_aws_shapes.py"
+      ],
+      "id": "aws_adapter_request_shapes",
+      "level": "DESIGN_ONLY",
+      "scope": "Injected-client request construction and error mapping only; no AWS call or durability proof."
+    },
+    {
+      "evidence": [],
+      "id": "application_effect_idempotency",
+      "level": "DESIGN_ONLY",
+      "scope": "Ordinary-path transactional design only; the eight crash boundaries and process-killing restart proof are deferred to Part 2 Stage 2."
+    },
+    {
+      "evidence": [],
+      "id": "managed_consumer",
+      "level": "UNCLAIMED",
+      "scope": "No Lambda event-source mapping or Kinesis workload was executed."
+    },
+    {
+      "evidence": [],
+      "id": "durable_aws_recovery",
+      "level": "UNCLAIMED",
+      "scope": "No managed AWS interruption or recovery was executed."
+    },
+    {
+      "evidence": [],
+      "id": "raw_archive_completeness",
+      "level": "UNCLAIMED",
+      "scope": "No managed raw archive completeness measurement was executed."
+    }
+  ],
+  "claim_ceiling": "LOCAL_VERIFIED",
+  "project": "eventpulse-realtime-engagement-platform",
+  "stage": "PART2_STAGE1",
+  "status": "PUBLICATION_PENDING"
+}

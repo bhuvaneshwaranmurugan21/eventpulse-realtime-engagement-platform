@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eventpulse-consumer"
+version = "0.1.0"
+description = "EventPulse production Lambda/Kinesis consumer path"
+requires-python = "==3.12.*"
+dependencies = [
+  "boto3==1.43.102",
+  "jsonschema==4.26.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+eventpulse = ["resources/*.json"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["eventpulse"]
+mypy_path = "src"
+
+[[tool.mypy.overrides]]
+module = ["boto3", "boto3.*", "botocore", "botocore.*", "jsonschema", "jsonschema.*"]
+ignore_missing_imports = true
+
+[tool.coverage.run]
+branch = true
+source = ["eventpulse"]
+
+[tool.coverage.report]
+fail_under = 85
+show_missing = true

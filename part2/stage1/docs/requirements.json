@@ -1,0 +1,39 @@
+{
+  "acceptance_checks": [
+    "P2S1-AC-01", "P2S1-AC-02", "P2S1-AC-03", "P2S1-AC-04",
+    "P2S1-AC-05", "P2S1-AC-06", "P2S1-AC-07", "P2S1-AC-08",
+    "P2S1-AC-09", "P2S1-AC-10", "P2S1-AC-11", "P2S1-AC-12",
+    "P2S1-AC-13", "P2S1-AC-14", "P2S1-AC-15", "P2S1-AC-16",
+    "P2S1-AC-17", "P2S1-AC-18", "P2S1-AC-19", "P2S1-AC-20",
+    "P2S1-AC-21", "P2S1-AC-22", "P2S1-AC-23", "P2S1-AC-24",
+    "P2S1-AC-25", "P2S1-AC-26", "P2S1-AC-27", "P2S1-AC-28",
+    "P2S1-AC-29", "P2S1-AC-30", "P2S1-AC-31", "P2S1-AC-32"
+  ],
+  "authority": "EP-FUTURE-P2-001",
+  "branch": "part2-stage1-production-consumer-path",
+  "claim_ceiling": "LOCAL_VERIFIED",
+  "environment": {
+    "LC_ALL": "C.UTF-8",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONHASHSEED": "0",
+    "TZ": "UTC",
+    "python": "3.12"
+  },
+  "expected_predecessor": {
+    "corpus_sha256": "3275a62ca3b7e90be6a6988d2d7f9a321db7ef53a767a8fdb8a3f01ea8de8461",
+    "main_sha": "c642c281c3306356f26f3749ea7e8f92f45623d1",
+    "main_tree": "d2a6db927f3055d0fcddb0af4fdf1dd7d91c2419",
+    "oracle_result_sha256": "d37cec343b3ef2a8e525c61b29124f0a997b80ec725ad28677c3a00645dd9d76"
+  },
+  "forbidden_operations": [
+    "aws_api", "oidc_assumption", "iam_mutation", "terraform_backend",
+    "terraform_plan", "terraform_apply", "deployment", "workload",
+    "release", "tag", "history_rewrite", "draft_pr_1_modification",
+    "other_project_access"
+  ],
+  "project": "eventpulse-realtime-engagement-platform",
+  "resume": "Requalify exact source, recreate locked environment, and resume at the first failed gate.",
+  "scope": "Part 2 Stage 1 production Lambda/Kinesis consumer path only",
+  "status": "FROZEN",
+  "version": "1.0.0"
+}

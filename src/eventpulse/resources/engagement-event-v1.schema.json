@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:eventpulse:engagement-event:1.0.0",
+  "description": "Authoritative EventPulse engagement envelope. Times are UTC Unix epoch milliseconds.",
+  "title": "EventPulse engagement event 1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "event_id", "source", "user_id", "event_type", "event_time_ms", "ingest_time_ms", "partition_key", "payload"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "event_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"},
+    "source": {"type": "string", "pattern": "^[a-z][a-z0-9_-]{0,63}$"},
+    "user_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"},
+    "event_type": {"enum": ["view", "click", "purchase"]},
+    "event_time_ms": {"type": "integer", "minimum": 0},
+    "ingest_time_ms": {"type": "integer", "minimum": 0},
+    "partition_key": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,255}$"},
+    "payload": {
+      "type": "object", "additionalProperties": false, "maxProperties": 3,
+      "properties": {
+        "campaign_id": {"type": "string", "minLength": 1, "maxLength": 128},
+        "page_id": {"type": "string", "minLength": 1, "maxLength": 256},
+        "value_cents": {"type": "integer", "minimum": 0, "maximum": 100000000}
+      }
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"event_type": {"const": "purchase"}}}, "then": {"properties": {"payload": {"required": ["value_cents"]}}}},
+    {"if": {"properties": {"event_type": {"enum": ["view", "click"]}}}, "then": {"properties": {"payload": {"not": {"required": ["value_cents"]}}}}}
+  ]
+}
