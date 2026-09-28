@@ -2,7 +2,7 @@
   "artifacts": [
     {
       "path": ".github/workflows/part2-stage2-recovery.yml",
-      "sha256": "7252a9c34f7a1519992dd9dc829ff4830058ef47c475664ce2ba3a2555d4016d",
+      "sha256": "0097c7b79883b55b1937d37eecb8aff5e937e3b4137b50e18181176e123cd657",
       "size_bytes": 4396
     },
     {
