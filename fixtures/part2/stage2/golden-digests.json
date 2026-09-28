@@ -1,0 +1,46 @@
+{
+  "authority": "EP-FUTURE-P2-002",
+  "cases": {
+    "EP-CRASH-01": {
+      "after_crash_sha256": "417e542683dcb73ec705fee934f72018416e9875142c7e5a0bb9079b6e132ac6",
+      "after_restart_sha256": "01e9631dc948c9f12d8f5c75865eda32e85778ba0f534dff8ef83833b9a27ac0",
+      "response_sha256": "360fd2e8f5abd9dc3705e85578eda221b719ef0d427eafee7a0a6d2a654ca160"
+    },
+    "EP-CRASH-02": {
+      "after_crash_sha256": "0fde7618ce1e86141b6a600f280ad59c1c4574c1281919daa6a519c0d4eb761b",
+      "after_restart_sha256": "8978e07aaef5746859520d846b7d0ff6296a30418e6fb214c8feb391ae63d1c5",
+      "response_sha256": "360fd2e8f5abd9dc3705e85578eda221b719ef0d427eafee7a0a6d2a654ca160"
+    },
+    "EP-CRASH-03": {
+      "after_crash_sha256": "26be20e5a28b09853a9861edca9167761a9f334a9bc517756d7ab6b6ed64e8ac",
+      "after_restart_sha256": "605cecdbbc3c45200fd02534dbfb0e7a019543493f1658ed1a28d9daa2173832",
+      "response_sha256": "360fd2e8f5abd9dc3705e85578eda221b719ef0d427eafee7a0a6d2a654ca160"
+    },
+    "EP-CRASH-04": {
+      "after_crash_sha256": "10f4fae99dfb979f60417445ee6ac573695c40ee3fcea798e2e85d100c757f51",
+      "after_restart_sha256": "76c4f06215e13ea1796319f1f986a58ecf0564ef2bebb7869421cffdccaf1bb7",
+      "response_sha256": "360fd2e8f5abd9dc3705e85578eda221b719ef0d427eafee7a0a6d2a654ca160"
+    },
+    "EP-CRASH-05": {
+      "after_crash_sha256": "cebfe03dadd100ba7cd693194b23e02b1814df08ba2c86ad62b0e4cae8ebc1df",
+      "after_restart_sha256": "ac94204730b8e8d6b7ffbe4e55eb78766644921e1fe191a7ff8320d28abce584",
+      "response_sha256": "03f88a08f9f50246c91fda86f1b5e515969c232636995d08daadc2ad8d59b730"
+    },
+    "EP-CRASH-06": {
+      "after_crash_sha256": "9ae75c6d8300e6aeec9f23d5e5b1e69a554b3a5dce7ca1cb6cb781d384ae2fa5",
+      "after_restart_sha256": "ac1ce903389ce649555d7546e527ee457080bb87358692e5fccd0700196b8ecf",
+      "response_sha256": "360fd2e8f5abd9dc3705e85578eda221b719ef0d427eafee7a0a6d2a654ca160"
+    },
+    "EP-CRASH-07": {
+      "after_crash_sha256": "484fecda87457d81a17eefd2efc19e6df0d351362ed60bd11062e60ada521cda",
+      "after_restart_sha256": "44d534b45347ddea6f304aa4b17a56a6be52a8e402bcca24a3235a14622ccd7f",
+      "response_sha256": "360fd2e8f5abd9dc3705e85578eda221b719ef0d427eafee7a0a6d2a654ca160"
+    },
+    "EP-CRASH-08": {
+      "after_crash_sha256": "e3870fc82372c374c1fdad2fa929fb8986aca602eff7f43399fe4fcaf385015c",
+      "after_restart_sha256": "391028483ee49cf2dc3d071393ab7fcfbb2b6d4f6bc4a4c10951d174839ef98d",
+      "response_sha256": "c8760effccd4d1ac5d3f5f95735af85c36c631fbc43999e300bce119f00f203d"
+    }
+  },
+  "version": "1.0.0"
+}

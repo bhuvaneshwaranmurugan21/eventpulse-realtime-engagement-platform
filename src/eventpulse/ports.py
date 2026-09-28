@@ -34,6 +34,12 @@ class OutboxPublisher(Protocol):
     def publish(self, outbox_id: str, body: bytes) -> None: ...
 
 
+class CrashProbe(Protocol):
+    """Observe a frozen recovery boundary without owning application semantics."""
+
+    def reach(self, boundary: str, *, detail: dict[str, str]) -> None: ...
+
+
 class MetricSink(Protocol):
     def increment(self, name: str, *, dimensions: dict[str, str] | None = None) -> None: ...
 
@@ -65,6 +71,9 @@ class Runtime(Protocol):
 
     @property
     def responder(self) -> BatchResponder: ...
+
+    @property
+    def crash_probe(self) -> CrashProbe: ...
 
     @property
     def generation_id(self) -> str: ...

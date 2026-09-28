@@ -22,6 +22,8 @@ from eventpulse.canonical import (
 from eventpulse.errors import InvariantViolation, RetryableDependencyError
 from eventpulse.local import LambdaBatchResponder
 from eventpulse.models import AdmittedEvent, ApplyResult, ArchiveObject, RejectedEvent
+from eventpulse.ports import CrashProbe
+from eventpulse.recovery import NoopCrashProbe
 from eventpulse.semantics import (
     IDENTITY_TTL_MS,
     INACTIVITY_GAP_MS,
@@ -529,6 +531,7 @@ class AWSRuntime:
     metrics: CloudWatchMetricSink
     logger: JSONLogger = field(default_factory=JSONLogger)
     responder: LambdaBatchResponder = field(default_factory=LambdaBatchResponder)
+    crash_probe: CrashProbe = field(default_factory=NoopCrashProbe)
     generation_id: str = "live-v1"
 
 

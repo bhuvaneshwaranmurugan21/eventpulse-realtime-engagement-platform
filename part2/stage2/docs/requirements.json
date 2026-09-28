@@ -1,0 +1,48 @@
+{
+  "acceptance_checks": [
+    "P2S2-AC-01", "P2S2-AC-02", "P2S2-AC-03", "P2S2-AC-04",
+    "P2S2-AC-05", "P2S2-AC-06", "P2S2-AC-07", "P2S2-AC-08",
+    "P2S2-AC-09", "P2S2-AC-10", "P2S2-AC-11", "P2S2-AC-12",
+    "P2S2-AC-13", "P2S2-AC-14", "P2S2-AC-15", "P2S2-AC-16",
+    "P2S2-AC-17", "P2S2-AC-18", "P2S2-AC-19", "P2S2-AC-20",
+    "P2S2-AC-21", "P2S2-AC-22", "P2S2-AC-23", "P2S2-AC-24",
+    "P2S2-AC-25", "P2S2-AC-26", "P2S2-AC-27", "P2S2-AC-28",
+    "P2S2-AC-29", "P2S2-AC-30", "P2S2-AC-31", "P2S2-AC-32",
+    "P2S2-AC-33", "P2S2-AC-34", "P2S2-AC-35", "P2S2-AC-36"
+  ],
+  "authority": "EP-FUTURE-P2-002",
+  "branch": "part2-stage2-durable-effects-restart",
+  "claim_ceiling": "LOCAL_VERIFIED",
+  "crash_boundaries": [
+    "EP-CRASH-01", "EP-CRASH-02", "EP-CRASH-03", "EP-CRASH-04",
+    "EP-CRASH-05", "EP-CRASH-06", "EP-CRASH-07", "EP-CRASH-08"
+  ],
+  "environment": {
+    "LC_ALL": "C.UTF-8",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONHASHSEED": "0",
+    "TZ": "UTC",
+    "python": "3.12"
+  },
+  "expected_predecessor": {
+    "main_sha": "aac89f3f69ab9719f22157433ae50241ab3e7b0a",
+    "main_tree": "74f09687416593a6e195c21cae0596bd8285d14a"
+  },
+  "forbidden_operations": [
+    "aws_api", "oidc_assumption", "iam_mutation", "cloudshell", "terraform_backend",
+    "terraform_plan", "terraform_apply", "deployment", "managed_workload", "release",
+    "tag", "history_rewrite", "branch_protection_weakening", "draft_pr_1_modification",
+    "other_project_access"
+  ],
+  "negative_controls": [
+    "NC-01-archive-digest", "NC-02-partial-transaction", "NC-03-state-version",
+    "NC-04-earliest-sequence", "NC-05-outbox-identity", "NC-06-ttl-boundary",
+    "NC-07-replay-generation", "NC-08-journal-order", "NC-09-output-version",
+    "NC-10-process-reuse", "NC-11-raw-replay", "NC-12-claim-inflation"
+  ],
+  "project": "eventpulse-realtime-engagement-platform",
+  "resume": "Resume at the first failed gate with its durable diagnostics; never retry away evidence.",
+  "scope": "Part 2 Stage 2 local application-effect durability and restart proof only",
+  "status": "FROZEN",
+  "version": "1.0.0"
+}

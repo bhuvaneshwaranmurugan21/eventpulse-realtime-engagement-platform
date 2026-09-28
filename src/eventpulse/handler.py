@@ -61,12 +61,48 @@ def _archive_admitted(runtime: Runtime, admitted: AdmittedEvent) -> str:
 
 def _process_record(runtime: Runtime, record: TransportRecord) -> None:
     decision = admit(record)
+    runtime.crash_probe.reach(
+        "EP-CRASH-01",
+        detail={
+            "sequence_number": record.coordinate.sequence_number,
+            "step": "before_raw_archive",
+        },
+    )
     if isinstance(decision, RejectedEvent):
         raw_key = _archive_rejected(runtime, decision)
+        runtime.crash_probe.reach(
+            "EP-CRASH-02",
+            detail={
+                "sequence_number": record.coordinate.sequence_number,
+                "step": "raw_archived_before_transaction",
+            },
+        )
         result = runtime.store.isolate_rejected(decision, raw_key)
+        runtime.crash_probe.reach(
+            "EP-CRASH-06",
+            detail={
+                "sequence_number": record.coordinate.sequence_number,
+                "step": "poison_authority_committed_before_response",
+            },
+        )
     else:
         raw_key = _archive_admitted(runtime, decision)
+        runtime.crash_probe.reach(
+            "EP-CRASH-02",
+            detail={
+                "sequence_number": record.coordinate.sequence_number,
+                "step": "raw_archived_before_transaction",
+            },
+        )
         result = runtime.store.apply_event(decision, raw_key, runtime.generation_id)
+        runtime.crash_probe.reach(
+            "EP-CRASH-04",
+            detail={
+                "event_id": str(decision.event["event_id"]),
+                "sequence_number": record.coordinate.sequence_number,
+                "step": "transaction_committed_before_response",
+            },
+        )
         for _ in range(MAX_CLOSURE_PAGES_PER_RECORD):
             if not runtime.store.drain_closures(
                 decision.coordinate.shard_id, runtime.generation_id, CLOSURE_PAGE_SIZE
@@ -124,6 +160,15 @@ def create_handler(runtime: Runtime) -> Callable[[dict[str, Any], Any], dict[str
                 failures, key=lambda value: (value[0], _sequence_key(value[1]))
             )
         ]
-        return runtime.responder.response(ordered_failures)
+        response = runtime.responder.response(ordered_failures)
+        if ordered_failures:
+            runtime.crash_probe.reach(
+                "EP-CRASH-05",
+                detail={
+                    "sequence_number": ordered_failures[0],
+                    "step": "partial_failure_response_constructed",
+                },
+            )
+        return response
 
     return handler

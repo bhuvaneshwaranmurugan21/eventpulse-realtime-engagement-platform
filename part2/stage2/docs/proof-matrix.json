@@ -1,0 +1,18 @@
+{
+  "proofs": [
+    {
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json",
+        "fixtures/part2/stage2/golden-digests.json"
+      ],
+      "negative_controls": "NC-01 through NC-12",
+      "oracle": "oracles/part2_stage2_recovery.py",
+      "requirement_id": "EP-FUTURE-P2-002",
+      "scope": "Eight enumerated local process-death boundaries only"
+    }
+  ],
+  "stage": "PART2_STAGE2",
+  "status": "AUTHORITY_CANDIDATE"
+}

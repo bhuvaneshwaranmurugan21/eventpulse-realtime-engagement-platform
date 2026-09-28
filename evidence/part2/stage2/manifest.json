@@ -1,0 +1,168 @@
+{
+  "artifacts": [
+    {
+      "path": ".github/workflows/part2-stage2-recovery.yml",
+      "sha256": "7252a9c34f7a1519992dd9dc829ff4830058ef47c475664ce2ba3a2555d4016d",
+      "size_bytes": 4396
+    },
+    {
+      "path": "evidence/part2/stage2/crash-matrix.json",
+      "sha256": "038ad98750b12aa642850b4855ce8ea7ab7a2198027ee3090c4e05e15c09f083",
+      "size_bytes": 3788
+    },
+    {
+      "path": "evidence/part2/stage2/environment-reproducibility.json",
+      "sha256": "78438e79ace7c2bc2242b6ada02b8e87208008d95eda06117dcee5e35a2fb44e",
+      "size_bytes": 372
+    },
+    {
+      "path": "evidence/part2/stage2/package-inventory.json",
+      "sha256": "2ddea4de3007c026f50faed4e8d28abb8fb8d0e857b5d810f1ab8f19da048990",
+      "size_bytes": 452537
+    },
+    {
+      "path": "fixtures/part2/stage2/crash-matrix.json",
+      "sha256": "c86bab0670e313d1a3807d91f338c5f656adbf6694ecdb90781358d608fe457b",
+      "size_bytes": 1888
+    },
+    {
+      "path": "fixtures/part2/stage2/golden-digests.json",
+      "sha256": "686bd042b4345842a5d97bfc2f4519d84ff4f9e5f2bbd961f378bd06fc520d88",
+      "size_bytes": 2589
+    },
+    {
+      "path": "oracles/part2_stage2_recovery.py",
+      "sha256": "5fa327846634c44c9125f3072f19c69800d322c03e0ed31d3d3050fd920ce8de",
+      "size_bytes": 11999
+    },
+    {
+      "path": "part2/stage2/docs/INTERVIEW.md",
+      "sha256": "9b7b967177039a325fe98eb0947a1c25966f7756f4482226847ed9912fb1dbfd",
+      "size_bytes": 1648
+    },
+    {
+      "path": "part2/stage2/docs/audits/acceptance.md",
+      "sha256": "e1d0a98737e116f056bd1d93ffd058c7ea49727847b1caab4d257f1110e6e387",
+      "size_bytes": 2328
+    },
+    {
+      "path": "part2/stage2/docs/audits/entry.md",
+      "sha256": "735b8b57aaac706cba3a7f622ed887e6486e466e8af582839451285c99525e46",
+      "size_bytes": 1011
+    },
+    {
+      "path": "part2/stage2/docs/claims.json",
+      "sha256": "819ff7ad5c73827f1ac28c8a6c2d9766bd656fa0fbd0be109003c48f4a6da38d",
+      "size_bytes": 1763
+    },
+    {
+      "path": "part2/stage2/docs/decisions/process-death-proof.md",
+      "sha256": "d5f16566c0d248c733d1419ab6e08337751bb1cd772b43ebc68817e934105a9d",
+      "size_bytes": 1252
+    },
+    {
+      "path": "part2/stage2/docs/known-limits.md",
+      "sha256": "827a61f219a74db22cd825d59de1bfdf185bffa4c9bc6d0deca9662a1af52e61",
+      "size_bytes": 814
+    },
+    {
+      "path": "part2/stage2/docs/proof-matrix.json",
+      "sha256": "77da5624176090ed1bc71ccf420a6ca1a3d083d247f8484c59aafb385ed8ca30",
+      "size_bytes": 549
+    },
+    {
+      "path": "part2/stage2/docs/requirements.json",
+      "sha256": "346824f5c3341af0547d8c8dcdecbf1e9efe77427a6f0bcd12517ceaf0952571",
+      "size_bytes": 2103
+    },
+    {
+      "path": "part2/stage2/docs/status.md",
+      "sha256": "4ce70e6d2c6bd529424f75f3bc7527d98c301304bdf0dc3d76fe9ebf6523296c",
+      "size_bytes": 1053
+    },
+    {
+      "path": "part2/stage2/docs/traceability.json",
+      "sha256": "d18d151bd40414ae832fa7730849f3f7619d5cefa14aa4c1b88a0a64b57235b7",
+      "size_bytes": 17831
+    },
+    {
+      "path": "scripts/build_part2_stage2_evidence.py",
+      "sha256": "265b916ced3dcdbd548fb889409957db1ca28678c5abcfb9404f0290d8cfe729",
+      "size_bytes": 2030
+    },
+    {
+      "path": "scripts/build_part2_stage2_manifest.py",
+      "sha256": "8fd6d69f28dfd7e5c8db7a733ee0764bea86cd4db1df1d952efd07a98ce17268",
+      "size_bytes": 2683
+    },
+    {
+      "path": "scripts/build_part2_stage2_package.py",
+      "sha256": "7977a80f959feb6ef166c795f6b4b49810d0f95b315baea09d916a1b6d988cd0",
+      "size_bytes": 1053
+    },
+    {
+      "path": "scripts/build_part2_stage2_traceability.py",
+      "sha256": "4ede15a69bd0fc7ca19fcb70dc2f8ad1df3b794f1406bed6fe34c564254293be",
+      "size_bytes": 3122
+    },
+    {
+      "path": "scripts/compare_part2_stage2_environments.py",
+      "sha256": "17e55ce8bfef363d240150b03457a718932ed72d5ae208f905ee37cabe79af03",
+      "size_bytes": 2802
+    },
+    {
+      "path": "scripts/run_part2_stage2_crash_matrix.py",
+      "sha256": "2387cb9092e7a7b64ec29e1687545fec2afedd35de67ef022f9bdc4d29b949ba",
+      "size_bytes": 10385
+    },
+    {
+      "path": "scripts/validate_part2_stage2.py",
+      "sha256": "12920f9f5a2ffa3d8b1ada2773af31b772bdd6ca316ac6682fa68360a05287d2",
+      "size_bytes": 13659
+    },
+    {
+      "path": "src/eventpulse/aws.py",
+      "sha256": "b5fe6e3182ae0a620ef6e05c183ef1a73824031b05dc7f1ba5228d89d0b1aaff",
+      "size_bytes": 23037
+    },
+    {
+      "path": "src/eventpulse/handler.py",
+      "sha256": "39a1751ceee2d4ca5c57ac1db00342b6f0b35494d7b20a3fb6fedd20d9fbd5a6",
+      "size_bytes": 6255
+    },
+    {
+      "path": "src/eventpulse/local.py",
+      "sha256": "2858796713bfe8469bcb32303b088cf6c216b7c4f131526acce5fc748fc5e6da",
+      "size_bytes": 29730
+    },
+    {
+      "path": "src/eventpulse/ports.py",
+      "sha256": "9a16cf91ec475daf45e250ec6f55703e972e8b1dedd2fc8c9c7d0446eff87a50",
+      "size_bytes": 2053
+    },
+    {
+      "path": "src/eventpulse/recovery.py",
+      "sha256": "953cda1cb733dda6e4a12e0b68c78f62750ab0319cc7a0e023da43d13f157d40",
+      "size_bytes": 6147
+    },
+    {
+      "path": "tests/test_part2_stage2_crash_matrix.py",
+      "sha256": "12553ae0a315a37993d3afd9188be50a4eee964eaf3dca44830ddff8a8f99925",
+      "size_bytes": 1985
+    },
+    {
+      "path": "tests/test_part2_stage2_negative_controls.py",
+      "sha256": "8ca2470bc1020b110097713799084c00f955adb8f937e97942e00541edd721ba",
+      "size_bytes": 6916
+    },
+    {
+      "path": "tests/test_part2_stage2_recovery.py",
+      "sha256": "3666ffdd74ee289936f5098fa5dc6fecb4452c9ef8972451e6178cbe97f25680",
+      "size_bytes": 10745
+    }
+  ],
+  "authority": "EP-FUTURE-P2-002",
+  "claim_ceiling": "LOCAL_VERIFIED",
+  "project": "eventpulse-realtime-engagement-platform",
+  "stage": "part2-stage2"
+}

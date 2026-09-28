@@ -1,0 +1,54 @@
+{
+  "claims": [
+    {
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "tests/test_part2_stage2_crash_matrix.py",
+        "tests/test_part2_stage2_recovery.py"
+      ],
+      "id": "application_effect_crash_restart",
+      "level": "LOCAL_VERIFIED",
+      "scope": "File-backed SQLite/filesystem behavior at EP-CRASH-01 through EP-CRASH-08 with real child-process death and restart."
+    },
+    {
+      "evidence": ["evidence/part2/stage1/handler-result.json"],
+      "id": "production_consumer_local",
+      "level": "LOCAL_VERIFIED",
+      "scope": "Production handler path with durable local adapters; no managed service execution."
+    },
+    {
+      "evidence": ["src/eventpulse/aws.py"],
+      "id": "aws_adapter_request_shapes",
+      "level": "DESIGN_ONLY",
+      "scope": "Static injected-client request construction only."
+    },
+    {
+      "evidence": [],
+      "id": "managed_consumer",
+      "level": "UNCLAIMED",
+      "scope": "No Lambda event-source mapping or Kinesis workload executed."
+    },
+    {
+      "evidence": [],
+      "id": "durable_aws_recovery",
+      "level": "UNCLAIMED",
+      "scope": "No managed AWS interruption or recovery executed."
+    },
+    {
+      "evidence": [],
+      "id": "raw_archive_completeness",
+      "level": "UNCLAIMED",
+      "scope": "No managed raw completeness measurement executed."
+    },
+    {
+      "evidence": [],
+      "id": "transport_exactly_once",
+      "level": "UNCLAIMED",
+      "scope": "Transport may redeliver; application effects are idempotent within the enumerated local proof."
+    }
+  ],
+  "claim_ceiling": "LOCAL_VERIFIED",
+  "project": "eventpulse-realtime-engagement-platform",
+  "stage": "PART2_STAGE2",
+  "status": "IMPLEMENTED_AWAITING_AUTHORITY"
+}
