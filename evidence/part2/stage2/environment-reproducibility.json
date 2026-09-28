@@ -1,0 +1,10 @@
+{
+  "authority": "EP-FUTURE-P2-002",
+  "environments_compared": 2,
+  "evidence_sha256": "92f636333798d7770202e7fcefe25b0a2abc84363945a146a271ee36e4a06218",
+  "interpreter_a": "Python 3.12.14",
+  "interpreter_b": "Python 3.12.14",
+  "lock_sha256": "7ad3994c4e783e6485e157d0cc8f9dba25a0200688900f34281e61da4fab25b4",
+  "network_calls_during_matrix": 0,
+  "status": "PASS"
+}

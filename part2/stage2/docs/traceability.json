@@ -1,0 +1,607 @@
+{
+  "authority": "EP-FUTURE-P2-002",
+  "claim_ceiling": "LOCAL_VERIFIED",
+  "mappings": [
+    {
+      "artifacts": [
+        "part2/stage2/docs/requirements.json",
+        "part2/stage2/docs/audits/entry.md",
+        "scripts/validate_part2_stage2.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-01",
+      "tests": [
+        "scripts/validate_part2_stage2.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage2/docs/requirements.json",
+        "part2/stage2/docs/audits/entry.md",
+        "scripts/validate_part2_stage2.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-02",
+      "tests": [
+        "scripts/validate_part2_stage2.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage2/docs/requirements.json",
+        "part2/stage2/docs/audits/entry.md",
+        "scripts/validate_part2_stage2.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-03",
+      "tests": [
+        "scripts/validate_part2_stage2.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage2/docs/requirements.json",
+        "part2/stage2/docs/audits/entry.md",
+        "scripts/validate_part2_stage2.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-04",
+      "tests": [
+        "scripts/validate_part2_stage2.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage2/docs/requirements.json",
+        "part2/stage2/docs/audits/entry.md",
+        "scripts/validate_part2_stage2.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-05",
+      "tests": [
+        "scripts/validate_part2_stage2.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage2/docs/requirements.json",
+        "part2/stage2/docs/audits/entry.md",
+        "scripts/validate_part2_stage2.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-06",
+      "tests": [
+        "scripts/validate_part2_stage2.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage2/docs/requirements.json",
+        "part2/stage2/docs/audits/entry.md",
+        "scripts/validate_part2_stage2.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-07",
+      "tests": [
+        "scripts/validate_part2_stage2.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/local.py",
+        "src/eventpulse/recovery.py",
+        "scripts/run_part2_stage2_crash_matrix.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-08",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/local.py",
+        "src/eventpulse/recovery.py",
+        "scripts/run_part2_stage2_crash_matrix.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-09",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/local.py",
+        "src/eventpulse/recovery.py",
+        "scripts/run_part2_stage2_crash_matrix.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-10",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/local.py",
+        "src/eventpulse/recovery.py",
+        "scripts/run_part2_stage2_crash_matrix.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-11",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/local.py",
+        "src/eventpulse/recovery.py",
+        "scripts/run_part2_stage2_crash_matrix.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-12",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/local.py",
+        "src/eventpulse/recovery.py",
+        "scripts/run_part2_stage2_crash_matrix.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-13",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/local.py",
+        "src/eventpulse/recovery.py",
+        "scripts/run_part2_stage2_crash_matrix.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-14",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/local.py",
+        "src/eventpulse/recovery.py",
+        "scripts/run_part2_stage2_crash_matrix.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-15",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/local.py",
+        "src/eventpulse/recovery.py",
+        "scripts/run_part2_stage2_crash_matrix.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-16",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/local.py",
+        "src/eventpulse/recovery.py",
+        "scripts/run_part2_stage2_crash_matrix.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-17",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "fixtures/part2/stage2/crash-matrix.json",
+        "fixtures/part2/stage2/golden-digests.json",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-18",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "fixtures/part2/stage2/crash-matrix.json",
+        "fixtures/part2/stage2/golden-digests.json",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-19",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "fixtures/part2/stage2/crash-matrix.json",
+        "fixtures/part2/stage2/golden-digests.json",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-20",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "fixtures/part2/stage2/crash-matrix.json",
+        "fixtures/part2/stage2/golden-digests.json",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-21",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "fixtures/part2/stage2/crash-matrix.json",
+        "fixtures/part2/stage2/golden-digests.json",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-22",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "fixtures/part2/stage2/crash-matrix.json",
+        "fixtures/part2/stage2/golden-digests.json",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-23",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "fixtures/part2/stage2/crash-matrix.json",
+        "fixtures/part2/stage2/golden-digests.json",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-24",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "fixtures/part2/stage2/crash-matrix.json",
+        "fixtures/part2/stage2/golden-digests.json",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-25",
+      "tests": [
+        "tests/test_part2_stage2_crash_matrix.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/recovery.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-26",
+      "tests": [
+        "tests/test_part2_stage2_recovery.py",
+        "tests/test_part2_stage2_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/recovery.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-27",
+      "tests": [
+        "tests/test_part2_stage2_recovery.py",
+        "tests/test_part2_stage2_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/recovery.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-28",
+      "tests": [
+        "tests/test_part2_stage2_recovery.py",
+        "tests/test_part2_stage2_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/recovery.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-29",
+      "tests": [
+        "tests/test_part2_stage2_recovery.py",
+        "tests/test_part2_stage2_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/recovery.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-30",
+      "tests": [
+        "tests/test_part2_stage2_recovery.py",
+        "tests/test_part2_stage2_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/recovery.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-31",
+      "tests": [
+        "tests/test_part2_stage2_recovery.py",
+        "tests/test_part2_stage2_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "src/eventpulse/recovery.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-32",
+      "tests": [
+        "tests/test_part2_stage2_recovery.py",
+        "tests/test_part2_stage2_negative_controls.py"
+      ]
+    },
+    {
+      "artifacts": [
+        ".github/workflows/part2-stage2-recovery.yml",
+        "part2/stage2/docs/claims.json",
+        "part2/stage2/docs/proof-matrix.json",
+        "scripts/build_part2_stage2_manifest.py",
+        "scripts/validate_part2_stage2.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-33",
+      "tests": [
+        "tests/test_part2_stage2_negative_controls.py",
+        "scripts/validate_part2_stage2.py"
+      ]
+    },
+    {
+      "artifacts": [
+        ".github/workflows/part2-stage2-recovery.yml",
+        "part2/stage2/docs/claims.json",
+        "part2/stage2/docs/proof-matrix.json",
+        "scripts/build_part2_stage2_manifest.py",
+        "scripts/validate_part2_stage2.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-34",
+      "tests": [
+        "tests/test_part2_stage2_negative_controls.py",
+        "scripts/validate_part2_stage2.py"
+      ]
+    },
+    {
+      "artifacts": [
+        ".github/workflows/part2-stage2-recovery.yml",
+        "part2/stage2/docs/claims.json",
+        "part2/stage2/docs/proof-matrix.json",
+        "scripts/build_part2_stage2_manifest.py",
+        "scripts/validate_part2_stage2.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-35",
+      "tests": [
+        "tests/test_part2_stage2_negative_controls.py",
+        "scripts/validate_part2_stage2.py"
+      ]
+    },
+    {
+      "artifacts": [
+        ".github/workflows/part2-stage2-recovery.yml",
+        "part2/stage2/docs/claims.json",
+        "part2/stage2/docs/proof-matrix.json",
+        "scripts/build_part2_stage2_manifest.py",
+        "scripts/validate_part2_stage2.py"
+      ],
+      "claim_level": "LOCAL_VERIFIED",
+      "evidence": [
+        "evidence/part2/stage2/crash-matrix.json",
+        "evidence/part2/stage2/environment-reproducibility.json"
+      ],
+      "id": "P2S2-AC-36",
+      "tests": [
+        "tests/test_part2_stage2_negative_controls.py",
+        "scripts/validate_part2_stage2.py"
+      ]
+    }
+  ],
+  "project": "eventpulse-realtime-engagement-platform",
+  "status": "IMPLEMENTED",
+  "version": "1.0.0"
+}

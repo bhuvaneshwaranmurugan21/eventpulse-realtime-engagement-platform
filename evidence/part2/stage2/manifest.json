@@ -1,0 +1,173 @@
+{
+  "artifacts": [
+    {
+      "path": ".github/workflows/part2-stage1-consumer.yml",
+      "sha256": "74e092390f1d8d0529ec7d85f5162bb3772177718a15cbf23a98ebe96e3eb194",
+      "size_bytes": 4410
+    },
+    {
+      "path": ".github/workflows/part2-stage2-recovery.yml",
+      "sha256": "c42f6e6862b5ac2c2e3cbe1c0af1fca4b8e20b033377bdcfe763b9c18e9bb98c",
+      "size_bytes": 4435
+    },
+    {
+      "path": "evidence/part2/stage2/crash-matrix.json",
+      "sha256": "038ad98750b12aa642850b4855ce8ea7ab7a2198027ee3090c4e05e15c09f083",
+      "size_bytes": 3788
+    },
+    {
+      "path": "evidence/part2/stage2/environment-reproducibility.json",
+      "sha256": "78438e79ace7c2bc2242b6ada02b8e87208008d95eda06117dcee5e35a2fb44e",
+      "size_bytes": 372
+    },
+    {
+      "path": "evidence/part2/stage2/package-inventory.json",
+      "sha256": "2ddea4de3007c026f50faed4e8d28abb8fb8d0e857b5d810f1ab8f19da048990",
+      "size_bytes": 452537
+    },
+    {
+      "path": "fixtures/part2/stage2/crash-matrix.json",
+      "sha256": "c86bab0670e313d1a3807d91f338c5f656adbf6694ecdb90781358d608fe457b",
+      "size_bytes": 1888
+    },
+    {
+      "path": "fixtures/part2/stage2/golden-digests.json",
+      "sha256": "686bd042b4345842a5d97bfc2f4519d84ff4f9e5f2bbd961f378bd06fc520d88",
+      "size_bytes": 2589
+    },
+    {
+      "path": "part2/stage2/docs/INTERVIEW.md",
+      "sha256": "9b7b967177039a325fe98eb0947a1c25966f7756f4482226847ed9912fb1dbfd",
+      "size_bytes": 1648
+    },
+    {
+      "path": "part2/stage2/docs/audits/acceptance.md",
+      "sha256": "041d4c1369ddca5decb54e0f10d8770cd527005303d2c48c883fdbaf024d2ca3",
+      "size_bytes": 2561
+    },
+    {
+      "path": "part2/stage2/docs/audits/entry.md",
+      "sha256": "735b8b57aaac706cba3a7f622ed887e6486e466e8af582839451285c99525e46",
+      "size_bytes": 1011
+    },
+    {
+      "path": "part2/stage2/docs/claims.json",
+      "sha256": "819ff7ad5c73827f1ac28c8a6c2d9766bd656fa0fbd0be109003c48f4a6da38d",
+      "size_bytes": 1763
+    },
+    {
+      "path": "part2/stage2/docs/decisions/process-death-proof.md",
+      "sha256": "571a16479405118537a085ab1365defa8053679801f5ccef8a2ef7d6f9cf7ca9",
+      "size_bytes": 1904
+    },
+    {
+      "path": "part2/stage2/docs/known-limits.md",
+      "sha256": "827a61f219a74db22cd825d59de1bfdf185bffa4c9bc6d0deca9662a1af52e61",
+      "size_bytes": 814
+    },
+    {
+      "path": "part2/stage2/docs/proof-matrix.json",
+      "sha256": "aadd56e747d35beda182624bae5b00f0bf89257adcca7dfd85884c105230cb18",
+      "size_bytes": 562
+    },
+    {
+      "path": "part2/stage2/docs/requirements.json",
+      "sha256": "346824f5c3341af0547d8c8dcdecbf1e9efe77427a6f0bcd12517ceaf0952571",
+      "size_bytes": 2103
+    },
+    {
+      "path": "part2/stage2/docs/status.md",
+      "sha256": "4ce70e6d2c6bd529424f75f3bc7527d98c301304bdf0dc3d76fe9ebf6523296c",
+      "size_bytes": 1053
+    },
+    {
+      "path": "part2/stage2/docs/traceability.json",
+      "sha256": "6928b22263d684440ee6ba963817c2aa18b1a1883ab61c1085129138eb0e5ffe",
+      "size_bytes": 18156
+    },
+    {
+      "path": "part2/stage2/oracles/part2_stage2_recovery.py",
+      "sha256": "5fa327846634c44c9125f3072f19c69800d322c03e0ed31d3d3050fd920ce8de",
+      "size_bytes": 11999
+    },
+    {
+      "path": "scripts/build_part2_stage2_evidence.py",
+      "sha256": "c1533051bf9af5ee49159706178acafff5139e690108b052fb3afae0938ba7fb",
+      "size_bytes": 2043
+    },
+    {
+      "path": "scripts/build_part2_stage2_manifest.py",
+      "sha256": "9e90e9dc2be27a130dc4638b3b07dcd866e66eea3e43486610021c320a1a56cb",
+      "size_bytes": 2747
+    },
+    {
+      "path": "scripts/build_part2_stage2_package.py",
+      "sha256": "7977a80f959feb6ef166c795f6b4b49810d0f95b315baea09d916a1b6d988cd0",
+      "size_bytes": 1053
+    },
+    {
+      "path": "scripts/build_part2_stage2_traceability.py",
+      "sha256": "9e9855fb8f34963f67a84352038be40181d8c0b2b4840d3681164a5eebd79d04",
+      "size_bytes": 3161
+    },
+    {
+      "path": "scripts/compare_part2_stage2_environments.py",
+      "sha256": "17e55ce8bfef363d240150b03457a718932ed72d5ae208f905ee37cabe79af03",
+      "size_bytes": 2802
+    },
+    {
+      "path": "scripts/run_part2_stage2_crash_matrix.py",
+      "sha256": "00d2ed11ba73b95e7be484c21946155be594565da6fba231d56ca10393c689a1",
+      "size_bytes": 10398
+    },
+    {
+      "path": "scripts/validate_part2_stage2.py",
+      "sha256": "559bfa9407dfda21ea6a43460ef5c27a88be3b2915e4a8cee8ab09d97dc6619b",
+      "size_bytes": 13784
+    },
+    {
+      "path": "src/eventpulse/aws.py",
+      "sha256": "b5fe6e3182ae0a620ef6e05c183ef1a73824031b05dc7f1ba5228d89d0b1aaff",
+      "size_bytes": 23037
+    },
+    {
+      "path": "src/eventpulse/handler.py",
+      "sha256": "39a1751ceee2d4ca5c57ac1db00342b6f0b35494d7b20a3fb6fedd20d9fbd5a6",
+      "size_bytes": 6255
+    },
+    {
+      "path": "src/eventpulse/local.py",
+      "sha256": "2858796713bfe8469bcb32303b088cf6c216b7c4f131526acce5fc748fc5e6da",
+      "size_bytes": 29730
+    },
+    {
+      "path": "src/eventpulse/ports.py",
+      "sha256": "9a16cf91ec475daf45e250ec6f55703e972e8b1dedd2fc8c9c7d0446eff87a50",
+      "size_bytes": 2053
+    },
+    {
+      "path": "src/eventpulse/recovery.py",
+      "sha256": "953cda1cb733dda6e4a12e0b68c78f62750ab0319cc7a0e023da43d13f157d40",
+      "size_bytes": 6147
+    },
+    {
+      "path": "tests/test_part2_stage2_crash_matrix.py",
+      "sha256": "1f77a524577852fe8694efb092585e477f4adb4cdff08dd599ef63b83374d47b",
+      "size_bytes": 1998
+    },
+    {
+      "path": "tests/test_part2_stage2_negative_controls.py",
+      "sha256": "5827eda1289ac55088704d2a128eb2dd7991f790362956e5e8992aa5b0a1c7f9",
+      "size_bytes": 6929
+    },
+    {
+      "path": "tests/test_part2_stage2_recovery.py",
+      "sha256": "3666ffdd74ee289936f5098fa5dc6fecb4452c9ef8972451e6178cbe97f25680",
+      "size_bytes": 10745
+    }
+  ],
+  "authority": "EP-FUTURE-P2-002",
+  "claim_ceiling": "LOCAL_VERIFIED",
+  "project": "eventpulse-realtime-engagement-platform",
+  "stage": "part2-stage2"
+}

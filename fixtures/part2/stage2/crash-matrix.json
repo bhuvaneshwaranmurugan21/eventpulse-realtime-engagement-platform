@@ -1,0 +1,62 @@
+{
+  "authority": "EP-FUTURE-P2-002",
+  "cases": [
+    {
+      "id": "EP-CRASH-01",
+      "name": "before raw archive",
+      "restart": "redeliver valid record",
+      "safety": "no acknowledged effect"
+    },
+    {
+      "id": "EP-CRASH-02",
+      "name": "raw archived before application transaction",
+      "restart": "verify existing raw digest and apply once",
+      "safety": "no lost application effect"
+    },
+    {
+      "id": "EP-CRASH-03",
+      "name": "inside application transaction",
+      "restart": "SQLite WAL rollback then redeliver",
+      "safety": "no partial state or output commit"
+    },
+    {
+      "id": "EP-CRASH-04",
+      "name": "application transaction committed before response",
+      "restart": "redeliver and classify as identical duplicate",
+      "safety": "no double application"
+    },
+    {
+      "id": "EP-CRASH-05",
+      "name": "partial failure response constructed",
+      "restart": "resume from earliest failed sequence",
+      "safety": "later records remain unapplied"
+    },
+    {
+      "id": "EP-CRASH-06",
+      "name": "poison authority committed before response",
+      "restart": "redeliver poison with stable authority",
+      "safety": "poison cannot block the shard"
+    },
+    {
+      "id": "EP-CRASH-07",
+      "name": "outbox notification sent before delivery marker",
+      "restart": "repeat notification with stable outbox identity",
+      "safety": "quarantine and outbox authority remain singular"
+    },
+    {
+      "id": "EP-CRASH-08",
+      "name": "retry or age bound exhausted",
+      "restart": "retain unresolved failure destination evidence",
+      "safety": "success remains blocked until adjudication"
+    }
+  ],
+  "crash_exit_code": 91,
+  "environment": {
+    "LC_ALL": "C.UTF-8",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONHASHSEED": "0",
+    "TZ": "UTC",
+    "python": "3.12"
+  },
+  "version": "1.0.0"
+}

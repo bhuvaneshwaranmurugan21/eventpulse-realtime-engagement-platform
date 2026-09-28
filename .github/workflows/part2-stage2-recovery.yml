@@ -1,0 +1,112 @@
+name: EventPulse Part 2 Stage 2 Recovery
+
+on:
+  push:
+    branches:
+      - main
+      - part2-stage2-durable-effects-restart
+    paths:
+      - ".github/workflows/part2-stage2-recovery.yml"
+      - "evidence/part2/stage2/**"
+      - "fixtures/part2/stage2/**"
+      - "part2/stage2/oracles/part2_stage2_recovery.py"
+      - "part2/stage2/**"
+      - "scripts/*part2_stage2*.py"
+      - "src/eventpulse/**"
+      - "tests/test_part2_stage2_*.py"
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/part2-stage2-recovery.yml"
+      - "evidence/part2/stage2/**"
+      - "fixtures/part2/stage2/**"
+      - "part2/stage2/oracles/part2_stage2_recovery.py"
+      - "part2/stage2/**"
+      - "scripts/*part2_stage2*.py"
+      - "src/eventpulse/**"
+      - "tests/test_part2_stage2_*.py"
+
+permissions:
+  contents: read
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      LC_ALL: C.UTF-8
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONHASHSEED: "0"
+      TZ: UTC
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12"
+      - name: Install exact hash-locked dependencies
+        run: python -m pip install --require-hashes -r requirements/dev.lock
+      - name: Verify generated Stage 2 authority
+        run: |
+          python scripts/build_part2_stage2_traceability.py --check
+          python scripts/build_part2_stage2_evidence.py --check
+          python scripts/build_part2_stage2_manifest.py --check
+          python scripts/validate_part2_stage2.py --verify-source
+      - name: Install EventPulse without dependency resolution
+        run: python -m pip install . --no-deps --no-build-isolation
+      - name: Lint and type-check
+        run: |
+          ruff check src scripts/*part2_stage2*.py part2/stage2/oracles/part2_stage2_recovery.py tests/test_part2_stage2_*.py
+          mypy src/eventpulse
+      - name: Focused and cumulative tests with branch coverage
+        run: |
+          coverage erase
+          coverage run --branch -m unittest discover -s tests -p 'test_part2_stage*.py'
+          coverage report -m
+      - name: Security checks
+        run: |
+          bandit -q -r src
+          pip-audit -r requirements/runtime.lock --disable-pip
+      - name: Build and package
+        run: |
+          python -m build --wheel --no-isolation
+          mkdir -p /tmp/eventpulse-runtime-wheels
+          python -m pip download --only-binary=:all: --require-hashes -r requirements/runtime.lock -d /tmp/eventpulse-runtime-wheels
+          python scripts/build_part2_stage2_package.py /tmp/eventpulse-runtime-wheels /tmp/eventpulse-lambda.zip --check
+      - name: Validate cumulative Part 1 and Part 2 Stage 1
+        run: |
+          python scripts/validate_part2_stage1.py --verify-source
+          python scripts/build_stage3_manifest.py --check
+          python scripts/validate_stage3_completion.py
+          python -m unittest discover -s tests -p 'test_stage3_*.py' -v
+          python scripts/build_stage2_manifest.py --check
+          python scripts/validate_stage2_contract.py
+          python -m unittest discover -s tests -p 'test_stage2_contract.py' -v
+          python scripts/validate_stage1_audit.py --verify-source
+
+  clean-environment-reproducibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      LC_ALL: C.UTF-8
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONHASHSEED: "0"
+      TZ: UTC
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12"
+      - name: Provision two exact locked environments
+        run: |
+          python -m venv /tmp/eventpulse-stage2-a
+          python -m venv /tmp/eventpulse-stage2-b
+          /tmp/eventpulse-stage2-a/bin/python -m pip install --require-hashes -r requirements/dev.lock
+          /tmp/eventpulse-stage2-b/bin/python -m pip install --require-hashes -r requirements/dev.lock
+      - name: Compare deterministic crash evidence
+        run: |
+          python scripts/compare_part2_stage2_environments.py \
+            --python-a /tmp/eventpulse-stage2-a/bin/python \
+            --python-b /tmp/eventpulse-stage2-b/bin/python \
+            --check

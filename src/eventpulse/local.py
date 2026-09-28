@@ -15,6 +15,8 @@ from typing import Any
 from eventpulse.canonical import canonical_bytes, session_id, sha256_bytes, stable_id
 from eventpulse.errors import InvariantViolation, RetryableDependencyError
 from eventpulse.models import AdmittedEvent, ApplyResult, ArchiveObject, RejectedEvent
+from eventpulse.ports import CrashProbe
+from eventpulse.recovery import NoopCrashProbe, PendingOutbox
 from eventpulse.semantics import (
     IDENTITY_TTL_MS,
     INACTIVITY_GAP_MS,
@@ -77,6 +79,16 @@ CREATE TABLE IF NOT EXISTS metric (
   name TEXT NOT NULL, dimensions_json TEXT NOT NULL, value INTEGER NOT NULL,
   PRIMARY KEY (name, dimensions_json)
 );
+CREATE TABLE IF NOT EXISTS processing_commit (
+  commit_id TEXT PRIMARY KEY, generation_id TEXT NOT NULL, event_id TEXT NOT NULL,
+  source_hash TEXT NOT NULL, sequence_number TEXT NOT NULL, raw_key TEXT NOT NULL,
+  disposition TEXT NOT NULL, payload_digest TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS failure_destination (
+  invocation_id TEXT PRIMARY KEY, object_key TEXT NOT NULL UNIQUE,
+  body_sha256 TEXT NOT NULL, earliest_sequence TEXT NOT NULL,
+  status TEXT NOT NULL CHECK(status IN ('UNRESOLVED', 'ADJUDICATED'))
+);
 """
 
 
@@ -125,10 +137,53 @@ class FilesystemRawArchive:
             raise RetryableDependencyError("filesystem raw read failed") from error
 
 
+class FilesystemFailureDestination:
+    """Conditional local equivalent of the Lambda failure S3 destination."""
+
+    def __init__(self, root: Path) -> None:
+        self.archive = FilesystemRawArchive(root)
+
+    def put_if_absent(self, key: str, body: bytes, digest: str) -> None:
+        self.archive.put_if_absent(
+            ArchiveObject(
+                key=key,
+                body=body,
+                sha256=digest,
+                metadata={"disposition": "RETRY_EXHAUSTED"},
+            )
+        )
+
+
+class FilesystemOutboxPublisher:
+    """Durable local at-least-once channel with stable outbox identity."""
+
+    def __init__(self, root: Path) -> None:
+        self.root = root.resolve()
+        self.root.mkdir(parents=True, exist_ok=True)
+
+    def publish(self, outbox_id: str, body: bytes) -> None:
+        directory = self.root / sha256_bytes(outbox_id.encode("utf-8"))
+        directory.mkdir(parents=True, exist_ok=True)
+        for attempt in range(1, 1_000_001):
+            target = directory / f"attempt-{attempt:06d}.json"
+            try:
+                with target.open("xb") as stream:
+                    stream.write(body)
+                    stream.flush()
+                    os.fsync(stream.fileno())
+                return
+            except FileExistsError:
+                continue
+            except OSError as error:
+                raise RetryableDependencyError("filesystem outbox publish failed") from error
+        raise InvariantViolation("outbox attempt space exhausted")
+
+
 class SQLiteApplicationStore:
-    def __init__(self, path: Path) -> None:
+    def __init__(self, path: Path, crash_probe: CrashProbe | None = None) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         self.path = path
+        self.crash_probe = crash_probe or NoopCrashProbe()
         connection = self._connect()
         try:
             connection.executescript(SCHEMA)
@@ -184,6 +239,7 @@ class SQLiteApplicationStore:
 
     def isolate_rejected(self, rejected: RejectedEvent, raw_key: str) -> ApplyResult:
         source_hash = sha256_bytes(rejected.coordinate.event_source_arn.encode("utf-8"))
+        digest = sha256_bytes(rejected.archive_body)
         with self._transaction() as connection:
             self._quarantine(
                 connection,
@@ -191,7 +247,23 @@ class SQLiteApplicationStore:
                 raw_key=raw_key,
                 source_hash=source_hash,
                 sequence=rejected.coordinate.sequence_number,
-                payload_digest=sha256_bytes(rejected.archive_body),
+                payload_digest=digest,
+            )
+            commit_id = stable_id(
+                "commit", "transport", source_hash, rejected.coordinate.sequence_number, digest
+            )
+            connection.execute(
+                "INSERT OR IGNORE INTO processing_commit VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                (
+                    commit_id,
+                    "transport",
+                    commit_id,
+                    source_hash,
+                    rejected.coordinate.sequence_number,
+                    raw_key,
+                    rejected.disposition,
+                    digest,
+                ),
             )
         return ApplyResult(rejected.disposition, False)
 
@@ -272,6 +344,21 @@ class SQLiteApplicationStore:
                     sequence=admitted.coordinate.sequence_number,
                     payload_digest=admitted.digest,
                 )
+                self._record_processing_commit(
+                    connection,
+                    admitted=admitted,
+                    raw_key=raw_key,
+                    generation_id=generation_id,
+                    disposition="LATE_BEYOND_WATERMARK",
+                )
+                self.crash_probe.reach(
+                    "EP-CRASH-03",
+                    detail={
+                        "event_id": str(event["event_id"]),
+                        "sequence_number": admitted.coordinate.sequence_number,
+                        "step": "transaction_before_commit",
+                    },
+                )
                 return ApplyResult(
                     "LATE_BEYOND_WATERMARK",
                     False,
@@ -285,11 +372,13 @@ class SQLiteApplicationStore:
                     (shard_id, generation_id, decision.maximum_after_ms),
                 )
             else:
-                connection.execute(
+                cursor = connection.execute(
                     "UPDATE shard_state SET max_event_time_ms=?, version=version+1 "
                     "WHERE shard_id=? AND generation_id=? AND version=?",
                     (decision.maximum_after_ms, shard_id, generation_id, int(shard["version"])),
                 )
+                if cursor.rowcount != 1:
+                    raise RetryableDependencyError("shard state optimistic version conflict")
             payload = event["payload"]
             value_cents = payload.get("value_cents")
             connection.execute(
@@ -336,12 +425,118 @@ class SQLiteApplicationStore:
                 "INSERT OR IGNORE INTO closure_work VALUES (?, ?, ?, ?, 'PENDING')",
                 (work_id, shard_id, generation_id, decision.watermark_after_ms),
             )
+            self._record_processing_commit(
+                connection,
+                admitted=admitted,
+                raw_key=raw_key,
+                generation_id=generation_id,
+                disposition=decision.category,
+            )
+            self.crash_probe.reach(
+                "EP-CRASH-03",
+                detail={
+                    "event_id": str(event["event_id"]),
+                    "sequence_number": admitted.coordinate.sequence_number,
+                    "step": "transaction_before_commit",
+                },
+            )
             return ApplyResult(
                 decision.category,
                 True,
                 decision.watermark_before_ms,
                 decision.watermark_after_ms,
             )
+
+    @staticmethod
+    def _record_processing_commit(
+        connection: sqlite3.Connection,
+        *,
+        admitted: AdmittedEvent,
+        raw_key: str,
+        generation_id: str,
+        disposition: str,
+    ) -> None:
+        source_hash = sha256_bytes(admitted.coordinate.event_source_arn.encode("utf-8"))
+        commit_id = stable_id(
+            "commit", generation_id, str(admitted.event["event_id"]), admitted.digest
+        )
+        connection.execute(
+            "INSERT OR IGNORE INTO processing_commit VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            (
+                commit_id,
+                generation_id,
+                admitted.event["event_id"],
+                source_hash,
+                admitted.coordinate.sequence_number,
+                raw_key,
+                disposition,
+                admitted.digest,
+            ),
+        )
+
+    def pending_outbox(self, limit: int) -> list[PendingOutbox]:
+        if not 1 <= limit <= 20:
+            raise InvariantViolation("outbox page limit must be between 1 and 20")
+        connection = self._connect()
+        try:
+            rows = connection.execute(
+                "SELECT outbox_id, body_json FROM outbox WHERE delivered=0 "
+                "ORDER BY outbox_id LIMIT ?",
+                (limit,),
+            ).fetchall()
+            return [
+                PendingOutbox(str(row["outbox_id"]), str(row["body_json"]).encode("utf-8"))
+                for row in rows
+            ]
+        finally:
+            connection.close()
+
+    def mark_outbox_delivered(self, outbox_id: str) -> None:
+        with self._transaction() as connection:
+            row = connection.execute(
+                "SELECT delivered FROM outbox WHERE outbox_id=?", (outbox_id,)
+            ).fetchone()
+            if row is None:
+                raise InvariantViolation("cannot mark an unknown outbox row delivered")
+            connection.execute(
+                "UPDATE outbox SET delivered=1 WHERE outbox_id=?", (outbox_id,)
+            )
+
+    def register_failure_destination(
+        self,
+        *,
+        invocation_id: str,
+        object_key: str,
+        body_sha256: str,
+        earliest_sequence: str,
+    ) -> None:
+        with self._transaction() as connection:
+            connection.execute(
+                "INSERT OR IGNORE INTO failure_destination VALUES (?, ?, ?, ?, 'UNRESOLVED')",
+                (invocation_id, object_key, body_sha256, earliest_sequence),
+            )
+            existing = connection.execute(
+                "SELECT object_key, body_sha256, earliest_sequence "
+                "FROM failure_destination WHERE invocation_id=?",
+                (invocation_id,),
+            ).fetchone()
+            if existing is None or tuple(existing) != (
+                object_key,
+                body_sha256,
+                earliest_sequence,
+            ):
+                raise InvariantViolation("failure destination identity conflict")
+
+    def unresolved_failure_count(self) -> int:
+        connection = self._connect()
+        try:
+            return int(
+                connection.execute(
+                    "SELECT COUNT(*) FROM failure_destination WHERE status='UNRESOLVED'"
+                ).fetchone()[0]
+            )
+        finally:
+            connection.close()
 
     def drain_closures(self, shard_id: str, generation_id: str, limit: int) -> bool:
         if not 1 <= limit <= 20:
@@ -445,6 +640,24 @@ class SQLiteApplicationStore:
         finally:
             connection.close()
 
+    def recovery_export(self) -> dict[str, list[dict[str, Any]]]:
+        """Return deterministic Stage 2 state without changing Stage 1 exports."""
+
+        result = self.export()
+        connection = self._connect()
+        try:
+            recovery_queries = {
+                "failure_destination": "SELECT * FROM failure_destination ORDER BY 1",
+                "metric": "SELECT * FROM metric ORDER BY 1",
+                "processing_commit": "SELECT * FROM processing_commit ORDER BY 1",
+            }
+            for table, query in recovery_queries.items():
+                rows = connection.execute(query).fetchall()
+                result[table] = [dict(row) for row in rows]
+            return dict(sorted(result.items()))
+        finally:
+            connection.close()
+
 
 class SQLiteMetricSink:
     def __init__(self, store: SQLiteApplicationStore) -> None:
@@ -481,15 +694,22 @@ class LocalRuntime:
     metrics: SQLiteMetricSink
     logger: CollectingLogger
     responder: LambdaBatchResponder = field(default_factory=LambdaBatchResponder)
+    crash_probe: CrashProbe = field(default_factory=NoopCrashProbe)
     generation_id: str = "live-v1"
 
 
-def create_local_runtime(root: Path, generation_id: str = "live-v1") -> LocalRuntime:
-    store = SQLiteApplicationStore(root / "state.sqlite3")
+def create_local_runtime(
+    root: Path,
+    generation_id: str = "live-v1",
+    crash_probe: CrashProbe | None = None,
+) -> LocalRuntime:
+    probe = crash_probe or NoopCrashProbe()
+    store = SQLiteApplicationStore(root / "state.sqlite3", probe)
     return LocalRuntime(
         archive=FilesystemRawArchive(root / "archive"),
         store=store,
         metrics=SQLiteMetricSink(store),
         logger=CollectingLogger(),
+        crash_probe=probe,
         generation_id=generation_id,
     )
