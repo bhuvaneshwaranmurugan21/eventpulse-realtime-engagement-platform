@@ -12,7 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / "evidence/part2/stage2/manifest.json"
 EXACT_PATHS = {
     ".github/workflows/part2-stage2-recovery.yml",
-    "oracles/part2_stage2_recovery.py",
+    ".github/workflows/part2-stage1-consumer.yml",
+    "part2/stage2/oracles/part2_stage2_recovery.py",
     "scripts/build_part2_stage2_evidence.py",
     "scripts/build_part2_stage2_manifest.py",
     "scripts/build_part2_stage2_package.py",

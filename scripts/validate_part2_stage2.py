@@ -106,7 +106,7 @@ def validate_fixtures_and_evidence() -> list[str]:
 
 
 def validate_oracle_isolation() -> list[str]:
-    path = ROOT / "oracles/part2_stage2_recovery.py"
+    path = ROOT / "part2/stage2/oracles/part2_stage2_recovery.py"
     tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
     errors = []
     for node in ast.walk(tree):
@@ -221,8 +221,10 @@ def validate_predecessor_manifest() -> list[str]:
 
 def validate_changed_files() -> list[str]:
     allowed_exact = {
+        ".github/workflows/part2-stage1-consumer.yml",
         ".github/workflows/part2-stage2-recovery.yml",
         "oracles/part2_stage2_recovery.py",
+        "part2/stage2/oracles/part2_stage2_recovery.py",
         "src/eventpulse/aws.py",
         "src/eventpulse/handler.py",
         "src/eventpulse/local.py",

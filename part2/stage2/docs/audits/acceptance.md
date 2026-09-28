@@ -35,6 +35,9 @@ production implementation from redefining expected results.
 - Missing and corrupt raw replay creates unresolved durable evidence and raises.
 - First, middle, and last transient batch failures stop at the earliest unresolved sequence.
 - At-least-once notification retry preserves one quarantine/outbox authority and stable ID.
+- Predecessor CI distinguishes frozen-authority validation from descendant cumulative validation;
+  the Part 1 workflow remains unchanged and the Stage 1 receipt is checked historically rather
+  than regenerated from Stage 2 source.
 
 ## Publication gate
 

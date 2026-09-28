@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-sys.path.insert(0, str(ROOT / "oracles"))
+sys.path.insert(0, str(ROOT / "part2/stage2/oracles"))
 
 from part2_stage2_recovery import read_journal, validate_journal  # noqa: E402
 from run_part2_stage2_crash_matrix import CRASH_EXIT, supervise  # noqa: E402

@@ -21,3 +21,13 @@ The journal stores actual PIDs, but canonical evidence replaces volatile PIDs an
 with ordinal labels after independently validating the raw hash chain and distinct process IDs.
 The oracle imports only Python’s standard library and reads exported files and tables. Two fresh
 locked Python 3.12 environments must produce byte-identical summaries.
+
+## Descendant CI routing
+
+The frozen Part 1 Stage 3 workflow and manifest remain byte-for-byte unchanged. The Stage 2
+oracle lives under the Stage 2 authority namespace, so it cannot masquerade as a Part 1 oracle or
+spuriously trigger that frozen workflow. The Stage 1 workflow uses explicit descendant mode once
+the Stage 2 requirement marker exists: it validates immutable predecessor receipts historically
+and runs cumulative behavior without recomputing the Stage 1 manifest from descendant source.
+Shared runtime changes remain owned by the active Stage 2 workflow. This prevents both false
+failures and silent weakening of predecessor evidence.

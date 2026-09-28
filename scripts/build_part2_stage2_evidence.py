@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "tests"))
-sys.path.insert(0, str(ROOT / "oracles"))
+sys.path.insert(0, str(ROOT / "part2/stage2/oracles"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from run_part2_stage2_crash_matrix import supervise  # noqa: E402

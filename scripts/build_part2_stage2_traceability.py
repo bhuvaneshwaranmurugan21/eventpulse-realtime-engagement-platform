@@ -25,20 +25,20 @@ def mapping(number: int) -> dict[str, object]:
             "src/eventpulse/local.py",
             "src/eventpulse/recovery.py",
             "scripts/run_part2_stage2_crash_matrix.py",
-            "oracles/part2_stage2_recovery.py",
+            "part2/stage2/oracles/part2_stage2_recovery.py",
         ]
         tests = ["tests/test_part2_stage2_crash_matrix.py"]
     elif number <= 25:
         artifacts = [
             "fixtures/part2/stage2/crash-matrix.json",
             "fixtures/part2/stage2/golden-digests.json",
-            "oracles/part2_stage2_recovery.py",
+            "part2/stage2/oracles/part2_stage2_recovery.py",
         ]
         tests = ["tests/test_part2_stage2_crash_matrix.py"]
     elif number <= 32:
         artifacts = [
             "src/eventpulse/recovery.py",
-            "oracles/part2_stage2_recovery.py",
+            "part2/stage2/oracles/part2_stage2_recovery.py",
         ]
         tests = [
             "tests/test_part2_stage2_recovery.py",

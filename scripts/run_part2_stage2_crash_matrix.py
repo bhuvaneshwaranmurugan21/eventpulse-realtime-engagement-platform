@@ -15,7 +15,7 @@ from typing import Any, cast
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "tests"))
-sys.path.insert(0, str(ROOT / "oracles"))
+sys.path.insert(0, str(ROOT / "part2/stage2/oracles"))
 
 from part2_stage1_helpers import batch, event, record  # noqa: E402
 from part2_stage2_recovery import digest, export, verify, verify_frozen_result  # noqa: E402

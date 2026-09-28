@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-sys.path.insert(0, str(ROOT / "oracles"))
+sys.path.insert(0, str(ROOT / "part2/stage2/oracles"))
 
 from part2_stage2_recovery import (  # noqa: E402
     canonical_bytes,
