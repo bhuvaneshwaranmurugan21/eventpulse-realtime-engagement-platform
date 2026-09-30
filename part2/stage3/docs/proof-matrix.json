@@ -1,0 +1,1 @@
+{"authority":"EP-FUTURE-P2-003","proofs":[{"requirement_id":"EP-FUTURE-P2-003","level":"LOCAL_VERIFIED","evidence":["evidence/part2/stage3/property-results.json","evidence/part2/stage3/mutation-results.json","evidence/part2/stage3/critical-coverage.json","evidence/part2/stage3/oracle-comparison.json"]}]}

@@ -1,0 +1,1 @@
+{"authority":"EP-FUTURE-P2-003","claims":[{"id":"complete_local_semantics","level":"LOCAL_VERIFIED"},{"id":"process_death_recovery","level":"LOCAL_VERIFIED"},{"id":"aws_adapter_request_shapes","level":"DESIGN_ONLY"},{"id":"managed_aws_workload","level":"UNCLAIMED"},{"id":"performance_cost_teardown","level":"UNCLAIMED"},{"id":"transport_exactly_once","level":"UNCLAIMED"}]}
