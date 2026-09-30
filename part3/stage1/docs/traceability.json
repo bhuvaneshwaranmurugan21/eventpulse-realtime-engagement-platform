@@ -1,0 +1,365 @@
+{
+  "authority": "EP-FUTURE-P3-001",
+  "mappings": [
+    {
+      "criterion": "ENTRY_IDENTITY",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "PREDECESSOR_COMPLETION",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "SCOPE_ISOLATION",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "COMMAND_ALLOWLIST",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "READ_ONLY_ENFORCEMENT",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "ACCOUNT_IDENTITY",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "REGION_IDENTITY",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "REGION_ENABLED",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "OIDC_PROVIDER",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "OIDC_TRUST",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "ROLE_INVENTORY",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "POLICY_INVENTORY",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "RESOURCE_INVENTORY",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "COLLISION_INVENTORY",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "QUOTA_INVENTORY",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "BACKEND_ASSESSMENT",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "STATE_ASSESSMENT",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "LOCK_ASSESSMENT",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "LEASE_DESIGN",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "COST_FORECAST",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "BUDGET_VISIBILITY",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "PERMISSION_GAP",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "LEAST_PRIVILEGE",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "FRESHNESS",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "PRIVATE_EVIDENCE",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "NORMALIZATION",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "INDEPENDENT_ORACLE",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "NEGATIVE_CONTROLS",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "TWO_ENVIRONMENTS",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "DETERMINISTIC_EVIDENCE",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "CUMULATIVE_GATES",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "CLAIM_CEILING",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "KNOWN_LIMITS",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "TRACEABILITY",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "EXACT_HEAD_CI",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "PENDING"
+    },
+    {
+      "criterion": "CHANGED_FILE_SCOPE",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "IMPLEMENTED"
+    },
+    {
+      "criterion": "GUARDED_MERGE",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "PENDING"
+    },
+    {
+      "criterion": "MERGED_MAIN_CI",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "PENDING"
+    },
+    {
+      "criterion": "SEPARATE_RECEIPT",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "PENDING"
+    },
+    {
+      "criterion": "STAGE2_CHECKPOINT",
+      "failure_mode": "missing, stale, contradictory or unverified evidence",
+      "proof": [
+        "scripts/validate_part3_stage1.py",
+        "tests/test_part3_stage1_admission.py"
+      ],
+      "result": "PENDING"
+    }
+  ]
+}

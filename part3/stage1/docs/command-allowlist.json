@@ -1,0 +1,18 @@
+{
+  "allowed_aws_operations": [
+    "account get-region-opt-status", "budgets describe-budgets", "cloudwatch describe-alarms",
+    "dynamodb list-tables", "iam get-open-id-connect-provider", "iam get-role",
+    "iam list-attached-role-policies", "iam list-open-id-connect-providers",
+    "iam list-role-policies", "iam list-role-tags", "kinesis list-streams",
+    "lambda list-functions", "logs describe-log-groups", "resourcegroupstaggingapi get-resources",
+    "s3api list-buckets", "service-quotas list-service-quotas", "sqs list-queues",
+    "sts get-caller-identity"
+  ],
+  "forbidden_tokens": [
+    " add-", " apply", " assume-role", " attach-", " create-", " delete-", " deregister-",
+    " destroy", " detach-", " disable-", " enable-", " force-unlock", " invoke", " put-",
+    " register-", " remove-", " send-", " start-", " stop-", " tag-", " untag-", " update-"
+  ],
+  "network_authority": "The generated kit is the only AWS execution authority and contains read-only observations.",
+  "shell_sha256": "GENERATED_BY_MANIFEST"
+}

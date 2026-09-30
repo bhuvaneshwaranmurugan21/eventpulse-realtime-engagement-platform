@@ -1,0 +1,43 @@
+name: EventPulse Part 3 Stage 1 AWS Admission
+on:
+  push:
+    branches: [main, part3-stage1-aws-admission]
+    paths: ["part3/stage1/**", "evidence/part3/stage1/**", "scripts/*part3_stage1*", "tests/test_part3_stage1_*.py", ".github/workflows/part3-stage1-aws-admission.yml"]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  admission-authority:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env: {PYTHONDONTWRITEBYTECODE: "1", PYTHONHASHSEED: "0", TZ: UTC}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with: {python-version: "3.12"}
+      - run: python -m pip install --require-hashes -r requirements/dev.lock
+      - name: Stage 1 generated authority
+        run: |
+          python scripts/build_part3_stage1_traceability.py --check
+          python scripts/build_part3_stage1_manifest.py --check
+          python scripts/validate_part3_stage1.py --verify-source
+          bash -n scripts/eventpulse_part3_stage1_read_only_aws_kit.sh
+      - name: Stage 1 oracle and negative controls
+        run: python -m unittest tests.test_part3_stage1_admission
+      - name: Quality and security
+        run: |
+          ruff check scripts/*part3_stage1*.py part3/stage1/oracles tests/test_part3_stage1_*.py
+          bandit -q scripts/*part3_stage1*.py part3/stage1/oracles/*.py
+      - name: Cumulative Part 1 and Part 2 gates
+        run: |
+          python -m unittest discover -s tests -p 'test_stage*.py'
+          python -m unittest discover -s tests -p 'test_part2_stage*.py'
+          python scripts/build_part2_stage3_manifest.py --check
+          python scripts/validate_part2_stage3.py
+          python scripts/build_stage3_manifest.py --check
+          python scripts/validate_stage3_completion.py
+          python scripts/build_stage2_manifest.py --check
+          python scripts/validate_stage2_contract.py
+          python scripts/validate_stage1_audit.py

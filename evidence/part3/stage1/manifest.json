@@ -1,0 +1,98 @@
+{
+  "artifacts": [
+    {
+      "path": ".github/workflows/part3-stage1-aws-admission.yml",
+      "sha256": "5c4cadc9cadde332f9e86962faa25680251cce6bf50e53c23e5c63243bcc814a",
+      "size_bytes": 2053
+    },
+    {
+      "path": "evidence/part3/stage1/pre-observation-reproducibility.json",
+      "sha256": "c9a095f1232cf995f366d8cfd665b1d1d71c869a58cf3fc2c6bcbd5cfabeb7d7",
+      "size_bytes": 589
+    },
+    {
+      "path": "part3/stage1/docs/admission-policy.json",
+      "sha256": "3aee590e1ea3bc564f40498ce5c4aa54f2e3855463cde2cb78a2219ae36952dd",
+      "size_bytes": 934
+    },
+    {
+      "path": "part3/stage1/docs/audits/entry.md",
+      "sha256": "f5842a0e9b288ce002bc104cb6e4ada07f0d34699432c3ca29a89032cd973640",
+      "size_bytes": 576
+    },
+    {
+      "path": "part3/stage1/docs/claims.json",
+      "sha256": "1aa63816c930e5f3bc64a6f0276a144f698400c91fa7e987cb397b97b55de99e",
+      "size_bytes": 563
+    },
+    {
+      "path": "part3/stage1/docs/command-allowlist.json",
+      "sha256": "27e22f95f7be2abd1d9a0f885d58c02c2509697db1169c98e8d44990d083e4c0",
+      "size_bytes": 1040
+    },
+    {
+      "path": "part3/stage1/docs/cost-forecast.json",
+      "sha256": "f34ef0160c8255b7d0411f325632b07dea9c5edcf257d76633a1b0d43a7e77d7",
+      "size_bytes": 633
+    },
+    {
+      "path": "part3/stage1/docs/known-limits.md",
+      "sha256": "7b60ac0e64bd32e905760dad651235f9cf6ca1fe58ced218a5595d4a58905fea",
+      "size_bytes": 1009
+    },
+    {
+      "path": "part3/stage1/docs/permission-gap.json",
+      "sha256": "712fe7b72d8277161b0a21b58a27b882e4628e7eb3d7850bcc3911f3ed3831d3",
+      "size_bytes": 906
+    },
+    {
+      "path": "part3/stage1/docs/requirements.json",
+      "sha256": "4972cd2a06f17efb8c3ce5fe4d57aa8b784021e2a876ceacc7d0aaa81da5b4da",
+      "size_bytes": 1251
+    },
+    {
+      "path": "part3/stage1/docs/status.md",
+      "sha256": "0da67e4be9c734f8322ec78de0d6a266c4b2f50903de0c16ec2d6a83e4dc66ed",
+      "size_bytes": 504
+    },
+    {
+      "path": "part3/stage1/docs/traceability.json",
+      "sha256": "12bd471da62be7720a628eaa688dbe65e1cb8e34bbc6b92837f62466a6efd186",
+      "size_bytes": 11092
+    },
+    {
+      "path": "part3/stage1/oracles/admission_oracle.py",
+      "sha256": "df85739950fa64a67bcf24c8631c3f4bad60450649dbc108ebe1da9f3f707315",
+      "size_bytes": 3916
+    },
+    {
+      "path": "scripts/build_part3_stage1_manifest.py",
+      "sha256": "8fd3e545d90f87255f7b9d1842d601c1dd766e3d5dc0815f8d98c147500f894f",
+      "size_bytes": 1883
+    },
+    {
+      "path": "scripts/build_part3_stage1_traceability.py",
+      "sha256": "b3d884141de942ef891c7b000292079b04c2fdd4865ee69876b8c978861bd3b4",
+      "size_bytes": 1709
+    },
+    {
+      "path": "scripts/eventpulse_part3_stage1_read_only_aws_kit.sh",
+      "sha256": "f2bb2e1f544ef3cb6ec8d818c2e898a9d08a98d014254fd770015eaf903ec65e",
+      "size_bytes": 3537
+    },
+    {
+      "path": "scripts/validate_part3_stage1.py",
+      "sha256": "80e64690d0d6ce07c74a2994cdec7ac4ba4e7eec3728746ddac39cf26964b36a",
+      "size_bytes": 5166
+    },
+    {
+      "path": "tests/test_part3_stage1_admission.py",
+      "sha256": "38dd58813743f737f37256fe2a244816c7669d64f7ec1a3ce27b392825f5eea0",
+      "size_bytes": 6523
+    }
+  ],
+  "authority": "EP-FUTURE-P3-001",
+  "claim_ceiling": "LOCAL_VERIFIED_PENDING_AWS_OBSERVATION",
+  "predecessor_commit": "75923c9c272d940ed2a6f90de1e2492a1269a3ea",
+  "predecessor_tree": "00bf6480d299461cb879d528a0bff6ba8c8dc191"
+}

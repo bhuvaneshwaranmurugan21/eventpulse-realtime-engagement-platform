@@ -1,0 +1,9 @@
+{
+  "environment_a": "disposable CPython 3.12 with requirements/dev.lock --require-hashes",
+  "environment_b": "independent disposable CPython 3.12 with requirements/dev.lock --require-hashes",
+  "kit_sha256": "f2bb2e1f544ef3cb6ec8d818c2e898a9d08a98d014254fd770015eaf903ec65e",
+  "normalized_transcript_sha256": "fadaabb5d71a1e7159063b6a7bdbe40360748941282eae4f0d4be7c0f1073799",
+  "result": "BYTE_IDENTICAL",
+  "stage1_tests": 12,
+  "timing_normalization": "Only the unittest elapsed-time line was normalized; decision, counts, status and artifact digests were compared byte-for-byte."
+}

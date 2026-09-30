@@ -1,0 +1,8 @@
+{
+  "classification": "PROPOSAL_ONLY",
+  "mutations_authorized": false,
+  "principles": ["exact resource ARNs", "separate deployment and runtime roles", "no wildcard action", "no wildcard resource where the service supports resource scoping", "explicit region and account conditions"],
+  "deployment_capabilities_to_review_later": ["manage only named EventPulse lab resources", "pass only the EventPulse runtime role", "read and conditionally own the dedicated state and lease objects"],
+  "runtime_capabilities_to_review_later": ["read the selected Kinesis stream", "write immutable objects to the selected S3 prefixes", "transact against selected DynamoDB tables", "publish to selected SQS queue", "emit selected CloudWatch logs and metrics"],
+  "stop_condition": "Any required capability not justified by a reviewed Terraform resource or any observed permission outside this proposal blocks Stage 2."
+}
