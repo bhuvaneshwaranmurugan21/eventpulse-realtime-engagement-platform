@@ -1,0 +1,11 @@
+{
+  "authority": "EP-FUTURE-P2-003",
+  "cases": {
+    "batch_permutations": 16,
+    "canonical_key_order": 64,
+    "ingest_time_exclusion": 64,
+    "semantic_mutation": 64
+  },
+  "seed": 20260928,
+  "total_generated_checks": 208
+}

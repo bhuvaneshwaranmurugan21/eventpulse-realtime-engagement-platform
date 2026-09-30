@@ -1,0 +1,434 @@
+{
+  "authority": "EP-FUTURE-P2-003",
+  "mappings": [
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "ENTRY_IDENTITY",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "PREDECESSOR_RECEIPTS",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "SCOPE_ISOLATION",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "CRITICAL_BRANCH_AUTHORITY",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "FROZEN_GENERATOR",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "CANONICAL_KEY_ORDER",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "INGEST_TIME_EXCLUSION",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "SEMANTIC_MUTATION",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "TTL_BOUNDARIES",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "BATCH_PERMUTATION",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "EARLIEST_FAILURE",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "SHARD_ISOLATION",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "DUPLICATE_IDEMPOTENCY",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "CONFLICT_ISOLATION",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "POISON_AUTHORITY",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "PRIVACY",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "SESSION_BOUNDARIES",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "LATE_BRIDGE",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "HOT_KEY_BOUND",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "REPLAY_GENERATIONS",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "REPLAY_FAIL_CLOSED",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "DEPENDENCY_FAILURES",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "PROCESS_DEATH_BOUNDARIES",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "MUTATION_CONTROLS",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "INDEPENDENT_ORACLE",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "BRANCH_COVERAGE",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "TWO_ENVIRONMENTS",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "SECURITY",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "PACKAGING",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "DETERMINISTIC_EVIDENCE",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "CLAIM_CEILING",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "PUBLICATION",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    },
+    {
+      "artifacts": [
+        "part2/stage3/docs/requirements.json"
+      ],
+      "evidence": [
+        "evidence/part2/stage3/critical-coverage.json"
+      ],
+      "id": "PART2_RECEIPT",
+      "tests": [
+        "tests/test_part2_stage3_properties.py",
+        "tests/test_part2_stage3_mutations.py"
+      ]
+    }
+  ]
+}

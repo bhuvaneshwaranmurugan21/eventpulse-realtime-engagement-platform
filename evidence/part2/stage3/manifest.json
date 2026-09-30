@@ -1,0 +1,131 @@
+{
+  "artifacts": [
+    {
+      "path": ".github/workflows/part2-stage3-local-completeness.yml",
+      "sha256": "268c7e0919882bd6f34e2b714a491a1405bee7b105a47175ed3e13ac6340dee1",
+      "size_bytes": 1713
+    },
+    {
+      "path": "evidence/part2/stage3/critical-coverage.json",
+      "sha256": "b8eca595bcfdd827e60ad015570a2b430fb1a1c01d3b1308d49ae0302a5305e2",
+      "size_bytes": 765
+    },
+    {
+      "path": "evidence/part2/stage3/mutation-results.json",
+      "sha256": "c8940cca556c07d624a676595b8665a716074e5be245eb2a815a5b4ff8d9411f",
+      "size_bytes": 2398
+    },
+    {
+      "path": "evidence/part2/stage3/oracle-comparison.json",
+      "sha256": "c57b658edfe56472b4d141d13d04c36e86f441c8745129b1e5d34ce8ce85b737",
+      "size_bytes": 111
+    },
+    {
+      "path": "evidence/part2/stage3/property-results.json",
+      "sha256": "900ddf0fd73fe4dddfbf091ac4634466be725b3d9a55f3597c6ba9b7f98aafd3",
+      "size_bytes": 111
+    },
+    {
+      "path": "fixtures/part2/stage3/property-authority.json",
+      "sha256": "b02d7ab42cfce4a7c38b5125a21e620f2fdbb29d1d2b61c95a82948f4f10378e",
+      "size_bytes": 231
+    },
+    {
+      "path": "part2/stage3/docs/INTERVIEW.md",
+      "sha256": "f7819b110a55e3f31c1841e5f146447c0f08e59ec778a6b4a1ee3f5aa31dfc30",
+      "size_bytes": 397
+    },
+    {
+      "path": "part2/stage3/docs/audits/acceptance.md",
+      "sha256": "d96472cb10f33d61d6f9e3e1a2fca0779d8063f2f7263265429ecdb240b8306e",
+      "size_bytes": 258
+    },
+    {
+      "path": "part2/stage3/docs/audits/entry.md",
+      "sha256": "2851b840e3320e36b99a9033b009aa9496bdec8b60e060d2bbdf24bc2ee20cee",
+      "size_bytes": 224
+    },
+    {
+      "path": "part2/stage3/docs/claims.json",
+      "sha256": "0591f66b57f4b593b248db407841da1a7828c3e446167925632d35b1b3cab514",
+      "size_bytes": 375
+    },
+    {
+      "path": "part2/stage3/docs/critical-branches.json",
+      "sha256": "806f070020128d0db06b85030268e062a89603e703fe58fd5948e1b1cabcce46",
+      "size_bytes": 652
+    },
+    {
+      "path": "part2/stage3/docs/known-limits.md",
+      "sha256": "cf097d70f919d25dc85badce536538ec35812d4bbc85312b5ba45dba1e388e57",
+      "size_bytes": 195
+    },
+    {
+      "path": "part2/stage3/docs/proof-matrix.json",
+      "sha256": "6d30645c9d747587ba31cb9f71b35d900b35dfb87db7b5b139c92e3cea549f7a",
+      "size_bytes": 306
+    },
+    {
+      "path": "part2/stage3/docs/requirements.json",
+      "sha256": "5507a2fbe997736de8b2575065453f3ab0b39e88c18c35589f64eaae13dd4bf9",
+      "size_bytes": 954
+    },
+    {
+      "path": "part2/stage3/docs/status.md",
+      "sha256": "cd7463a01c99cec7ffd8d2bccc8bfb660edcb4e9e800aef8fdb7de5a858cb961",
+      "size_bytes": 249
+    },
+    {
+      "path": "part2/stage3/docs/traceability.json",
+      "sha256": "74b31a1aefccd1b5be2c5e0b99030fe272a49f24edef695861a140f96e8136c2",
+      "size_bytes": 10822
+    },
+    {
+      "path": "part2/stage3/oracles/identity_oracle.py",
+      "sha256": "ad0b72a052373b631bd39a7169bdea0a3c6e992edfd3d6f9afce98dd55992632",
+      "size_bytes": 433
+    },
+    {
+      "path": "scripts/build_part2_stage3_evidence.py",
+      "sha256": "2e504b2abaee1499f4256dca52dccd68fe3cf15322f59fe77f26ccfbbb9fa1b5",
+      "size_bytes": 1770
+    },
+    {
+      "path": "scripts/build_part2_stage3_manifest.py",
+      "sha256": "e8d8b6039a25b8d8ab5cefee95587775b6b3ae1302ba3fedc9a8334f0c99cd64",
+      "size_bytes": 1746
+    },
+    {
+      "path": "scripts/build_part2_stage3_traceability.py",
+      "sha256": "58679e286069ee17cc450ddb75ee5692458e806db98838f665aaefa9bff964cf",
+      "size_bytes": 1288
+    },
+    {
+      "path": "scripts/run_part2_stage3_mutations.py",
+      "sha256": "123f580256730becbff227c8f34230d3c6c71987ba4ff8d4cf06d493d1e933dd",
+      "size_bytes": 2036
+    },
+    {
+      "path": "scripts/run_part2_stage3_properties.py",
+      "sha256": "0e82c0f1e3c31a59caf519a192420b5bb670239ec2552a109608383e9adbc250",
+      "size_bytes": 3204
+    },
+    {
+      "path": "scripts/validate_part2_stage3.py",
+      "sha256": "33c97929f94de3a80c7d9468c023160d8826f98f5992242cfea18679065e9739",
+      "size_bytes": 3568
+    },
+    {
+      "path": "tests/test_part2_stage3_mutations.py",
+      "sha256": "2b65e7c65a380800577ea248f400eea31e039a93a00fd5e31cdad87ab7df0554",
+      "size_bytes": 453
+    },
+    {
+      "path": "tests/test_part2_stage3_properties.py",
+      "sha256": "ccfc7fda9993af0843f5cf6af2cfb0a0b70a7b878fb2a0c8ecfabee389f2d464",
+      "size_bytes": 465
+    }
+  ],
+  "authority": "EP-FUTURE-P2-003",
+  "claim_ceiling": "LOCAL_VERIFIED"
+}

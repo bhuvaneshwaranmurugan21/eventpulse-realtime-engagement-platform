@@ -1,0 +1,11 @@
+{
+  "authority": "EP-FUTURE-P2-003",
+  "branches": [
+    "canonical-key-order", "ingest-time-exclusion", "semantic-mutation", "ttl-equality", "ttl-plus-one",
+    "wrapper-permutation", "duplicate-idempotency", "conflict-isolation", "poison-retry", "privacy-redaction",
+    "session-gap-equality", "session-gap-plus-one", "accepted-late-bridge", "strict-closure", "hot-key-bound",
+    "same-generation-replay", "new-generation-isolation", "missing-raw", "corrupt-raw", "earliest-failure",
+    "cross-shard-isolation", "bounded-closure-exhaustion", "outbox-before-marker", "failure-destination", "eight-crash-boundaries"
+  ],
+  "required_observed": 25
+}

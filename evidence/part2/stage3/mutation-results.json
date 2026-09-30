@@ -1,0 +1,68 @@
+{
+  "authority": "EP-FUTURE-P2-003",
+  "mandatory_mutants": 12,
+  "mutants_killed": 12,
+  "results": [
+    {
+      "id": "MUT-01",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc01_archive_digest_corruption_is_rejected"
+    },
+    {
+      "id": "MUT-02",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc02_partial_transaction_visibility_is_rejected"
+    },
+    {
+      "id": "MUT-03",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc03_state_version_bypass_is_rejected"
+    },
+    {
+      "id": "MUT-04",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc04_later_failure_sequence_is_rejected"
+    },
+    {
+      "id": "MUT-05",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc05_changed_outbox_identity_is_rejected"
+    },
+    {
+      "id": "MUT-06",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc06_reversed_ttl_boundary_is_rejected"
+    },
+    {
+      "id": "MUT-07",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc07_removed_replay_generation_is_rejected"
+    },
+    {
+      "id": "MUT-08",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc08_reordered_journal_transition_is_rejected"
+    },
+    {
+      "id": "MUT-09",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc09_output_version_skip_is_rejected"
+    },
+    {
+      "id": "MUT-10",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc10_reused_process_is_rejected_even_with_valid_chain"
+    },
+    {
+      "id": "MUT-11",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc11_missing_raw_object_is_not_silently_replayable"
+    },
+    {
+      "id": "MUT-12",
+      "killed": true,
+      "test": "tests.test_part2_stage2_negative_controls.MandatoryNegativeControls.test_nc12_aws_claim_inflation_is_forbidden"
+    }
+  ],
+  "status": "PASS"
+}

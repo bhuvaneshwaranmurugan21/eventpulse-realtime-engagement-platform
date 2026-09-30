@@ -1,0 +1,38 @@
+name: EventPulse Part 2 Stage 3 Local Completeness
+on:
+  push:
+    branches: [main, part2-stage3-complete-local-verification]
+    paths: ["part2/stage3/**", "evidence/part2/stage3/**", "fixtures/part2/stage3/**", "scripts/*part2_stage3*.py", "tests/test_part2_stage3_*.py", ".github/workflows/part2-stage3-local-completeness.yml"]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env: {PYTHONDONTWRITEBYTECODE: "1", PYTHONHASHSEED: "0", TZ: UTC}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with: {python-version: "3.12"}
+      - run: python -m pip install --require-hashes -r requirements/dev.lock
+      - name: Generated authority and scope
+        run: |
+          python scripts/build_part2_stage3_traceability.py --check
+          python scripts/build_part2_stage3_evidence.py --check
+          python scripts/build_part2_stage3_manifest.py --check
+          python scripts/validate_part2_stage3.py --verify-source
+      - name: Quality and security
+        run: |
+          ruff check src scripts/*part2_stage3*.py part2/stage3/oracles tests/test_part2_stage3_*.py
+          mypy src/eventpulse
+          bandit -q -r src
+          pip-audit -r requirements/runtime.lock --disable-pip
+      - name: Cumulative Part 2 tests and coverage
+        run: |
+          coverage run --branch -m unittest discover -s tests -p 'test_part2_stage*.py'
+          coverage report --fail-under=85
+      - name: Build package
+        run: python -m build --wheel --no-isolation
