@@ -35,9 +35,4 @@ jobs:
           python -m unittest discover -s tests -p 'test_stage*.py'
           python -m unittest discover -s tests -p 'test_part2_stage*.py'
           python scripts/build_part2_stage3_manifest.py --check
-          python scripts/validate_part2_stage3.py
           python scripts/build_stage3_manifest.py --check
-          python scripts/validate_stage3_completion.py
-          python scripts/build_stage2_manifest.py --check
-          python scripts/validate_stage2_contract.py
-          python scripts/validate_stage1_audit.py

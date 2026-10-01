@@ -2,18 +2,23 @@
   "artifacts": [
     {
       "path": ".github/workflows/part3-stage1-aws-admission.yml",
-      "sha256": "5c4cadc9cadde332f9e86962faa25680251cce6bf50e53c23e5c63243bcc814a",
-      "size_bytes": 2053
+      "sha256": "26c45dcdbfbfbf95fa20bfdc21ba1d0188c49a29df8e61ffdaa4b6e501c3f1a1",
+      "size_bytes": 1787
     },
     {
       "path": "evidence/part3/stage1/pre-observation-reproducibility.json",
-      "sha256": "c9a095f1232cf995f366d8cfd665b1d1d71c869a58cf3fc2c6bcbd5cfabeb7d7",
+      "sha256": "701e66984eb9ca8bce73e435b15df3386c250caa80e33137328f5f30c49001fd",
       "size_bytes": 589
     },
     {
       "path": "part3/stage1/docs/admission-policy.json",
-      "sha256": "3aee590e1ea3bc564f40498ce5c4aa54f2e3855463cde2cb78a2219ae36952dd",
+      "sha256": "5f07c5db0c86891ab434b257dd93b7cfa3671d841c0f01904e07806263cb719b",
       "size_bytes": 934
+    },
+    {
+      "path": "part3/stage1/docs/audits/account-rebind.md",
+      "sha256": "3db770b1eb17bff8374718809c5bee0e2622570ad285056ae2005bcb1f021cc9",
+      "size_bytes": 1130
     },
     {
       "path": "part3/stage1/docs/audits/entry.md",
@@ -47,13 +52,13 @@
     },
     {
       "path": "part3/stage1/docs/requirements.json",
-      "sha256": "4972cd2a06f17efb8c3ce5fe4d57aa8b784021e2a876ceacc7d0aaa81da5b4da",
+      "sha256": "cd00ca6801e7b849369b731c405a66b6c926c12ba277e9879d04dbdfcf5fe0c1",
       "size_bytes": 1251
     },
     {
       "path": "part3/stage1/docs/status.md",
-      "sha256": "0da67e4be9c734f8322ec78de0d6a266c4b2f50903de0c16ec2d6a83e4dc66ed",
-      "size_bytes": 504
+      "sha256": "0fb28e530e85122afd8ed298462dd91d00e729375c3eaef6ba587638d97ac1cf",
+      "size_bytes": 692
     },
     {
       "path": "part3/stage1/docs/traceability.json",
@@ -62,7 +67,7 @@
     },
     {
       "path": "part3/stage1/oracles/admission_oracle.py",
-      "sha256": "df85739950fa64a67bcf24c8631c3f4bad60450649dbc108ebe1da9f3f707315",
+      "sha256": "d1284e2bbc31273d61c9f1815b75ca5901277690fb713a9a3f0908526c40f7a3",
       "size_bytes": 3916
     },
     {
@@ -77,17 +82,17 @@
     },
     {
       "path": "scripts/eventpulse_part3_stage1_read_only_aws_kit.sh",
-      "sha256": "f2bb2e1f544ef3cb6ec8d818c2e898a9d08a98d014254fd770015eaf903ec65e",
+      "sha256": "e05f3945bf38345f5a19605cd4e0bef3e5b60359162aa131538744855f610f4c",
       "size_bytes": 3537
     },
     {
       "path": "scripts/validate_part3_stage1.py",
-      "sha256": "80e64690d0d6ce07c74a2994cdec7ac4ba4e7eec3728746ddac39cf26964b36a",
+      "sha256": "e5912c72c1d8350524c9b38aee016e15dcd3d1945cc42a4ce96fcabb5191cd4d",
       "size_bytes": 5166
     },
     {
       "path": "tests/test_part3_stage1_admission.py",
-      "sha256": "38dd58813743f737f37256fe2a244816c7669d64f7ec1a3ce27b392825f5eea0",
+      "sha256": "9df53f21ac72862e2b07fad8bc97410c885ae5a2c1e4a5f2e6aab52b6fbe9571",
       "size_bytes": 6523
     }
   ],

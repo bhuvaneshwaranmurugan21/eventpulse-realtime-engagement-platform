@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-EXPECTED_ACCOUNT = "887720497919"
+EXPECTED_ACCOUNT = "773994909635"
 EXPECTED_REGION = "ap-south-2"
 EXPECTED_ROLE = "EventPulseGitHubOidcRole"
 EXPECTED_PROVIDER = "token.actions.githubusercontent.com"

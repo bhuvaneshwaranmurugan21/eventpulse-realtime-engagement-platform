@@ -4,7 +4,7 @@ export AWS_PAGER=""
 export AWS_DEFAULT_REGION="ap-south-2"
 umask 077
 
-EXPECTED_ACCOUNT="887720497919"
+EXPECTED_ACCOUNT="773994909635"
 REGION="ap-south-2"
 ROLE="EventPulseGitHubOidcRole"
 STAMP="$(date -u +%Y%m%dT%H%M%SZ)"

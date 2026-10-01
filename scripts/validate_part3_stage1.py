@@ -40,7 +40,7 @@ def validate() -> list[str]:
         errors.append("traceability does not cover criteria exactly and in order")
     if req.get("predecessor_commit") != BASE_SHA or req.get("predecessor_tree") != BASE_TREE:
         errors.append("predecessor drift")
-    if req.get("expected_account") != "887720497919" or req.get("expected_region") != "ap-south-2":
+    if req.get("expected_account") != "773994909635" or req.get("expected_region") != "ap-south-2":
         errors.append("AWS boundary drift")
     script = (ROOT / "scripts/eventpulse_part3_stage1_read_only_aws_kit.sh").read_text()
     operations = set()

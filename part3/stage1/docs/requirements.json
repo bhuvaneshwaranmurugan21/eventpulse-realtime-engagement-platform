@@ -16,7 +16,7 @@
   "predecessor_checkpoint": "EVENTPULSE_PART2_COMPLETION_VERIFIED",
   "predecessor_commit": "75923c9c272d940ed2a6f90de1e2492a1269a3ea",
   "predecessor_tree": "00bf6480d299461cb879d528a0bff6ba8c8dc191",
-  "expected_account": "887720497919",
+  "expected_account": "773994909635",
   "expected_region": "ap-south-2",
   "freshness_hours": 24,
   "status": "AWAITING_PRIVATE_OBSERVATION"
