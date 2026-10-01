@@ -5,6 +5,7 @@ on:
     paths: ["part2/stage3/**", "evidence/part2/stage3/**", "fixtures/part2/stage3/**", "scripts/*part2_stage3*.py", "tests/test_part2_stage3_*.py", ".github/workflows/part2-stage3-local-completeness.yml"]
   pull_request:
     branches: [main]
+    paths: ["part2/stage3/**", "evidence/part2/stage3/**", "fixtures/part2/stage3/**", "scripts/*part2_stage3*.py", "tests/test_part2_stage3_*.py", ".github/workflows/part2-stage3-local-completeness.yml"]
 permissions:
   contents: read
 jobs:
