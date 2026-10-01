@@ -67,8 +67,23 @@ def validate() -> list[str]:
             if any(name.startswith(("eventpulse", "boto", "botocore")) for name in names):
                 errors.append("independent oracle imports production or AWS SDK")
     levels = {row.get("id"): row.get("level") for row in claims.get("claims", [])}
-    if levels.get("P3S1-AWS") != "UNCLAIMED" or levels.get("P3S1-DEPLOYMENT") != "UNCLAIMED":
-        errors.append("pending AWS or deployment claim promoted")
+    if (
+        levels.get("P3S1-AWS") != "AWS_OBSERVED_INDETERMINATE"
+        or levels.get("P3S1-DEPLOYMENT") != "UNCLAIMED"
+    ):
+        errors.append("AWS observation or deployment claim exceeds evidence")
+    receipt = load("evidence/part3/stage1/aws-observation-receipt.json")
+    if not isinstance(receipt, dict):
+        errors.append("AWS observation receipt root must be an object")
+    elif (
+        receipt.get("bundle_sha256")
+        != "ce6f720d3a3f3049f3dae2fdc25eb8f5dcfbe9be62b99e59c888222ba067bb5c"
+        or receipt.get("decision") != "INDETERMINATE"
+        or receipt.get("region_status") != "DISABLED"
+        or receipt.get("raw_evidence_committed") is not False
+        or receipt.get("stage2_gate") != "BLOCKED"
+    ):
+        errors.append("AWS observation receipt drift")
     rows = manifest.get("artifacts", [])
     if [row.get("path") for row in rows] != sorted({row.get("path") for row in rows}):
         errors.append("manifest paths not sorted and unique")

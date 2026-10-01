@@ -1,7 +1,7 @@
 {
   "claims": [
     {"id": "P3S1-AUTHORITY", "level": "LOCAL_VERIFIED", "scope": "source-bound admission requirements, allow-list, oracle and fail-closed controls"},
-    {"id": "P3S1-AWS", "level": "UNCLAIMED", "scope": "fresh account, region, trust, policy, resource, quota, backend and budget observation pending"},
+    {"id": "P3S1-AWS", "level": "AWS_OBSERVED_INDETERMINATE", "scope": "fresh read-only account observation received; region disabled, required OIDC identity absent and regional inventories incomplete"},
     {"id": "P3S1-COST", "level": "DESIGN_ONLY", "scope": "bounded workload and hard stop; dated unit prices pending"},
     {"id": "P3S1-DEPLOYMENT", "level": "UNCLAIMED", "scope": "no plan, apply, resource, workload or teardown executed"}
   ]

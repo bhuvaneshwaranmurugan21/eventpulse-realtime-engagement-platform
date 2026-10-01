@@ -1,0 +1,10 @@
+{
+  "cumulative_part1_test_count": 48,
+  "cumulative_part2_test_count": 56,
+  "environment_count": 2,
+  "normalized_transcript_sha256": "7dc2947e2ae949b65a3f40d678225594c88ccce5191b7120826514075eca6dc3",
+  "oracle_decision": "INDETERMINATE",
+  "python": "3.12",
+  "stage1_test_count": 13,
+  "transcripts_byte_identical_after_timing_normalization": true
+}

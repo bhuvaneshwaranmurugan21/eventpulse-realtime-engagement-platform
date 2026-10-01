@@ -19,23 +19,39 @@ EXPECTED_SUB = (
 )
 
 
-def read_json(root: Path, name: str) -> Any:
-    return json.loads((root / f"{name}.json").read_text(encoding="utf-8"))
+def read_json(root: Path, name: str, errors: list[str] | None = None) -> Any:
+    """Read one observation document without letting missing evidence crash the oracle."""
+    path = root / f"{name}.json"
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        if errors is not None:
+            errors.append(f"unreadable JSON: {name}")
+        return {}
 
 
 def verify_manifest(root: Path) -> list[str]:
     errors: list[str] = []
-    rows = read_json(root, "sha256-manifest")
+    rows = read_json(root, "sha256-manifest", errors)
+    if not isinstance(rows, list):
+        return [*errors, "manifest is not a list"]
     for row in rows:
+        if not isinstance(row, dict) or not isinstance(row.get("path"), str):
+            errors.append("invalid manifest row")
+            continue
         path = root / row["path"]
-        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != row["sha256"]:
+        if (
+            not path.is_file()
+            or path.stat().st_size != row.get("size_bytes")
+            or hashlib.sha256(path.read_bytes()).hexdigest() != row.get("sha256")
+        ):
             errors.append(f"digest mismatch: {row['path']}")
     return errors
 
 
 def decide(root: Path) -> dict[str, Any]:
     errors = verify_manifest(root)
-    statuses = read_json(root, "command-status")
+    statuses = read_json(root, "command-status", errors)
     required = {
         "caller",
         "region",
@@ -58,12 +74,14 @@ def decide(root: Path) -> dict[str, Any]:
         "alarms",
         "budgets",
     }
-    if set(statuses) != required:
+    if not isinstance(statuses, dict) or set(statuses) != required:
         errors.append("command status inventory mismatch")
+        statuses = statuses if isinstance(statuses, dict) else {}
     errors.extend(f"command failed: {name}" for name, code in statuses.items() if code != 0)
-    caller = read_json(root, "caller")
-    region = read_json(root, "region")
-    role = read_json(root, "role").get("Role", {})
+    caller = read_json(root, "caller", errors)
+    region = read_json(root, "region", errors)
+    role_document = read_json(root, "role", errors)
+    role = role_document.get("Role", {}) if isinstance(role_document, dict) else {}
     trust = role.get("AssumeRolePolicyDocument", {})
     trust_text = json.dumps(trust, sort_keys=True)
     if caller.get("Account") != EXPECTED_ACCOUNT:
@@ -75,17 +93,29 @@ def decide(root: Path) -> dict[str, Any]:
     for token in (EXPECTED_PROVIDER, EXPECTED_AUD, EXPECTED_SUB):
         if token not in trust_text:
             errors.append(f"trust missing: {token}")
-    provider = read_json(root, "provider")
+    provider = read_json(root, "provider", errors)
     if EXPECTED_AUD not in provider.get("ClientIDList", []):
         errors.append("OIDC provider audience missing")
-    attached = read_json(root, "attached").get("AttachedPolicies", [])
-    inline = read_json(root, "inline").get("PolicyNames", [])
-    resources = read_json(root, "tagged").get("ResourceTagMappingList", [])
+    attached_document = read_json(root, "attached", errors)
+    inline_document = read_json(root, "inline", errors)
+    resource_document = read_json(root, "tagged", errors)
+    budget_document = read_json(root, "budgets", errors)
+    attached = (
+        attached_document.get("AttachedPolicies", []) if isinstance(attached_document, dict) else []
+    )
+    inline = inline_document.get("PolicyNames", []) if isinstance(inline_document, dict) else []
+    resources = (
+        resource_document.get("ResourceTagMappingList", [])
+        if isinstance(resource_document, dict)
+        else []
+    )
     # A readable but empty permission set is a concrete NO_GO, not missing evidence.
     gaps = []
     if not attached and not inline:
         gaps.append("OIDC role has no workload or deployment policy")
-    budget_count = len(read_json(root, "budgets").get("Budgets", []))
+    budget_count = (
+        len(budget_document.get("Budgets", [])) if isinstance(budget_document, dict) else 0
+    )
     if budget_count == 0:
         gaps.append("no readable account budget")
     if errors:

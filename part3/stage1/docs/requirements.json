@@ -19,5 +19,5 @@
   "expected_account": "773994909635",
   "expected_region": "ap-south-2",
   "freshness_hours": 24,
-  "status": "AWAITING_PRIVATE_OBSERVATION"
+  "status": "AWS_OBSERVED_INDETERMINATE"
 }

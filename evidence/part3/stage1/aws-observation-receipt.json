@@ -1,0 +1,23 @@
+{
+  "account_match": true,
+  "bundle_sha256": "ce6f720d3a3f3049f3dae2fdc25eb8f5dcfbe9be62b99e59c888222ba067bb5c",
+  "command_count": 20,
+  "command_failure_count": 15,
+  "command_success_count": 5,
+  "decision": "INDETERMINATE",
+  "expected_account": "773994909635",
+  "expected_region": "ap-south-2",
+  "failure_classes": {
+    "ABSENT_REQUIRED_IDENTITY_OBJECT": 5,
+    "INVALID_SESSION_TOKEN": 10
+  },
+  "internal_manifest_entry_count": 41,
+  "internal_manifest_verified": true,
+  "observed_at_utc": "2026-10-01T08:33:12Z",
+  "oidc_provider_count": 0,
+  "raw_evidence_committed": false,
+  "region_enabled": false,
+  "region_status": "DISABLED",
+  "schema": "eventpulse-part3-stage1-sanitized-observation-v1",
+  "stage2_gate": "BLOCKED"
+}

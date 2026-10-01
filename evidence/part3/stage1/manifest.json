@@ -6,6 +6,16 @@
       "size_bytes": 1787
     },
     {
+      "path": "evidence/part3/stage1/aws-observation-receipt.json",
+      "sha256": "a8fa6cf8cd530399b74313abc7871b9808e831118d8df78095de9a977f5fe19a",
+      "size_bytes": 740
+    },
+    {
+      "path": "evidence/part3/stage1/post-observation-reproducibility.json",
+      "sha256": "5fbd90c8d9cb1d600ad52c1d63f51f0f28ae81929578e2b4dc99c0763979e153",
+      "size_bytes": 355
+    },
+    {
       "path": "evidence/part3/stage1/pre-observation-reproducibility.json",
       "sha256": "701e66984eb9ca8bce73e435b15df3386c250caa80e33137328f5f30c49001fd",
       "size_bytes": 589
@@ -27,8 +37,8 @@
     },
     {
       "path": "part3/stage1/docs/claims.json",
-      "sha256": "1aa63816c930e5f3bc64a6f0276a144f698400c91fa7e987cb397b97b55de99e",
-      "size_bytes": 563
+      "sha256": "ca1388f10e19152946458252e26fd418f338875848778f15c3e42f645f6ddba8",
+      "size_bytes": 615
     },
     {
       "path": "part3/stage1/docs/command-allowlist.json",
@@ -52,13 +62,13 @@
     },
     {
       "path": "part3/stage1/docs/requirements.json",
-      "sha256": "cd00ca6801e7b849369b731c405a66b6c926c12ba277e9879d04dbdfcf5fe0c1",
-      "size_bytes": 1251
+      "sha256": "d090c637cb1824a414a4843f29f14cd7140e3eab05d4b72b96ef38014c4d1870",
+      "size_bytes": 1249
     },
     {
       "path": "part3/stage1/docs/status.md",
-      "sha256": "0fb28e530e85122afd8ed298462dd91d00e729375c3eaef6ba587638d97ac1cf",
-      "size_bytes": 692
+      "sha256": "832264ddeb50dab16a8ca674e8db5405100d4e54de9497af15b93cb3c905042c",
+      "size_bytes": 965
     },
     {
       "path": "part3/stage1/docs/traceability.json",
@@ -67,8 +77,8 @@
     },
     {
       "path": "part3/stage1/oracles/admission_oracle.py",
-      "sha256": "d1284e2bbc31273d61c9f1815b75ca5901277690fb713a9a3f0908526c40f7a3",
-      "size_bytes": 3916
+      "sha256": "b011e4c699e5f1a5ae74c21ef99bdab73cc9984229d024c5327c0cb4637d42c3",
+      "size_bytes": 5227
     },
     {
       "path": "scripts/build_part3_stage1_manifest.py",
@@ -87,13 +97,13 @@
     },
     {
       "path": "scripts/validate_part3_stage1.py",
-      "sha256": "e5912c72c1d8350524c9b38aee016e15dcd3d1945cc42a4ce96fcabb5191cd4d",
-      "size_bytes": 5166
+      "sha256": "4eed9bd61c75a490f7e8f11ee93d187beb412282b1f3936323512a399bdc32ca",
+      "size_bytes": 5811
     },
     {
       "path": "tests/test_part3_stage1_admission.py",
-      "sha256": "9df53f21ac72862e2b07fad8bc97410c885ae5a2c1e4a5f2e6aab52b6fbe9571",
-      "size_bytes": 6523
+      "sha256": "6e5e104fcfb87c8d56bbb8d938f54fc01b402fef9b976827e9dba2326326408a",
+      "size_bytes": 7008
     }
   ],
   "authority": "EP-FUTURE-P3-001",

@@ -159,6 +159,16 @@ class TestAdmissionOracle(unittest.TestCase):
         self.fx.write(statuses=status)
         self.assertEqual(decide(self.fx.root)["decision"], "INDETERMINATE")
 
+    def test_failed_command_with_empty_output_fails_closed_without_crashing(self) -> None:
+        status = dict.fromkeys(COMMANDS, 0)
+        status["role"] = 254
+        self.fx.write(statuses=status)
+        (self.fx.root / "role.json").write_text("")
+        result = decide(self.fx.root)
+        self.assertEqual(result["decision"], "INDETERMINATE")
+        self.assertIn("command failed: role", result["errors"])
+        self.assertIn("unreadable JSON: role", result["errors"])
+
     def test_missing_status_fails_closed(self) -> None:
         status = dict.fromkeys(COMMANDS, 0)
         status.pop("budgets")
