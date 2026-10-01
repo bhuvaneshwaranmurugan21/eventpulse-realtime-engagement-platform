@@ -2,8 +2,8 @@
   "artifacts": [
     {
       "path": ".github/workflows/part2-stage3-local-completeness.yml",
-      "sha256": "268c7e0919882bd6f34e2b714a491a1405bee7b105a47175ed3e13ac6340dee1",
-      "size_bytes": 1713
+      "sha256": "69fbe46cee7e7bdd66e88a56bc92820da57de7f146dd1184e51e79f6e134bf9b",
+      "size_bytes": 1918
     },
     {
       "path": "evidence/part2/stage3/critical-coverage.json",
