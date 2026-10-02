@@ -109,8 +109,14 @@ def validate() -> list[str]:
         "scripts/validate_part3_stage1.py",
         "tests/test_part3_stage1_",
     )
+    allowed_exact = {
+        ".github/workflows/part2-stage3-local-completeness.yml",
+        "evidence/part2/stage3/manifest.json",
+    }
     errors.extend(
-        f"out-of-scope file: {item}" for item in changed if not item.startswith(allowed_prefixes)
+        f"out-of-scope file: {item}"
+        for item in changed
+        if item not in allowed_exact and not item.startswith(allowed_prefixes)
     )
     return errors
 

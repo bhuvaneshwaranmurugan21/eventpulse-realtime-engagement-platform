@@ -97,8 +97,8 @@
     },
     {
       "path": "scripts/validate_part3_stage1.py",
-      "sha256": "4eed9bd61c75a490f7e8f11ee93d187beb412282b1f3936323512a399bdc32ca",
-      "size_bytes": 5811
+      "sha256": "2cbfddef1599f8c3db2025699a68f3f45271a9aa233c892f15f242c0e6d86850",
+      "size_bytes": 5997
     },
     {
       "path": "tests/test_part3_stage1_admission.py",
