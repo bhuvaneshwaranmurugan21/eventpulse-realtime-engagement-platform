@@ -31,6 +31,11 @@
       "size_bytes": 1130
     },
     {
+      "path": "part3/stage1/docs/audits/completion.md",
+      "sha256": "e88a57a50fbbfb137dd64cda66d40936d64d916608038407195f9588328a5d69",
+      "size_bytes": 4116
+    },
+    {
       "path": "part3/stage1/docs/audits/entry.md",
       "sha256": "f5842a0e9b288ce002bc104cb6e4ada07f0d34699432c3ca29a89032cd973640",
       "size_bytes": 576
