@@ -1,0 +1,17 @@
+{
+  "as_of": "2026-09-30",
+  "currency": "USD",
+  "classification": "DESIGN_ONLY",
+  "pricing_region": "ap-south-2",
+  "workload_envelope": {
+    "duration_hours": 2,
+    "kinesis_shards": 1,
+    "lambda_reserved_concurrency": 2,
+    "maximum_events": 100000,
+    "maximum_event_bytes": 16384,
+    "maximum_raw_gib": 2
+  },
+  "hard_stop_usd": 10,
+  "forecast_status": "PENDING_DATED_PRICE_INPUTS",
+  "rule": "No plan or apply may proceed until every billable component has a dated authoritative unit price, arithmetic, upper bound, budget visibility and explicit approval below the hard stop. Free-tier assumptions are forbidden."
+}

@@ -1,0 +1,18 @@
+{
+  "account": "773994909635",
+  "region": "ap-south-2",
+  "repository": "bhuvaneshwaranmurugan21/eventpulse-realtime-engagement-platform",
+  "role_name": "EventPulseGitHubOidcRole",
+  "oidc_provider": "token.actions.githubusercontent.com",
+  "required_subject": "repo:bhuvaneshwaranmurugan21/eventpulse-realtime-engagement-platform:ref:refs/heads/main",
+  "required_audience": "sts.amazonaws.com",
+  "lease": {
+    "backend": "DynamoDB conditional item owned by an exact run identity",
+    "maximum_minutes": 120,
+    "renewal_minutes": 15,
+    "steal_policy": "never steal; stale lease requires separate reviewed adjudication",
+    "release_policy": "conditional delete by owner only; preserve evidence before release"
+  },
+  "decision_states": ["ADMITTED", "NO_GO", "INDETERMINATE"],
+  "fail_closed_fields": ["account", "region", "region_status", "role", "trust", "policies", "resources", "quotas", "backend", "budget", "lease"]
+}

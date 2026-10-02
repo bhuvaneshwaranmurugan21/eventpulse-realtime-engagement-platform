@@ -1,0 +1,113 @@
+{
+  "artifacts": [
+    {
+      "path": ".github/workflows/part3-stage1-aws-admission.yml",
+      "sha256": "26c45dcdbfbfbf95fa20bfdc21ba1d0188c49a29df8e61ffdaa4b6e501c3f1a1",
+      "size_bytes": 1787
+    },
+    {
+      "path": "evidence/part3/stage1/aws-observation-receipt.json",
+      "sha256": "a8fa6cf8cd530399b74313abc7871b9808e831118d8df78095de9a977f5fe19a",
+      "size_bytes": 740
+    },
+    {
+      "path": "evidence/part3/stage1/post-observation-reproducibility.json",
+      "sha256": "5fbd90c8d9cb1d600ad52c1d63f51f0f28ae81929578e2b4dc99c0763979e153",
+      "size_bytes": 355
+    },
+    {
+      "path": "evidence/part3/stage1/pre-observation-reproducibility.json",
+      "sha256": "701e66984eb9ca8bce73e435b15df3386c250caa80e33137328f5f30c49001fd",
+      "size_bytes": 589
+    },
+    {
+      "path": "part3/stage1/docs/admission-policy.json",
+      "sha256": "5f07c5db0c86891ab434b257dd93b7cfa3671d841c0f01904e07806263cb719b",
+      "size_bytes": 934
+    },
+    {
+      "path": "part3/stage1/docs/audits/account-rebind.md",
+      "sha256": "3db770b1eb17bff8374718809c5bee0e2622570ad285056ae2005bcb1f021cc9",
+      "size_bytes": 1130
+    },
+    {
+      "path": "part3/stage1/docs/audits/entry.md",
+      "sha256": "f5842a0e9b288ce002bc104cb6e4ada07f0d34699432c3ca29a89032cd973640",
+      "size_bytes": 576
+    },
+    {
+      "path": "part3/stage1/docs/claims.json",
+      "sha256": "ca1388f10e19152946458252e26fd418f338875848778f15c3e42f645f6ddba8",
+      "size_bytes": 615
+    },
+    {
+      "path": "part3/stage1/docs/command-allowlist.json",
+      "sha256": "27e22f95f7be2abd1d9a0f885d58c02c2509697db1169c98e8d44990d083e4c0",
+      "size_bytes": 1040
+    },
+    {
+      "path": "part3/stage1/docs/cost-forecast.json",
+      "sha256": "f34ef0160c8255b7d0411f325632b07dea9c5edcf257d76633a1b0d43a7e77d7",
+      "size_bytes": 633
+    },
+    {
+      "path": "part3/stage1/docs/known-limits.md",
+      "sha256": "7b60ac0e64bd32e905760dad651235f9cf6ca1fe58ced218a5595d4a58905fea",
+      "size_bytes": 1009
+    },
+    {
+      "path": "part3/stage1/docs/permission-gap.json",
+      "sha256": "712fe7b72d8277161b0a21b58a27b882e4628e7eb3d7850bcc3911f3ed3831d3",
+      "size_bytes": 906
+    },
+    {
+      "path": "part3/stage1/docs/requirements.json",
+      "sha256": "d090c637cb1824a414a4843f29f14cd7140e3eab05d4b72b96ef38014c4d1870",
+      "size_bytes": 1249
+    },
+    {
+      "path": "part3/stage1/docs/status.md",
+      "sha256": "832264ddeb50dab16a8ca674e8db5405100d4e54de9497af15b93cb3c905042c",
+      "size_bytes": 965
+    },
+    {
+      "path": "part3/stage1/docs/traceability.json",
+      "sha256": "12bd471da62be7720a628eaa688dbe65e1cb8e34bbc6b92837f62466a6efd186",
+      "size_bytes": 11092
+    },
+    {
+      "path": "part3/stage1/oracles/admission_oracle.py",
+      "sha256": "b011e4c699e5f1a5ae74c21ef99bdab73cc9984229d024c5327c0cb4637d42c3",
+      "size_bytes": 5227
+    },
+    {
+      "path": "scripts/build_part3_stage1_manifest.py",
+      "sha256": "8fd3e545d90f87255f7b9d1842d601c1dd766e3d5dc0815f8d98c147500f894f",
+      "size_bytes": 1883
+    },
+    {
+      "path": "scripts/build_part3_stage1_traceability.py",
+      "sha256": "b3d884141de942ef891c7b000292079b04c2fdd4865ee69876b8c978861bd3b4",
+      "size_bytes": 1709
+    },
+    {
+      "path": "scripts/eventpulse_part3_stage1_read_only_aws_kit.sh",
+      "sha256": "e05f3945bf38345f5a19605cd4e0bef3e5b60359162aa131538744855f610f4c",
+      "size_bytes": 3537
+    },
+    {
+      "path": "scripts/validate_part3_stage1.py",
+      "sha256": "2cbfddef1599f8c3db2025699a68f3f45271a9aa233c892f15f242c0e6d86850",
+      "size_bytes": 5997
+    },
+    {
+      "path": "tests/test_part3_stage1_admission.py",
+      "sha256": "6e5e104fcfb87c8d56bbb8d938f54fc01b402fef9b976827e9dba2326326408a",
+      "size_bytes": 7008
+    }
+  ],
+  "authority": "EP-FUTURE-P3-001",
+  "claim_ceiling": "LOCAL_VERIFIED_PENDING_AWS_OBSERVATION",
+  "predecessor_commit": "75923c9c272d940ed2a6f90de1e2492a1269a3ea",
+  "predecessor_tree": "00bf6480d299461cb879d528a0bff6ba8c8dc191"
+}
