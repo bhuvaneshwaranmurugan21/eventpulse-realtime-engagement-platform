@@ -20,6 +20,50 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Observe repository-bound OIDC claims
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import base64
+          import json
+          import os
+          import urllib.parse
+          import urllib.request
+
+          request_url = os.environ["ACTIONS_ID_TOKEN_REQUEST_URL"]
+          separator = "&" if "?" in request_url else "?"
+          url = request_url + separator + urllib.parse.urlencode(
+              {"audience": "sts.amazonaws.com"}
+          )
+          request = urllib.request.Request(
+              url,
+              headers={
+                  "Authorization": "Bearer "
+                  + os.environ["ACTIONS_ID_TOKEN_REQUEST_TOKEN"]
+              },
+          )
+          with urllib.request.urlopen(request, timeout=30) as response:
+              token = json.load(response)["value"]
+
+          encoded_payload = token.split(".")[1]
+          encoded_payload += "=" * (-len(encoded_payload) % 4)
+          claims = json.loads(base64.urlsafe_b64decode(encoded_payload))
+          allowed = (
+              "iss",
+              "aud",
+              "sub",
+              "repository",
+              "repository_id",
+              "repository_owner",
+              "repository_owner_id",
+              "ref",
+              "job_workflow_ref",
+          )
+          observed = {key: claims.get(key) for key in allowed}
+          print("EVENTPULSE_OIDC_CLAIMS=" + json.dumps(observed, sort_keys=True))
+          PY
+
       - name: Assume repository-specific AWS role
         uses: aws-actions/configure-aws-credentials@v6.2.3
         with:
