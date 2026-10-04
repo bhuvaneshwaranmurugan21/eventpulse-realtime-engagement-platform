@@ -110,6 +110,7 @@ def validate() -> list[str]:
         "tests/test_part3_stage1_",
     )
     allowed_exact = {
+        ".github/workflows/aws-oidc-identity.yml",
         ".github/workflows/part2-stage3-local-completeness.yml",
         "evidence/part2/stage3/manifest.json",
     }
