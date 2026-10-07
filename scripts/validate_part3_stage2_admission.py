@@ -150,7 +150,9 @@ def validate() -> list[str]:
         "part3/stage2/admission/",
     )
     allowed_exact = {
+        ".github/workflows/part3-stage1-aws-admission.yml",
         ".github/workflows/part3-stage2-admission-requalification.yml",
+        "evidence/part3/stage1/manifest.json",
         "scripts/build_part3_stage2_admission_manifest.py",
         "scripts/collect_part3_stage2_admission.py",
         "scripts/validate_part3_stage2_admission.py",
