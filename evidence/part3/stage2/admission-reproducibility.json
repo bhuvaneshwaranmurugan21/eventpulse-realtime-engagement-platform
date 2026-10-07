@@ -1,0 +1,37 @@
+{
+  "authority": "EP-FUTURE-P3-002-ENTRY",
+  "environments": [
+    {
+      "id": "environment-a",
+      "pip": "26.2.1",
+      "python": "3.12.14",
+      "result": "PASS"
+    },
+    {
+      "id": "environment-b",
+      "pip": "26.2.1",
+      "python": "3.12.14",
+      "result": "PASS"
+    }
+  ],
+  "gates": {
+    "admission_negative_and_positive_tests": 15,
+    "bandit": "PASS",
+    "cumulative_part1_tests": 48,
+    "cumulative_part2_tests": 56,
+    "manifest_checks": "PASS",
+    "pip_audit": "NO_KNOWN_VULNERABILITIES",
+    "ruff": "PASS",
+    "structural_validator": "PASS"
+  },
+  "network_qualification": {
+    "aws_regional_offer_indexes": 6,
+    "all_https_sources_resolved": true,
+    "all_offer_documents_had_sha256": true
+  },
+  "raw_aws_operations": 0,
+  "requirements_lock": "requirements/dev.lock",
+  "schema": "eventpulse-part3-stage2-admission-reproducibility-v1",
+  "source_commit": "8108f789b8333b0856470d465c871ab6b6d41130",
+  "source_tree": "9f1d38410a0bb92ebdcb86f0ee088fc8ae1f981c"
+}

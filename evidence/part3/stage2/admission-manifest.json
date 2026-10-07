@@ -1,0 +1,69 @@
+{
+  "artifacts": [
+    {
+      "path": ".github/workflows/part3-stage2-admission-requalification.yml",
+      "sha256": "e7d85b1ae2194750589b81e3cac93d56eca8e7155ff742bdb09e544ecc4deeaf",
+      "size_bytes": 6191
+    },
+    {
+      "path": "evidence/part3/stage2/admission-reproducibility.json",
+      "sha256": "38e24bb18b5e5268187a3bcf80165cda6dcf29d76a797c88483d4d6ad3c25ccb",
+      "size_bytes": 1007
+    },
+    {
+      "path": "part3/stage2/admission/admission_oracle.py",
+      "sha256": "2dcd49ba104c1689aaf00e2c6aa5f93a32edfa2a03883a10e2e8ed9d4075d8c7",
+      "size_bytes": 16876
+    },
+    {
+      "path": "part3/stage2/admission/authority.json",
+      "sha256": "533ee3b620b4e63061cb2714829f7a14493048ed7897e1eb6697797ac425bfd7",
+      "size_bytes": 991
+    },
+    {
+      "path": "part3/stage2/admission/backend-and-lease.json",
+      "sha256": "bd3c3aa895f8af8d9d318c59a69dbf76885f5de3dc228606014df28e746bd3b6",
+      "size_bytes": 923
+    },
+    {
+      "path": "part3/stage2/admission/cost-envelope.json",
+      "sha256": "a93fa18e3db28479966c78b30d4e4b274cd00998418e01c87b7acd5a5b673587",
+      "size_bytes": 2077
+    },
+    {
+      "path": "part3/stage2/admission/expected-read-policy.json",
+      "sha256": "fb5d1fbf7d41ee695c586ff9688a6ad7f574dc380a38d58f8d256fdf53994d05",
+      "size_bytes": 1506
+    },
+    {
+      "path": "part3/stage2/admission/requirements.json",
+      "sha256": "8af8a031c82a0dec30251016435593dd44bc40d5c9ec4901550afba19bc60361",
+      "size_bytes": 1262
+    },
+    {
+      "path": "scripts/build_part3_stage2_admission_manifest.py",
+      "sha256": "548f5225fa2a7906d130ba545e8586d89d8122d6806509a9e7794a79dfb32768",
+      "size_bytes": 2145
+    },
+    {
+      "path": "scripts/collect_part3_stage2_admission.py",
+      "sha256": "6da1b6d25ff479468b1d68d483c06ff6ea0b7a482911ef303e93a96f0409a51f",
+      "size_bytes": 16775
+    },
+    {
+      "path": "scripts/validate_part3_stage2_admission.py",
+      "sha256": "6330a81aa596209cf60005bec2a41b28b0a564c490c62d6c2dd3f2b5ef263960",
+      "size_bytes": 7196
+    },
+    {
+      "path": "tests/test_part3_stage2_admission.py",
+      "sha256": "f999c9e014569fc3d09165169dc2fd14061d3be294a92f1070816aa5f7d9cc62",
+      "size_bytes": 11586
+    }
+  ],
+  "authority": "EP-FUTURE-P3-002-ENTRY",
+  "claim_ceiling": "DESIGN_ONLY",
+  "predecessor_main": "8108f789b8333b0856470d465c871ab6b6d41130",
+  "predecessor_tree": "9f1d38410a0bb92ebdcb86f0ee088fc8ae1f981c",
+  "status": "IMPLEMENTED_PENDING_FRESH_OBSERVATION"
+}

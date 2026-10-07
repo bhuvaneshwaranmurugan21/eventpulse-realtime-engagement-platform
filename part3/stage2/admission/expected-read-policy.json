@@ -1,0 +1,60 @@
+{
+  "Statement": [
+    {
+      "Action": [
+        "sts:GetCallerIdentity",
+        "account:GetRegionOptStatus"
+      ],
+      "Effect": "Allow",
+      "Resource": "*",
+      "Sid": "IdentityAndRegionObservation"
+    },
+    {
+      "Action": [
+        "iam:GetOpenIDConnectProvider",
+        "iam:GetRole",
+        "iam:GetRolePolicy",
+        "iam:ListAttachedRolePolicies",
+        "iam:ListRolePolicies",
+        "iam:ListRoleTags"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:iam::773994909635:oidc-provider/token.actions.githubusercontent.com",
+        "arn:aws:iam::773994909635:role/EventPulseGitHubOidcRole"
+      ],
+      "Sid": "ExactEventPulseIdentityObservation"
+    },
+    {
+      "Action": [
+        "iam:ListOpenIDConnectProviders",
+        "s3:ListAllMyBuckets",
+        "budgets:DescribeBudgets"
+      ],
+      "Effect": "Allow",
+      "Resource": "*",
+      "Sid": "GlobalIdentityAndCostInventory"
+    },
+    {
+      "Action": [
+        "cloudwatch:DescribeAlarms",
+        "dynamodb:ListTables",
+        "kinesis:ListStreams",
+        "lambda:ListFunctions",
+        "logs:DescribeLogGroups",
+        "resourcegroupstaggingapi:GetResources",
+        "servicequotas:ListServiceQuotas",
+        "sqs:ListQueues"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-south-2"
+        }
+      },
+      "Effect": "Allow",
+      "Resource": "*",
+      "Sid": "RegionalAdmissionInventory"
+    }
+  ],
+  "Version": "2012-10-17"
+}
