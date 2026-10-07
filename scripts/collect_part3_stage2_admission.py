@@ -22,6 +22,7 @@ AWS = shutil.which("aws") or "aws"
 GIT = shutil.which("git") or "git"
 ACCOUNT = "773994909635"
 REGION = "ap-south-2"
+BUDGETS_REGION = "us-east-1"
 ROLE = "EventPulseGitHubOidcRole"
 POLICY = "EventPulseAdmissionReadOnly"
 PROVIDER_ARN = f"arn:aws:iam::{ACCOUNT}:oidc-provider/token.actions.githubusercontent.com"
@@ -73,6 +74,19 @@ class Collector:
             document = {}
         self.documents[name] = document
         return document
+
+
+def collect_budgets(collector: Collector) -> Any:
+    """Read the global Budgets inventory through a supported AWS endpoint."""
+    return collector.aws(
+        "budgets",
+        "budgets",
+        "describe-budgets",
+        "--account-id",
+        ACCOUNT,
+        "--region",
+        BUDGETS_REGION,
+    )
 
 
 def count_prefixed(values: list[Any], prefix: str) -> int:
@@ -226,9 +240,7 @@ def build_observation(claims: dict[str, Any]) -> dict[str, Any]:
                     "--service-code",
                     service,
                 )
-            collector.aws(
-                "budgets", "budgets", "describe-budgets", "--account-id", ACCOUNT
-            )
+            collect_budgets(collector)
 
         role_document = collector.documents.get("role", {})
         role = role_document.get("Role", {}) if isinstance(role_document, dict) else {}
