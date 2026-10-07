@@ -47,8 +47,8 @@
     },
     {
       "path": "scripts/collect_part3_stage2_admission.py",
-      "sha256": "6da1b6d25ff479468b1d68d483c06ff6ea0b7a482911ef303e93a96f0409a51f",
-      "size_bytes": 16775
+      "sha256": "75204a8535750953ab3df37757918747f9fc550be9b6bed11c07bf0ef7900687",
+      "size_bytes": 17033
     },
     {
       "path": "scripts/validate_part3_stage2_admission.py",
@@ -57,8 +57,8 @@
     },
     {
       "path": "tests/test_part3_stage2_admission.py",
-      "sha256": "f999c9e014569fc3d09165169dc2fd14061d3be294a92f1070816aa5f7d9cc62",
-      "size_bytes": 11586
+      "sha256": "f9b45bdbcebe675d43bc688b0571a1cdae3a3c02aac1c6e1872dcbb49b76ea1e",
+      "size_bytes": 12569
     }
   ],
   "authority": "EP-FUTURE-P3-002-ENTRY",
