@@ -1,0 +1,68 @@
+{
+  "admission_ceiling_usd": 8.0,
+  "as_of_utc": "2026-10-07T00:00:00Z",
+  "classification": "CONSERVATIVE_PLAN_FORECAST",
+  "components": [
+    {
+      "basis": "one provisioned shard for two hours plus 100000 maximum 25-KiB payload units",
+      "component": "kinesis",
+      "upper_bound_usd": 0.25
+    },
+    {
+      "basis": "10000 invocations at 512 MiB for one second plus request charges",
+      "component": "lambda",
+      "upper_bound_usd": 0.25
+    },
+    {
+      "basis": "200000 on-demand transactional write units and 200000 read units",
+      "component": "dynamodb",
+      "upper_bound_usd": 1.0
+    },
+    {
+      "basis": "2 GiB-month Standard storage, 100000 PUT-class requests and 100000 GET-class requests",
+      "component": "s3",
+      "upper_bound_usd": 1.25
+    },
+    {
+      "basis": "400000 standard queue requests",
+      "component": "sqs",
+      "upper_bound_usd": 0.25
+    },
+    {
+      "basis": "2 GiB log ingestion, two custom metrics and ten alarm-hours",
+      "component": "cloudwatch",
+      "upper_bound_usd": 2.0
+    },
+    {
+      "basis": "rounded reserve for retries, provider minimums and price movement",
+      "component": "contingency",
+      "upper_bound_usd": 1.5
+    }
+  ],
+  "currency": "USD",
+  "forecast_total_usd": 6.5,
+  "hard_cap_usd": 12.0,
+  "price_evidence": {
+    "method": "AWS public regional offer index publication dates and SHA-256 digests are captured by the admission collector; component arithmetic deliberately rounds upward.",
+    "region": "ap-south-2",
+    "required_offer_codes": [
+      "AmazonCloudWatch",
+      "AmazonDynamoDB",
+      "AmazonKinesis",
+      "AmazonS3",
+      "AWSLambda",
+      "AWSQueueService"
+    ],
+    "source_prefix": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws"
+  },
+  "schema": "eventpulse-part3-stage2-cost-envelope-v1",
+  "workload_envelope": {
+    "duration_hours": 2,
+    "kinesis_shards": 1,
+    "lambda_memory_mib": 512,
+    "lambda_reserved_concurrency": 2,
+    "maximum_event_bytes": 16384,
+    "maximum_events": 100000,
+    "maximum_raw_gib": 2
+  }
+}

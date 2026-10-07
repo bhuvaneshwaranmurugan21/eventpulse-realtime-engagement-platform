@@ -1,0 +1,20 @@
+{
+  "apply_authorized": false,
+  "backend": {
+    "mode": "local-disposable-plan-only",
+    "remote_initialization_allowed": false,
+    "state_input": "empty state created inside one isolated GitHub Actions job",
+    "state_output": "ephemeral and never promoted as deployment state"
+  },
+  "lease": {
+    "acquisition": "GitHub Actions concurrency group before credential assumption",
+    "group": "eventpulse-part3-stage2-admission-main",
+    "maximum_minutes": 20,
+    "release": "automatic when the workflow job terminates",
+    "steal_policy": "cancel-in-progress is false; a later run waits and never steals"
+  },
+  "remote_apply_gate": "A separately reviewed remote backend, state lock and deployment lease are mandatory before Part 3 Stage 3 apply authority.",
+  "schema": "eventpulse-part3-stage2-backend-lease-v1",
+  "terraform_apply": false,
+  "terraform_plan": "permitted only after a fresh ADMITTED receipt"
+}

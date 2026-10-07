@@ -1,0 +1,153 @@
+name: EventPulse Part 3 Stage 2 Admission Requalification
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/part3-stage2-admission-requalification.yml
+      - evidence/part3/stage2/**
+      - part3/stage2/admission/**
+      - scripts/build_part3_stage2_admission_manifest.py
+      - scripts/collect_part3_stage2_admission.py
+      - scripts/validate_part3_stage2_admission.py
+      - tests/test_part3_stage2_admission.py
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/part3-stage2-admission-requalification.yml
+      - evidence/part3/stage2/**
+      - part3/stage2/admission/**
+      - scripts/build_part3_stage2_admission_manifest.py
+      - scripts/collect_part3_stage2_admission.py
+      - scripts/validate_part3_stage2_admission.py
+      - tests/test_part3_stage2_admission.py
+
+permissions:
+  contents: read
+
+concurrency:
+  group: eventpulse-part3-stage2-admission-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  local-authority:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONHASHSEED: "0"
+      TZ: UTC
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --require-hashes -r requirements/dev.lock
+      - name: Validate Stage 2 admission authority
+        run: |
+          python scripts/build_part3_stage2_admission_manifest.py --check
+          python scripts/validate_part3_stage2_admission.py --verify-source
+          python -m unittest tests.test_part3_stage2_admission
+      - name: Quality and security
+        run: |
+          ruff check scripts/*part3_stage2_admission*.py part3/stage2/admission tests/test_part3_stage2_admission.py
+          bandit -q scripts/*part3_stage2_admission*.py part3/stage2/admission/*.py
+      - name: Cumulative Part 1 and Part 2 gates
+        run: |
+          python -m unittest discover -s tests -p 'test_stage*.py'
+          python -m unittest discover -s tests -p 'test_part2_stage*.py'
+          python scripts/build_part2_stage3_manifest.py --check
+          python scripts/build_stage3_manifest.py --check
+
+  observe-management-account:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    needs: local-authority
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONHASHSEED: "0"
+      TZ: UTC
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12"
+      - name: Observe exact GitHub OIDC claims
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/eventpulse-admission"
+          python3 - <<'PY'
+          import base64
+          import json
+          import os
+          import pathlib
+          import urllib.parse
+          import urllib.request
+
+          request_url = os.environ["ACTIONS_ID_TOKEN_REQUEST_URL"]
+          separator = "&" if "?" in request_url else "?"
+          url = request_url + separator + urllib.parse.urlencode(
+              {"audience": "sts.amazonaws.com"}
+          )
+          request = urllib.request.Request(
+              url,
+              headers={"Authorization": "Bearer " + os.environ["ACTIONS_ID_TOKEN_REQUEST_TOKEN"]},
+          )
+          with urllib.request.urlopen(request, timeout=30) as response:
+              token = json.load(response)["value"]
+          payload = token.split(".")[1]
+          payload += "=" * (-len(payload) % 4)
+          claims = json.loads(base64.urlsafe_b64decode(payload))
+          allowed = (
+              "aud", "iss", "job_workflow_ref", "ref", "repository", "repository_id",
+              "repository_owner", "repository_owner_id", "sub",
+          )
+          target = pathlib.Path(os.environ["RUNNER_TEMP"]) / "eventpulse-admission/claims.json"
+          target.write_text(json.dumps({key: claims.get(key) for key in allowed}, sort_keys=True))
+          PY
+      - name: Assume exact EventPulse Management-account role
+        uses: aws-actions/configure-aws-credentials@e6de054238d6b7531b4efff3b6587d9aade6a06c
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+          role-session-name: eventpulse-stage2-admission
+          mask-aws-account-id: true
+      - name: Collect sanitized read-only admission evidence
+        run: |
+          python scripts/collect_part3_stage2_admission.py \
+            --claims "$RUNNER_TEMP/eventpulse-admission/claims.json" \
+            --output "$RUNNER_TEMP/eventpulse-admission/observation.json"
+          python part3/stage2/admission/admission_oracle.py \
+            "$RUNNER_TEMP/eventpulse-admission/observation.json" \
+            --output "$RUNNER_TEMP/eventpulse-admission/decision.json"
+          sha256sum \
+            "$RUNNER_TEMP/eventpulse-admission/observation.json" \
+            "$RUNNER_TEMP/eventpulse-admission/decision.json" \
+            > "$RUNNER_TEMP/eventpulse-admission/SHA256SUMS"
+          rm -f "$RUNNER_TEMP/eventpulse-admission/claims.json"
+      - name: Publish sanitized admission packet
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: eventpulse-part3-stage2-admission-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/eventpulse-admission/observation.json
+            ${{ runner.temp }}/eventpulse-admission/decision.json
+            ${{ runner.temp }}/eventpulse-admission/SHA256SUMS
+          if-no-files-found: error
+          retention-days: 7
+      - name: Enforce fresh ADMITTED decision
+        run: |
+          python part3/stage2/admission/admission_oracle.py \
+            "$RUNNER_TEMP/eventpulse-admission/observation.json" \
+            --require-admitted

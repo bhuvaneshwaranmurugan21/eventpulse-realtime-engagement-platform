@@ -1,0 +1,21 @@
+{
+  "account_id": "773994909635",
+  "account_label": "Management account",
+  "admission_freshness_hours": 24,
+  "audience": "sts.amazonaws.com",
+  "authority": "EP-FUTURE-P3-002-ENTRY",
+  "claim_ceiling": "DESIGN_ONLY",
+  "github_ref": "refs/heads/main",
+  "inline_policy_name": "EventPulseAdmissionReadOnly",
+  "oidc_provider": "token.actions.githubusercontent.com",
+  "provider_arn": "arn:aws:iam::773994909635:oidc-provider/token.actions.githubusercontent.com",
+  "region": "ap-south-2",
+  "repository": "bhuvaneshwaranmurugan21/eventpulse-realtime-engagement-platform",
+  "repository_id": "1333031049",
+  "repository_owner": "bhuvaneshwaranmurugan21",
+  "repository_owner_id": "276895096",
+  "required_subject": "repo:bhuvaneshwaranmurugan21@276895096/eventpulse-realtime-engagement-platform@1333031049:ref:refs/heads/main",
+  "role_arn": "arn:aws:iam::773994909635:role/EventPulseGitHubOidcRole",
+  "role_name": "EventPulseGitHubOidcRole",
+  "stage2_gate": "FRESH_ADMISSION_REQUIRED"
+}
