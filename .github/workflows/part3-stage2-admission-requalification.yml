@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
     paths:
+      - README.md
       - .github/workflows/part3-stage2-admission-requalification.yml
       - evidence/part3/stage2/**
       - part3/stage2/admission/**
@@ -15,6 +16,7 @@ on:
   pull_request:
     branches: [main]
     paths:
+      - README.md
       - .github/workflows/part3-stage2-admission-requalification.yml
       - evidence/part3/stage2/**
       - part3/stage2/admission/**

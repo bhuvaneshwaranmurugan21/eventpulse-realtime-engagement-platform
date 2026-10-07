@@ -2,8 +2,13 @@
   "artifacts": [
     {
       "path": ".github/workflows/part3-stage2-admission-requalification.yml",
-      "sha256": "e7d85b1ae2194750589b81e3cac93d56eca8e7155ff742bdb09e544ecc4deeaf",
-      "size_bytes": 6191
+      "sha256": "a558322a55210b2a63418f1bc0c7f925ee2e8ae434f1502bcc93986957c4c453",
+      "size_bytes": 6227
+    },
+    {
+      "path": "README.md",
+      "sha256": "8be6d6b315833b234adf5e7e551bf2204b4b12b7511cd64182071222cf23cfd0",
+      "size_bytes": 2260
     },
     {
       "path": "evidence/part3/stage2/admission-reproducibility.json",
@@ -42,8 +47,8 @@
     },
     {
       "path": "scripts/build_part3_stage2_admission_manifest.py",
-      "sha256": "548f5225fa2a7906d130ba545e8586d89d8122d6806509a9e7794a79dfb32768",
-      "size_bytes": 2145
+      "sha256": "990786061e7abfec404e043f0cf85f44a5270e22b5ae3e81256358bd43fe3ed5",
+      "size_bytes": 2174
     },
     {
       "path": "scripts/collect_part3_stage2_admission.py",
@@ -52,8 +57,8 @@
     },
     {
       "path": "scripts/validate_part3_stage2_admission.py",
-      "sha256": "79ed84076c111633f277190510cd0a63595934c29e24b9d34fb44ade671b98c1",
-      "size_bytes": 7303
+      "sha256": "fb1bf94717bd13c7679699dc1cf4ee0694da9dbd2306d255e1e8ad50aaaf4b9a",
+      "size_bytes": 7450
     },
     {
       "path": "tests/test_part3_stage2_admission.py",
