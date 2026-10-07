@@ -7,8 +7,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "8be6d6b315833b234adf5e7e551bf2204b4b12b7511cd64182071222cf23cfd0",
-      "size_bytes": 2260
+      "sha256": "8a6a2b07f62cfd5b29d1b901c6efa7c5ef584f67371e74bcc53211e00e0ebc0c",
+      "size_bytes": 1073
     },
     {
       "path": "evidence/part3/stage2/admission-reproducibility.json",
