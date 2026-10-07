@@ -131,6 +131,8 @@ def validate() -> list[str]:
     paths = [row.get("path") for row in rows]
     if paths != sorted(set(paths)):
         errors.append("Stage 2 admission manifest paths are not sorted and unique")
+    if "README.md" not in paths:
+        errors.append("README presentation artifact is missing from the admission manifest")
     for row in rows:
         path = ROOT / row["path"]
         if (
@@ -150,6 +152,7 @@ def validate() -> list[str]:
         "part3/stage2/admission/",
     )
     allowed_exact = {
+        "README.md",
         ".github/workflows/part3-stage1-aws-admission.yml",
         ".github/workflows/part3-stage2-admission-requalification.yml",
         "evidence/part3/stage1/manifest.json",

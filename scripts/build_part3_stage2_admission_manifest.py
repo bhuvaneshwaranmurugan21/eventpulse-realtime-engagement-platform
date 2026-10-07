@@ -29,7 +29,7 @@ def render() -> str:
             path.is_file()
             and path != TARGET
             and "__pycache__" not in path.parts
-            and relative.startswith(PREFIXES)
+            and (relative == "README.md" or relative.startswith(PREFIXES))
         ):
             body = path.read_bytes()
             rows.append(
