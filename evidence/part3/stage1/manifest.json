@@ -2,8 +2,8 @@
   "artifacts": [
     {
       "path": ".github/workflows/part3-stage1-aws-admission.yml",
-      "sha256": "26c45dcdbfbfbf95fa20bfdc21ba1d0188c49a29df8e61ffdaa4b6e501c3f1a1",
-      "size_bytes": 1787
+      "sha256": "d7c326b1152e1398eb01e3439e790d1b4c8ec1e099ae5fd345e5a1a2de784691",
+      "size_bytes": 1956
     },
     {
       "path": "evidence/part3/stage1/aws-observation-receipt.json",
