@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from part3.stage2.admission.admission_oracle import EXPECTED_COMMANDS, decide
+from scripts.collect_part3_stage2_admission import BUDGETS_REGION, collect_budgets
 
 ROOT = Path(__file__).resolve().parents[1]
 ACCOUNT = "773994909635"
@@ -176,6 +177,34 @@ class TestStage2AdmissionOracle(unittest.TestCase):
         result = decide(seed(), now=NOW)
         self.assertEqual(result["decision"], "ADMITTED", result)
         self.assertEqual(result["stage2_gate"], "OPEN")
+
+    def test_budgets_inventory_uses_supported_global_region(self) -> None:
+        class RecordingCollector:
+            call: tuple[str, tuple[str, ...]] | None = None
+
+            def aws(self, name: str, *args: str) -> dict[str, list[Any]]:
+                self.call = (name, args)
+                return {"Budgets": []}
+
+        collector = RecordingCollector()
+        result = collect_budgets(collector)  # type: ignore[arg-type]
+
+        self.assertEqual(BUDGETS_REGION, "us-east-1")
+        self.assertEqual(result, {"Budgets": []})
+        self.assertEqual(
+            collector.call,
+            (
+                "budgets",
+                (
+                    "budgets",
+                    "describe-budgets",
+                    "--account-id",
+                    ACCOUNT,
+                    "--region",
+                    "us-east-1",
+                ),
+            ),
+        )
 
     def test_identity_boundaries_fail_closed(self) -> None:
         mutations = (
