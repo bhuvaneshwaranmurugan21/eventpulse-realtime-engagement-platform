@@ -5,6 +5,7 @@ on:
     paths: ["part3/stage1/**", "evidence/part3/stage1/**", "scripts/*part3_stage1*", "tests/test_part3_stage1_*.py", ".github/workflows/part3-stage1-aws-admission.yml"]
   pull_request:
     branches: [main]
+    paths: ["part3/stage1/**", "evidence/part3/stage1/**", "scripts/*part3_stage1*", "tests/test_part3_stage1_*.py", ".github/workflows/part3-stage1-aws-admission.yml"]
 permissions:
   contents: read
 jobs:
